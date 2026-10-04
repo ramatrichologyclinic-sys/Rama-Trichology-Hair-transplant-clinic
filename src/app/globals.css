@@ -1,0 +1,96 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* PLACEHOLDER — confirm against brand guideline */
+  --navy-950: #0E2A4D; /* headings, nav text, footer background */
+  --blue-700: #1D4E7E; /* primary buttons, links, active states */
+  --blue-400: #3FA0D9; /* hover states, accent icons, highlights, focus rings */
+  --ice-50:   #EAF3FA; /* alternate section backgrounds */
+  --white:    #FFFFFF; /* base background */
+  --ink-900:  #14202B; /* body text — near-black navy, NOT pure black */
+}
+
+@layer base {
+  html {
+    scroll-behavior: auto;
+    color: var(--ink-900);
+    background-color: #f8fbff;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    overflow-x: hidden;
+    min-height: 100vh;
+    font-family: var(--font-inter), system-ui, sans-serif;
+    color: var(--ink-900);
+    background-color: #f8fbff;
+    background-image: 
+      radial-gradient(100% 40% at 50% 0%, rgba(186,230,253,0.25) 0%, transparent 60%);
+    line-height: 1.6;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-fraunces), Georgia, serif;
+    color: var(--navy-950);
+    font-feature-settings: "opsz" auto;
+    font-optical-sizing: auto;
+    line-height: 1.25;
+  }
+
+  /* Accessibility focus styles */
+  :focus-visible {
+    outline: 2px solid var(--blue-400);
+    outline-offset: 2px;
+  }
+}
+
+/* Lenis smooth scrolling standard styling */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+/* ========================================================
+   Our Clinical Services — High-Performance Page-Wide Dim System
+   When hovering ANY service card:
+   - Fixed dark overlay transitions opacity: 0 -> 1 (40% black = exactly 0.6 brightness)
+   - Hovered card stays full brightness + 12% primary blue glow above overlay (z-50)
+   - Navbar and Floating WhatsApp stay at full brightness (z-50)
+   - Zero filter recalculations on scroll or hover (100% GPU-composited)
+   ======================================================== */
+#page-hover-dim-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 35;
+  will-change: opacity;
+}
+
+@media (hover: hover) {
+  body:has(.service-card-wrapper:hover) #page-hover-dim-overlay,
+  body.services-hovering #page-hover-dim-overlay {
+    opacity: 1;
+  }
+}
+
