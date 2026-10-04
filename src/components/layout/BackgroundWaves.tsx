@@ -1,7 +1,6 @@
 "use client";
 
 import { useMemo } from "react";
-import { motion } from "framer-motion";
 
 /**
  * BackgroundWaves — Medical & Genetics Scientific Background.
@@ -112,7 +111,7 @@ export default function BackgroundWaves() {
     <div
       aria-hidden="true"
       className="background-waves-canvas fixed inset-0 pointer-events-none select-none overflow-hidden"
-      style={{ zIndex: 0 }}
+      style={{ zIndex: 0, transform: "translateZ(0)", willChange: "transform" }}
     >
       <svg
         className="absolute inset-0 w-full h-full"
@@ -153,13 +152,11 @@ export default function BackgroundWaves() {
             1. FAINT HEXAGONAL HONEYCOMB MESH (BACKGROUND DEPTH)
             As shown across the middle and background of the reference
             ═══════════════════════════════════════════════════════════════ */}
-        <motion.g
+        <g
           stroke={faintSlate}
           strokeWidth="1"
           fill="none"
-          initial={{ opacity: 0.22 }}
-          animate={{ opacity: [0.20, 0.32, 0.20] }}
-          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+          className="anim-bg-mesh"
         >
           {/* Hexagonal grid columns across center and background */}
           {[
@@ -236,17 +233,14 @@ export default function BackgroundWaves() {
               opacity="0.6"
             />
           ))}
-        </motion.g>
+        </g>
 
         {/* ═══════════════════════════════════════════════════════════════
             2. BRANCHING NODE-AND-LINK CHAINS & CONCENTRIC CIRCLES
             (Upper-Left, Far-Left, Bottom-Right target symbols from image)
             ═══════════════════════════════════════════════════════════════ */}
         {/* Top-Left Concentric Target & Branching Chain */}
-        <motion.g
-          animate={{ y: [-6, 6, -6], x: [-3, 3, -3] }}
-          transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
-        >
+        <g className="anim-bg-float-2">
           {/* Concentric Node at (130, 90) */}
           <circle cx="130" cy="90" r="22" stroke={faintSlate} strokeWidth="1.2" fill="none" opacity="0.45" />
           <circle cx="130" cy="90" r="14" stroke={darkBlue} strokeWidth="1.3" fill="none" opacity="0.65" />
@@ -268,13 +262,10 @@ export default function BackgroundWaves() {
 
           <line x1="130" y1="112" x2="130" y2="195" stroke={faintSlate} strokeWidth="1" opacity="0.4" />
           <circle cx="130" cy="195" r="4" fill={cyanBlue} opacity="0.7" />
-        </motion.g>
+        </g>
 
         {/* Bottom-Left Concentric Target & Branching Chain */}
-        <motion.g
-          animate={{ y: [6, -6, 6], x: [3, -3, 3] }}
-          transition={{ duration: 16, repeat: Infinity, ease: "easeInOut" }}
-        >
+        <g className="anim-bg-float-3">
           {/* Concentric Node at (90, 810) */}
           <circle cx="90" cy="810" r="24" stroke={faintSlate} strokeWidth="1.2" fill="none" opacity="0.4" />
           <circle cx="90" cy="810" r="15" stroke={darkBlue} strokeWidth="1.3" fill="none" opacity="0.6" />
@@ -288,7 +279,7 @@ export default function BackgroundWaves() {
 
           <line x1="68" y1="810" x2="25" y2="810" stroke={faintSlate} strokeWidth="1" opacity="0.4" />
           <circle cx="25" cy="810" r="3.5" fill={slate} opacity="0.55" />
-        </motion.g>
+        </g>
 
         {/* ═══════════════════════════════════════════════════════════════
             3. PROMINENT HEXAGONAL CHEMICAL STRUCTURES (BENZENE CLUSTERS)
@@ -296,14 +287,13 @@ export default function BackgroundWaves() {
             ═══════════════════════════════════════════════════════════════ */}
 
         {/* ── CLUSTER A: Upper-Center Molecular Complex (above DNA) ── */}
-        <motion.g
+        <g
           stroke={navy}
           strokeWidth="1.5"
           fill="none"
           strokeLinecap="round"
           strokeLinejoin="round"
-          animate={{ y: [-8, 8, -8], x: [-4, 4, -4] }}
-          transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
+          className="anim-bg-float-4"
         >
           {/* Ring 1 at (680, 160) */}
           <polygon
@@ -349,17 +339,16 @@ export default function BackgroundWaves() {
           <circle cx="680" cy="190" r="3.2" fill={navy} stroke="none" />
           <circle cx="654" cy="145" r="3.2" fill={navy} stroke="none" />
           <circle cx="656" cy="245" r="3.2" fill={darkBlue} stroke="none" />
-        </motion.g>
+        </g>
 
         {/* ── CLUSTER B: Mid-Left Multi-Ring Chemical Complex ── */}
-        <motion.g
+        <g
           stroke={navy}
           strokeWidth="1.5"
           fill="none"
           strokeLinecap="round"
           strokeLinejoin="round"
-          animate={{ y: [7, -7, 7], x: [3, -3, 3] }}
-          transition={{ duration: 17, repeat: Infinity, ease: "easeInOut" }}
+          className="anim-bg-float-5"
         >
           {/* Ring 1 at (430, 640) */}
           <polygon
@@ -407,17 +396,16 @@ export default function BackgroundWaves() {
           <circle cx="456" cy="655" r="3.5" fill={navy} stroke="none" />
           <circle cx="495" cy="610" r="3.5" fill={darkBlue} stroke="none" />
           <circle cx="521" cy="655" r="3.5" fill={cyanBlue} stroke="none" />
-        </motion.g>
+        </g>
 
         {/* ── CLUSTER C: Bottom-Left Benzene Ring with Radiating Bonds ── */}
-        <motion.g
+        <g
           stroke={navy}
           strokeWidth="1.5"
           fill="none"
           strokeLinecap="round"
           strokeLinejoin="round"
-          animate={{ y: [-5, 5, -5] }}
-          transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
+          className="anim-bg-float-1"
         >
           <polygon
             points="220,740 246,755 246,785 220,800 194,785 194,755"
@@ -437,17 +425,16 @@ export default function BackgroundWaves() {
 
           <circle cx="220" cy="800" r="3.5" fill={navy} stroke="none" />
           <circle cx="194" cy="755" r="3.5" fill={navy} stroke="none" />
-        </motion.g>
+        </g>
 
         {/* ── CLUSTER D: Lower-Right of DNA Molecule ── */}
-        <motion.g
+        <g
           stroke={navy}
           strokeWidth="1.5"
           fill="none"
           strokeLinecap="round"
           strokeLinejoin="round"
-          animate={{ y: [6, -6, 6], x: [-3, 3, -3] }}
-          transition={{ duration: 16, repeat: Infinity, ease: "easeInOut" }}
+          className="anim-bg-float-8"
         >
           <polygon
             points="960,700 986,715 986,745 960,760 934,745 934,715"
@@ -467,17 +454,16 @@ export default function BackgroundWaves() {
 
           <circle cx="986" cy="745" r="3.2" fill={navy} stroke="none" />
           <circle cx="934" cy="745" r="3.2" fill={darkBlue} stroke="none" />
-        </motion.g>
+        </g>
 
         {/* ── CLUSTER E: Far-Right Hexagonal Structure ── */}
-        <motion.g
+        <g
           stroke={navy}
           strokeWidth="1.5"
           fill="none"
           strokeLinecap="round"
           strokeLinejoin="round"
-          animate={{ y: [-7, 7, -7], x: [3, -3, 3] }}
-          transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
+          className="anim-bg-float-6"
         >
           <polygon
             points="1290,620 1316,635 1316,665 1290,680 1264,665 1264,635"
@@ -500,17 +486,16 @@ export default function BackgroundWaves() {
 
           <circle cx="1316" cy="665" r="3.2" fill={navy} stroke="none" />
           <circle cx="1264" cy="665" r="3.2" fill={darkBlue} stroke="none" />
-        </motion.g>
+        </g>
 
         {/* ── CLUSTER F: Upper-Right Molecular Node ── */}
-        <motion.g
+        <g
           stroke={darkBlue}
           strokeWidth="1.4"
           fill="none"
           strokeLinecap="round"
           strokeLinejoin="round"
-          animate={{ y: [6, -6, 6] }}
-          transition={{ duration: 17, repeat: Infinity, ease: "easeInOut" }}
+          className="anim-bg-float-9"
         >
           <polygon
             points="1360,250 1386,265 1386,295 1360,310 1334,295 1334,265"
@@ -525,17 +510,13 @@ export default function BackgroundWaves() {
 
           <circle cx="1386" cy="265" r="3" fill={cyanBlue} stroke="none" />
           <circle cx="1334" cy="295" r="3" fill={darkBlue} stroke="none" />
-        </motion.g>
+        </g>
 
         {/* ═══════════════════════════════════════════════════════════════
             4. THE DIAGONAL DNA DOUBLE HELIX (CENTERPIECE)
             Sweeping diagonally across the center-right to top-right
             ═══════════════════════════════════════════════════════════════ */}
-        <motion.g
-          animate={{ y: [-9, 9, -9], rotate: [-0.4, 0.4, -0.4] }}
-          transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
-          style={{ transformOrigin: "1020px 410px" }}
-        >
+        <g className="anim-bg-helix">
           {/* Base Pair Rungs */}
           {rungs.map((r, idx) => (
             <g key={`rung-${idx}`} opacity={r.opacity}>
@@ -598,7 +579,7 @@ export default function BackgroundWaves() {
               opacity="0.9"
             />
           ))}
-        </motion.g>
+        </g>
 
         {/* ═══════════════════════════════════════════════════════════════
             5. SCATTERED SCIENTIFIC DATA POINTS & ATOMS (ATMOSPHERE)
@@ -637,6 +618,8 @@ export default function BackgroundWaves() {
         className="absolute inset-0 pointer-events-none"
         style={{
           backgroundColor: "rgba(255, 255, 255, 0.45)",
+          transform: "translateZ(0)",
+          willChange: "transform",
         }}
       />
     </div>

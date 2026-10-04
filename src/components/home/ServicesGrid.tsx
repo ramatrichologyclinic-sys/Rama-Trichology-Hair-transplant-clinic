@@ -84,6 +84,7 @@ export default function ServicesGrid() {
         style={{
           background: "rgba(56, 189, 248, 0.2)",
           filter: hoveredCard !== null ? "brightness(0.6)" : "brightness(1)",
+          transform: "translateZ(0)",
         }}
       />
 

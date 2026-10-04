@@ -22,7 +22,7 @@ export default function ServicesPage() {
   return (
     <div className="relative">
       {/* Page Hero */}
-      <section className="relative pt-16 sm:pt-20 lg:pt-24 pb-10 sm:pb-13 lg:pb-16">
+      <section className="relative pt-16 sm:pt-20 lg:pt-24 pb-6 sm:pb-8 lg:pb-9">
         <div className="max-w-container mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection className="max-w-3xl">
             <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-blue-700 bg-white/90 backdrop-blur-sm px-3.5 py-1.5 rounded-full border border-sky-100 inline-block mb-4 shadow-sm">
@@ -39,7 +39,7 @@ export default function ServicesPage() {
       </section>
 
       {/* Services List Detailed Cards */}
-      <section className="pt-11 sm:pt-13 lg:pt-15 pb-12 sm:pb-14 lg:pb-18">
+      <section className="pt-6 sm:pt-8 lg:pt-9 pb-12 sm:pb-14 lg:pb-18">
         <div className="max-w-container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="space-y-16 lg:space-y-24">
             {SERVICES.map((service, idx) => {

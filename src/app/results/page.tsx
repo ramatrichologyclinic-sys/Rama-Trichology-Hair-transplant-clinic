@@ -28,8 +28,8 @@ const ALL_CASES: ResultCase[] = [
     patientToken: "[Patient Case 1]",
     title: "Androgenetic Crown Thinning (Grade II)",
     timeline: "4 Months of Clinical Regimen",
-    beforeImg: "https://placehold.co/500x500?text=Before+-+Case+1",
-    afterImg: "https://placehold.co/500x500?text=After+-+Case+1",
+    beforeImg: "/images/case1-before.webp",
+    afterImg: "/images/case1-after.webp",
     outcome: "Marked follicle diameter increase and 38% increase in hair density across the crown vertex.",
   },
   {
@@ -38,8 +38,8 @@ const ALL_CASES: ResultCase[] = [
     patientToken: "[Patient Case 2]",
     title: "Severe Seborrheic Dermatitis & Erythema",
     timeline: "6 Weeks of Targeted Therapy",
-    beforeImg: "https://placehold.co/500x500?text=Before+-+Case+2",
-    afterImg: "https://placehold.co/500x500?text=After+-+Case+2",
+    beforeImg: "/images/scalp-disease-case-before.webp",
+    afterImg: "/images/scalp-disease-case-after.webp",
     outcome: "Complete clearance of adherent greasy plaques, cessation of scalp pruritus, and restored barrier.",
   },
   {
@@ -48,8 +48,8 @@ const ALL_CASES: ResultCase[] = [
     patientToken: "[Patient Case 3]",
     title: "Micro-FUE Frontal Hairline Restoration",
     timeline: "9 Months Post-Procedure",
-    beforeImg: "https://placehold.co/500x500?text=Before+-+Case+3",
-    afterImg: "https://placehold.co/500x500?text=After+-+Case+3",
+    beforeImg: "/images/case2-before.webp",
+    afterImg: "/images/case2-after.webp",
     outcome: "2,400 follicular unit grafts successfully grown with high density and natural temple contouring.",
   },
   {
@@ -58,8 +58,8 @@ const ALL_CASES: ResultCase[] = [
     patientToken: "[Patient Case 4]",
     title: "Scalp Micropigmentation (SMP) Fullness",
     timeline: "2 Clinical Sessions",
-    beforeImg: "https://placehold.co/500x500?text=Before+-+Case+4",
-    afterImg: "https://placehold.co/500x500?text=After+-+Case+4",
+    beforeImg: "/images/case3-before.webp",
+    afterImg: "/images/case3-after.webp",
     outcome: "Elimination of scalp show-through under direct overhead light via precise microscopic dotting.",
   },
   {
@@ -68,8 +68,8 @@ const ALL_CASES: ResultCase[] = [
     patientToken: "[Patient Case 5]",
     title: "Female Diffuse Telogen Effluvium",
     timeline: "5 Months of Multi-Factor Care",
-    beforeImg: "https://placehold.co/500x500?text=Before+-+Case+5",
-    afterImg: "https://placehold.co/500x500?text=After+-+Case+5",
+    beforeImg: "/images/hair-fall-case-before.webp",
+    afterImg: "/images/hair-fall-case-after.webp",
     outcome: "Parting line width reduced by 50% following corrected ferritin levels and topical peptide therapy.",
   },
   {
@@ -78,8 +78,8 @@ const ALL_CASES: ResultCase[] = [
     patientToken: "[Patient Case 6]",
     title: "Medical Cranial Prosthesis Custom Fit",
     timeline: "Immediate Restoration",
-    beforeImg: "https://placehold.co/500x500?text=Before+-+Case+6",
-    afterImg: "https://placehold.co/500x500?text=After+-+Case+6",
+    beforeImg: "/images/wigs-extensions-case-before.webp",
+    afterImg: "/images/wigs-extensions-case-after.webp",
     outcome: "Undetectable human hair cranial integration providing complete coverage and comfort.",
   },
 ];
@@ -136,9 +136,11 @@ export default function ResultsPage() {
                       <div className="relative rounded-xl overflow-hidden border border-gray-200 bg-white aspect-square">
                         <Image
                           src={item.beforeImg}
-                          alt={`Placeholder: ${item.title} Before`}
+                          alt={`${item.title} - Before Treatment`}
                           width={400}
                           height={400}
+                          loading="lazy"
+                          decoding="async"
                           className="object-cover w-full h-full"
                         />
                         <div className="absolute top-2 left-2 bg-navy-950/80 text-white text-[10px] font-bold px-2 py-0.5 rounded">
@@ -149,9 +151,11 @@ export default function ResultsPage() {
                       <div className="relative rounded-xl overflow-hidden border border-gray-200 bg-white aspect-square">
                         <Image
                           src={item.afterImg}
-                          alt={`Placeholder: ${item.title} After`}
+                          alt={`${item.title} - After Treatment`}
                           width={400}
                           height={400}
+                          loading="lazy"
+                          decoding="async"
                           className="object-cover w-full h-full"
                         />
                         <div className="absolute top-2 left-2 bg-blue-700 text-white text-[10px] font-bold px-2 py-0.5 rounded">

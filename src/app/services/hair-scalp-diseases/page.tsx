@@ -17,7 +17,7 @@ export default function ScalpDiseasesPage() {
   return (
     <div className="relative">
       {/* Hero Band */}
-      <section className="relative pt-16 sm:pt-20 lg:pt-24 pb-14 sm:pb-17 lg:pb-20">
+      <section className="relative pt-16 sm:pt-20 lg:pt-24 pb-12 sm:pb-14 lg:pb-16">
         <div className="max-w-container mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection className="max-w-3xl">
             <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-blue-700 bg-white/90 backdrop-blur-sm px-3.5 py-1.5 rounded-full border border-sky-100 inline-block mb-4 shadow-sm">
@@ -34,7 +34,7 @@ export default function ScalpDiseasesPage() {
       </section>
 
       {/* Explainer Block */}
-      <section className="pt-13 sm:pt-17 lg:pt-17 pb-16 sm:pb-20">
+      <section className="pt-12 sm:pt-14 pb-16 sm:pb-20">
         <div className="max-w-container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             <div className="lg:col-span-7 space-y-6">

@@ -94,3 +94,67 @@ html.lenis, html.lenis body {
   }
 }
 
+/* ========================================================
+   GPU-Accelerated Scientific Canvas Animations
+   100% compositor-driven: Zero JavaScript main-thread CPU cost
+   ======================================================== */
+@keyframes bgFloat1 {
+  0%, 100% { transform: translateY(-4px); }
+  50% { transform: translateY(4px); }
+}
+@keyframes bgFloat2 {
+  0%, 100% { transform: translate(-3px, -6px); }
+  50% { transform: translate(3px, 6px); }
+}
+@keyframes bgFloat3 {
+  0%, 100% { transform: translate(3px, 6px); }
+  50% { transform: translate(-3px, -6px); }
+}
+@keyframes bgFloat4 {
+  0%, 100% { transform: translate(-4px, -8px); }
+  50% { transform: translate(4px, 8px); }
+}
+@keyframes bgFloat5 {
+  0%, 100% { transform: translate(3px, 7px); }
+  50% { transform: translate(-3px, -7px); }
+}
+@keyframes bgFloat6 {
+  0%, 100% { transform: translate(-3px, -7px); }
+  50% { transform: translate(3px, 7px); }
+}
+@keyframes bgFloat7 {
+  0%, 100% { transform: translateY(6px); }
+  50% { transform: translateY(-6px); }
+}
+@keyframes bgFloat8 {
+  0%, 100% { transform: translate(3px, -6px); }
+  50% { transform: translate(-3px, 6px); }
+}
+@keyframes bgFloat9 {
+  0%, 100% { transform: translateY(6px); }
+  50% { transform: translateY(-6px); }
+}
+@keyframes bgFloatHelix {
+  0%, 100% { transform: translateY(-9px) rotate(-0.4deg); }
+  50% { transform: translateY(9px) rotate(0.4deg); }
+}
+
+@keyframes bgMeshPulse {
+  0%, 100% { opacity: 0.20; }
+  50% { opacity: 0.32; }
+}
+
+.anim-bg-mesh { animation: bgMeshPulse 12s ease-in-out infinite; will-change: opacity; }
+.anim-bg-float-1 { animation: bgFloat1 16s ease-in-out infinite; will-change: transform; }
+.anim-bg-float-2 { animation: bgFloat2 18s ease-in-out infinite; will-change: transform; }
+.anim-bg-float-3 { animation: bgFloat3 16s ease-in-out infinite; will-change: transform; }
+.anim-bg-float-4 { animation: bgFloat4 15s ease-in-out infinite; will-change: transform; }
+.anim-bg-float-5 { animation: bgFloat5 17s ease-in-out infinite; will-change: transform; }
+.anim-bg-float-6 { animation: bgFloat6 20s ease-in-out infinite; will-change: transform; }
+.anim-bg-float-7 { animation: bgFloat7 16s ease-in-out infinite; will-change: transform; }
+.anim-bg-float-8 { animation: bgFloat8 19s ease-in-out infinite; will-change: transform; }
+.anim-bg-float-9 { animation: bgFloat9 17s ease-in-out infinite; will-change: transform; }
+.anim-bg-helix { animation: bgFloatHelix 14s ease-in-out infinite; transform-origin: 1020px 410px; will-change: transform; }
+
+
+

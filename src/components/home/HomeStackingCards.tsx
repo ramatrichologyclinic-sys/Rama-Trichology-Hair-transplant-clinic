@@ -60,15 +60,11 @@ export default function HomeStackingCards() {
 
     calcOffsets();
     window.addEventListener("resize", calcOffsets);
-
-    const ro = new ResizeObserver(calcOffsets);
-    if (cardARef.current) ro.observe(cardARef.current);
-    if (cardBRef.current) ro.observe(cardBRef.current);
-    if (cardCRef.current) ro.observe(cardCRef.current);
+    const timer = setTimeout(calcOffsets, 500);
 
     return () => {
       window.removeEventListener("resize", calcOffsets);
-      ro.disconnect();
+      clearTimeout(timer);
     };
   }, []);
 

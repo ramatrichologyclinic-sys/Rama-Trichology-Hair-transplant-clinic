@@ -126,7 +126,10 @@ export default function Navbar() {
   };
 
   return (
-    <header className="sticky top-0 z-50 w-full pt-2 sm:pt-3 pb-2 transition-all duration-200">
+    <header
+      className="sticky top-0 z-50 w-full pt-2 sm:pt-3 pb-2 transition-all duration-200"
+      style={{ transform: "translateZ(0)", willChange: "transform" }}
+    >
       <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
         <div className="bg-white/95 backdrop-blur-md rounded-2xl sm:rounded-full border border-sky-100 shadow-[0_8px_30px_rgba(2,132,199,0.07)] px-4 sm:px-6 h-18 sm:h-20 flex items-center justify-between">
           {/* Logo — circular frame removed, enlarged and crisp directly */}
