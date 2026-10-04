@@ -111,7 +111,7 @@ export default function BackgroundWaves() {
     <div
       aria-hidden="true"
       className="background-waves-canvas fixed inset-0 pointer-events-none select-none overflow-hidden"
-      style={{ zIndex: 0, transform: "translateZ(0)", willChange: "transform" }}
+      style={{ zIndex: 0, transform: "translateZ(0)", willChange: "transform", contain: "strict" }}
     >
       <svg
         className="absolute inset-0 w-full h-full"
@@ -613,13 +613,14 @@ export default function BackgroundWaves() {
         </g>
       </svg>
 
-      {/* Frosted Morphism Layer — High performance GPU layer without viewport-wide raster filter */}
+      {/* Frosted Morphism Layer (15% glassmorphism overlay) */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
-          backgroundColor: "rgba(255, 255, 255, 0.45)",
+          backgroundColor: "rgba(255, 255, 255, 0.15)",
+          backdropFilter: "blur(8px)",
+          WebkitBackdropFilter: "blur(8px)",
           transform: "translateZ(0)",
-          willChange: "transform",
         }}
       />
     </div>

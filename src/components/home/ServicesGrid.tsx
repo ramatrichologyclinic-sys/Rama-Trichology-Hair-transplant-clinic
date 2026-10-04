@@ -34,36 +34,40 @@ export default function ServicesGrid() {
   }, [hoveredCard]);
 
   return (
-    <section className="services-section relative overflow-hidden py-14 sm:py-20 lg:py-26">
+    <section className={`services-section relative overflow-hidden py-14 sm:py-20 lg:py-26 transition-all duration-300 ${hoveredCard !== null ? "z-40" : "z-10"}`}>
       {/* Embedded style for hover glow on active card + dimming background & inactive cards */}
       <style jsx>{`
         .services-bg-layer,
         .services-header-content,
         .service-card-wrapper {
-          transition: filter 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
+          transition: filter 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
         }
 
         @media (hover: hover) {
           /* Dim section background layers when any card in the section is hovered */
           .services-section:has(.service-card-wrapper:hover) .services-bg-layer {
-            filter: brightness(0.6);
+            filter: brightness(0.55);
           }
 
           /* Dim section header content when any card in the section is hovered */
           .services-section:has(.service-card-wrapper:hover) .services-header-content {
-            filter: brightness(0.6);
+            opacity: 0.55;
+            filter: brightness(0.55);
           }
 
           /* Dim all other service cards when a service card is hovered */
           .services-cards-grid:has(.service-card-wrapper:hover) .service-card-wrapper:not(:hover) {
-            filter: brightness(0.6);
+            opacity: 0.6;
+            filter: brightness(0.55);
           }
 
-          /* Active hovered card: Glowing box-shadow at 12% primary blue intensity, pops out at full brightness */
+          /* Active hovered card: Highlighting glowing box-shadow, pure solid white background, pops out at full brightness */
           .service-card-wrapper:hover {
-            box-shadow: 0 0 40px 8px rgba(29, 78, 126, 0.12), 0 20px 45px rgba(2, 132, 199, 0.18) !important;
-            filter: brightness(1) !important;
+            box-shadow: 0 0 0 2.5px #0284c7, 0 20px 45px -10px rgba(2, 132, 199, 0.45), 0 0 50px 12px rgba(14, 165, 233, 0.35) !important;
+            filter: brightness(1) opacity(1) !important;
+            background: #ffffff !important;
             transform: translateY(-8px);
+            z-index: 50 !important;
           }
         }
       `}</style>
@@ -141,26 +145,36 @@ export default function ServicesGrid() {
             }
 
             return (
-              <StaggerItem key={service.slug} className={`h-full ${colClasses}`}>
+              <StaggerItem
+                key={service.slug}
+                className={`h-full ${colClasses} ${isHovered ? "relative z-50" : "relative z-10"}`}
+              >
                 <div
                   onMouseEnter={() => setHoveredCard(idx)}
                   onMouseLeave={() => setHoveredCard(null)}
                   className={`service-card-wrapper relative h-full rounded-3xl p-7 sm:p-8 border transition-all duration-300 flex flex-col justify-between group overflow-hidden ${
                     isHovered
-                      ? "border-blue-400 -translate-y-2 z-20"
+                      ? "border-sky-500 -translate-y-2 z-50 ring-2 ring-sky-400/60"
                       : isOtherDimmed
-                      ? "border-sky-100/60 z-10"
+                      ? "border-sky-100/40 z-10 opacity-60"
                       : "border-sky-100/90 hover:-translate-y-1.5 z-10"
                   }`}
                   style={{
+                    backgroundColor: isHovered ? "#ffffff" : undefined,
                     boxShadow: isHovered
-                      ? "0 0 40px 8px rgba(29, 78, 126, 0.12), 0 20px 45px rgba(2, 132, 199, 0.18)"
+                      ? "0 0 0 2.5px #0284c7, 0 20px 45px -10px rgba(2, 132, 199, 0.45), 0 0 50px 12px rgba(14, 165, 233, 0.35)"
                       : "0 12px 35px rgba(2, 132, 199, 0.07)",
-                    filter: isOtherDimmed ? "brightness(0.6)" : "brightness(1)",
+                    filter: isOtherDimmed ? "brightness(0.55)" : "brightness(1)",
                   }}
                 >
                   {/* Clean card background layer */}
-                  <div className="service-card-bg absolute inset-0 rounded-3xl bg-white/95 backdrop-blur-md pointer-events-none" />
+                  <div
+                    className={`service-card-bg absolute inset-0 rounded-3xl pointer-events-none transition-all duration-300 ${
+                      isHovered
+                        ? "bg-white opacity-100"
+                        : "bg-white/95 backdrop-blur-md"
+                    }`}
+                  />
 
                   {/* Card Content: Text, icons, and buttons remain 100% opaque and fully readable */}
                   <div className="relative z-10 flex flex-col justify-between h-full">

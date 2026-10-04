@@ -56,7 +56,7 @@ export default function FaqPage() {
   return (
     <div className="relative">
       {/* Page Hero */}
-      <section className="relative py-16 sm:py-20 lg:py-24">
+      <section className="relative pt-16 sm:pt-20 lg:pt-24 pb-8 sm:pb-10 lg:pb-12">
         <div className="max-w-container mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection className="max-w-3xl">
             <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-blue-700 bg-white/90 backdrop-blur-sm px-3.5 py-1.5 rounded-full border border-sky-100 inline-block mb-4 shadow-sm">
@@ -78,7 +78,7 @@ export default function FaqPage() {
       */}
 
       {/* Plain Accordion for V1 */}
-      <section className="py-16 sm:py-20 lg:py-24">
+      <section className="pt-6 sm:pt-8 lg:pt-9 pb-16 sm:py-20 lg:py-24">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="space-y-4">
             {DETAILED_FAQS.map((faq, idx) => {

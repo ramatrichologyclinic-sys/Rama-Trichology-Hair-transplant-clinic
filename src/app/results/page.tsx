@@ -88,7 +88,7 @@ export default function ResultsPage() {
   return (
     <div className="relative">
       {/* Page Hero */}
-      <section className="relative py-16 sm:py-20 lg:py-24">
+      <section className="relative pt-16 sm:pt-20 lg:pt-24 pb-8 sm:pb-10 lg:pb-12">
         <div className="max-w-container mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection className="max-w-3xl">
             <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-blue-700 bg-white/90 backdrop-blur-sm px-3.5 py-1.5 rounded-full border border-sky-100 inline-block mb-4 shadow-sm">
@@ -110,7 +110,7 @@ export default function ResultsPage() {
       */}
 
       {/* Unfiltered Simple Case Grid for V1 */}
-      <section className="py-16 sm:py-20 lg:py-24">
+      <section className="pt-8 sm:pt-10 lg:pt-12 pb-12 sm:pb-14 lg:pb-16">
         <div className="max-w-container mx-auto px-4 sm:px-6 lg:px-8">
           <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {ALL_CASES.map((item) => (
@@ -175,7 +175,7 @@ export default function ResultsPage() {
           </StaggerContainer>
 
           {/* Medical Disclaimer */}
-          <div className="mt-16 bg-white border border-gray-200 rounded-2xl p-6 flex items-start gap-4 shadow-sm max-w-3xl mx-auto">
+          <div className="mt-10 sm:mt-12 bg-white border border-gray-200 rounded-2xl p-6 flex items-start gap-4 shadow-sm max-w-3xl mx-auto">
             <AlertCircle className="w-5 h-5 text-blue-700 flex-shrink-0 mt-0.5" />
             <div className="text-xs sm:text-sm text-ink-900 leading-relaxed">
               <strong className="text-navy-950 font-bold block mb-1">Standard Medical Disclaimer:</strong>
@@ -186,7 +186,7 @@ export default function ResultsPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="relative py-16 sm:py-20 text-center">
+      <section className="relative pt-10 sm:pt-12 pb-14 sm:pb-18 text-center">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection>
             <h2 className="font-serif text-3xl sm:text-4xl font-bold text-navy-950 mb-4">

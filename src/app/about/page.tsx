@@ -14,7 +14,7 @@ export default function AboutPage() {
   return (
     <div className="relative">
       {/* Page Hero */}
-      <section className="relative py-16 sm:py-20 lg:py-24">
+      <section className="relative pt-16 sm:pt-20 lg:pt-24 pb-8 sm:pb-10 lg:pb-12">
         <div className="max-w-container mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection className="max-w-3xl">
             <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-blue-700 bg-white/90 backdrop-blur-sm px-3.5 py-1.5 rounded-full border border-sky-100 inline-block mb-4 shadow-sm">
@@ -31,7 +31,7 @@ export default function AboutPage() {
       </section>
 
       {/* Doctor Biography Section */}
-      <section className="py-16 sm:py-20 lg:py-28">
+      <section className="pt-8 sm:pt-10 lg:pt-12 pb-12 sm:pb-16 lg:pb-20">
         <div className="max-w-container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             {/* Doctor Portrait Photo with Full Uncropped Framing */}
@@ -116,7 +116,7 @@ export default function AboutPage() {
       </section>
 
       {/* Clinical Philosophy: Trichology vs General Dermatology */}
-      <section className="relative py-16 sm:py-20 lg:py-24">
+      <section className="relative pt-10 sm:pt-12 lg:pt-14 pb-12 sm:pb-14 lg:pb-16">
         <div className="max-w-container mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection className="max-w-3xl mb-12">
             <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-blue-700 bg-white/90 backdrop-blur-sm px-3.5 py-1.5 rounded-full border border-sky-100 shadow-sm">
@@ -174,7 +174,7 @@ export default function AboutPage() {
       */}
 
       {/* CTA Section */}
-      <section className="relative py-16 sm:py-20 text-center">
+      <section className="relative pt-10 sm:pt-12 pb-14 sm:pb-18 text-center">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection>
             <h2 className="font-serif text-3xl sm:text-4xl font-bold text-navy-950 mb-4">

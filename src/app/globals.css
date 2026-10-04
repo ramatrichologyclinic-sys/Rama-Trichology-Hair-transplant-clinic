@@ -79,7 +79,7 @@ html.lenis, html.lenis body {
 #page-hover-dim-overlay {
   position: fixed;
   inset: 0;
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.45);
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.3s ease;
@@ -91,6 +91,11 @@ html.lenis, html.lenis body {
   body:has(.service-card-wrapper:hover) #page-hover-dim-overlay,
   body.services-hovering #page-hover-dim-overlay {
     opacity: 1;
+  }
+
+  body:has(.service-card-wrapper:hover) .services-section,
+  body.services-hovering .services-section {
+    z-index: 40 !important;
   }
 }
 

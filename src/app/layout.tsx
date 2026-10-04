@@ -139,7 +139,7 @@ export default function RootLayout({
         <div id="page-hover-dim-overlay" aria-hidden="true" />
         <SmoothScroll>
           <Navbar />
-          <main id="main-content" className="flex-grow relative" style={{ zIndex: 1 }}>
+          <main id="main-content" className="flex-grow relative">
             {children}
           </main>
           <Footer />

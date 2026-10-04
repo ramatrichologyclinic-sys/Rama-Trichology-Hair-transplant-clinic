@@ -87,7 +87,7 @@ export default function ContactPage() {
   return (
     <div className="relative">
       {/* Page Hero */}
-      <section className="relative py-16 sm:py-20 lg:py-24">
+      <section className="relative pt-16 sm:pt-20 lg:pt-24 pb-8 sm:pb-10 lg:pb-12">
         <div className="max-w-container mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection className="max-w-3xl">
             <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-blue-700 bg-white/90 backdrop-blur-sm px-3.5 py-1.5 rounded-full border border-sky-100 inline-block mb-4 shadow-sm">
@@ -104,7 +104,7 @@ export default function ContactPage() {
       </section>
 
       {/* Main Content: Split Contact Form & Direct Details */}
-      <section className="py-16 sm:py-20 lg:py-24">
+      <section className="pt-8 sm:pt-10 lg:pt-12 pb-12 sm:pb-16">
         <div className="max-w-container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
             {/* Form Column */}
@@ -319,106 +319,98 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* Calendly Booking Embed & Map Section */}
-      <section id="book" className="py-16 sm:py-20 lg:py-24 relative scroll-mt-24">
+      {/* Clinic Location & Google Maps Section */}
+      <section id="location" className="pt-6 sm:pt-8 pb-16 sm:py-20 lg:py-24 relative scroll-mt-24">
         <div className="max-w-container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-stretch">
-            {/* Calendly Booking Embed Placeholder */}
-            <div className="lg:col-span-7 flex flex-col h-full">
-              <AnimatedSection className="h-full flex flex-col flex-1">
-                <div className="bg-white rounded-3xl p-6 sm:p-8 border border-gray-200 shadow-soft h-full flex flex-col justify-between">
-                  <div>
-                    <div className="flex items-center justify-between mb-4 border-b border-gray-100 pb-4">
-                      <div>
-                        <span className="text-xs font-bold uppercase tracking-wider text-blue-700">Online Scheduler</span>
-                        <h3 className="font-serif text-2xl font-bold text-navy-950 mt-1">
-                          Book Your Consultation Slot
-                        </h3>
-                      </div>
-                      <Calendar className="w-8 h-8 text-blue-700" />
-                    </div>
+          <AnimatedSection>
+            <div className="bg-white rounded-3xl p-6 sm:p-10 border border-gray-200 shadow-soft overflow-hidden">
+              <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 mb-8 pb-6 border-b border-gray-100">
+                <div>
+                  <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-ice-50 border border-gray-200 text-xs font-bold uppercase tracking-wider text-blue-700 mb-2">
+                    <MapPin className="w-3.5 h-3.5" />
+                    <span>Clinic Location &amp; Directions</span>
+                  </div>
+                  <h2 className="font-serif text-2xl sm:text-4xl font-bold text-navy-950">
+                    Find Rama Trichology Clinic
+                  </h2>
+                  <p className="text-sm sm:text-base text-ink-900 mt-1 max-w-2xl">
+                    Located in Shanti Nagar, Mira Road (East). Private clinical suites, dedicated parking, and full microscopic diagnostic facilities.
+                  </p>
+                </div>
 
-                    <p className="text-sm text-ink-900 mb-6">
-                      Select a date and time convenient for you to meet with {CLINIC_INFO.doctorName}.
+                <div className="flex flex-wrap items-center gap-3">
+                  <a
+                    href="https://maps.google.com/?q=A2-104,+1st+Floor,+Prabhakar+CHS+Society,+Shanti+Nagar,+Sec.+4,+Mira+Road+(E),+Mira+Bhayandar,+Maharashtra+401107"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-semibold text-white bg-blue-700 hover:bg-navy-950 text-sm transition-all shadow-sm focus-visible:ring-2 focus-visible:ring-blue-400"
+                  >
+                    <MapPin className="w-4 h-4" />
+                    <span>Open in Google Maps</span>
+                  </a>
+                  <a
+                    href={`tel:${CLINIC_INFO.phone}`}
+                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-semibold text-navy-950 bg-ice-50 hover:bg-gray-100 border border-gray-200 text-sm transition-all focus-visible:ring-2 focus-visible:ring-blue-400"
+                  >
+                    <Phone className="w-4 h-4 text-blue-700" />
+                    <span>Call Reception</span>
+                  </a>
+                </div>
+              </div>
+
+              {/* Full-Width Interactive Google Maps Embed with Location Marker */}
+              <div className="relative w-full h-[450px] sm:h-[520px] rounded-2xl overflow-hidden border border-gray-200 shadow-inner bg-gray-100">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3766.862413725553!2d72.86214347598357!3d19.288339945242277!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b036573752e5%3A0xc3b44b827dbd8761!2sShanti%20Nagar%2C%20Mira%20Road%20East%2C%20Mira%20Bhayandar%2C%20Maharashtra%20401107!5e0!3m2!1sen!2sin!4v1711000000000!5m2!1sen!2sin"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen={true}
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Rama Trichology Clinic Location Map — Shanti Nagar, Mira Road (East)"
+                  className="w-full h-full"
+                />
+              </div>
+
+              {/* Bottom Quick Reference Grid */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6 pt-6 border-t border-gray-100 text-xs sm:text-sm text-ink-900">
+                <div className="flex items-start gap-3">
+                  <div className="w-8 h-8 rounded-lg bg-ice-50 border border-gray-200 flex items-center justify-center text-blue-700 flex-shrink-0 font-bold">
+                    1
+                  </div>
+                  <div>
+                    <strong className="block text-navy-950 font-bold">Full Clinic Address</strong>
+                    <p className="text-ink-900/90 leading-relaxed mt-0.5">{CLINIC_INFO.address}</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-3">
+                  <div className="w-8 h-8 rounded-lg bg-ice-50 border border-gray-200 flex items-center justify-center text-blue-700 flex-shrink-0 font-bold">
+                    2
+                  </div>
+                  <div>
+                    <strong className="block text-navy-950 font-bold">Transit &amp; Accessibility</strong>
+                    <p className="text-ink-900/90 leading-relaxed mt-0.5">
+                      Short auto/taxi ride from Mira Road Railway Station. Quick access from Western Express Highway.
                     </p>
                   </div>
-
-                  {/* Calendly iframe placeholder — flex-1 to match map height */}
-                  <div className="relative w-full flex-1 min-h-[420px] rounded-2xl overflow-hidden border border-gray-200 bg-gray-50 flex flex-col items-center justify-center p-6 text-center">
-                    <iframe
-                      src={CLINIC_INFO.calendlyUrl}
-                      title="Appointment Booking with Rama Trichology"
-                      className="w-full h-full border-0 rounded-xl"
-                      loading="lazy"
-                    />
-                    {/* Fallback overlay in case placeholder URL cannot load in sandbox */}
-                    <div className="absolute inset-0 bg-white/95 backdrop-blur-sm p-8 flex flex-col items-center justify-center text-center">
-                      <Calendar className="w-12 h-12 text-blue-700 mb-4" />
-                      <h4 className="font-serif text-xl font-bold text-navy-950 mb-2">
-                        Calendly Scheduling Integration
-                      </h4>
-                      <p className="text-xs sm:text-sm text-ink-900 max-w-sm mb-6">
-                        Integrated Calendly iframe connected to <code className="text-blue-700 bg-ice-50 px-2 py-0.5 rounded">{CLINIC_INFO.calendlyUrl}</code>. Swappable with the client&apos;s live calendar link.
-                      </p>
-                      <a
-                        href={CLINIC_INFO.whatsappUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-semibold text-white bg-blue-700 hover:bg-navy-950 text-xs transition-colors"
-                      >
-                        <span>Or Book Instantly via WhatsApp</span>
-                      </a>
-                    </div>
-                  </div>
-
-                  <div className="text-xs text-ink-900 space-y-1 mt-4 pt-4 border-t border-gray-100 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
-                    <p className="font-semibold text-navy-950">In-Clinic Trichoscopic Session</p>
-                    <p className="text-blue-700 font-medium">Direct evaluation with {CLINIC_INFO.doctorName}</p>
-                  </div>
                 </div>
-              </AnimatedSection>
-            </div>
 
-            {/* Google Maps Embed Placeholder */}
-            <div className="lg:col-span-5 flex flex-col h-full">
-              <AnimatedSection delay={0.2} className="h-full flex flex-col flex-1">
-                <div className="bg-white rounded-3xl p-6 sm:p-8 border border-gray-200 shadow-soft h-full flex flex-col justify-between">
+                <div className="flex items-start gap-3">
+                  <div className="w-8 h-8 rounded-lg bg-ice-50 border border-gray-200 flex items-center justify-center text-blue-700 flex-shrink-0 font-bold">
+                    3
+                  </div>
                   <div>
-                    <div className="flex items-center justify-between mb-4 border-b border-gray-100 pb-4">
-                      <div>
-                        <span className="text-xs font-bold uppercase tracking-wider text-blue-700">Find Us</span>
-                        <h3 className="font-serif text-2xl font-bold text-navy-950 mt-1">
-                          Clinic Map &amp; Directions
-                        </h3>
-                      </div>
-                      <MapPin className="w-8 h-8 text-blue-700" />
-                    </div>
-                  </div>
-
-                  {/* Google Maps iframe placeholder — flex-1 to match booking height */}
-                  <div className="relative w-full flex-1 min-h-[420px] rounded-2xl overflow-hidden border border-gray-200 bg-gray-50 mb-4">
-                    <iframe
-                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d120562.62883492797!2d72.77583649666014!3d19.21345974052309!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b7134375b63d%3A0x272ab3e3b3c3b0!2sMumbai%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
-                      width="100%"
-                      height="100%"
-                      style={{ border: 0 }}
-                      allowFullScreen={false}
-                      loading="lazy"
-                      referrerPolicy="no-referrer-when-downgrade"
-                      title="Rama Trichology Clinic Location Map"
-                      className="w-full h-full"
-                    />
-                  </div>
-
-                  <div className="text-xs text-ink-900 space-y-1 mt-4 pt-4 border-t border-gray-100">
-                    <p className="font-bold text-navy-950">{CLINIC_INFO.brandName} — {CLINIC_INFO.tagline}</p>
-                    <p>{CLINIC_INFO.address}</p>
-                    <p className="text-blue-700 font-medium">Near public transit &amp; dedicated parking available</p>
+                    <strong className="block text-navy-950 font-bold">Appointments &amp; Timings</strong>
+                    <p className="text-ink-900/90 leading-relaxed mt-0.5">
+                      {CLINIC_INFO.hours}. Private slots scheduled in advance to ensure zero waiting time.
+                    </p>
                   </div>
                 </div>
-              </AnimatedSection>
+              </div>
             </div>
-          </div>
+          </AnimatedSection>
         </div>
       </section>
     </div>
