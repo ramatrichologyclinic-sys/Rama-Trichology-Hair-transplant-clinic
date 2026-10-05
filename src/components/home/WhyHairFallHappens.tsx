@@ -108,8 +108,8 @@ export default function WhyHairFallHappens() {
                       </div>
                     </div>
 
-                    {/* Bottom-Right Custom Illustrated Graphics */}
-                    <div className="relative w-28 h-28 sm:w-32 sm:h-32 flex-shrink-0 mb-0 mr-0 pointer-events-none">
+                    {/* Bottom-Right Custom Illustrated Graphics (Increased by 20%) */}
+                    <div className="relative w-[135px] h-[135px] sm:w-[154px] sm:h-[154px] flex-shrink-0 -mb-1 -mr-1 pointer-events-none">
                       {cause.artType === "dna" && (
                         /* DNA Strand 3D Double Helix Graphic */
                         <svg
@@ -186,8 +186,8 @@ export default function WhyHairFallHappens() {
                           <Image
                             src="/images/stress-cortisol.png"
                             alt="Chronic Stress & Cortisol"
-                            width={160}
-                            height={160}
+                            width={192}
+                            height={192}
                             className="w-full h-full object-contain"
                           />
                         </div>
