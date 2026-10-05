@@ -104,7 +104,7 @@ export default function ContactPage() {
       </section>
 
       {/* Main Content: Split Contact Form & Direct Details */}
-      <section className="pt-8 sm:pt-10 lg:pt-12 pb-12 sm:pb-16">
+      <section className="pt-8 sm:pt-10 lg:pt-12 pb-10 sm:pb-12">
         <div className="max-w-container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
             {/* Form Column */}
@@ -320,7 +320,7 @@ export default function ContactPage() {
       </section>
 
       {/* Clinic Location & Google Maps Section */}
-      <section id="location" className="pt-6 sm:pt-8 pb-16 sm:py-20 lg:py-24 relative scroll-mt-24">
+      <section id="location" className="pt-4 sm:pt-6 pb-16 sm:py-20 lg:py-24 relative scroll-mt-24">
         <div className="max-w-container mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection>
             <div className="bg-white rounded-3xl p-6 sm:p-10 border border-gray-200 shadow-soft overflow-hidden">
@@ -358,8 +358,8 @@ export default function ContactPage() {
                 </div>
               </div>
 
-              {/* Full-Width Interactive Google Maps Embed with Location Marker */}
-              <div className="relative w-full h-[450px] sm:h-[520px] rounded-2xl overflow-hidden border border-gray-200 shadow-inner bg-gray-100">
+              {/* Full-Width Interactive Google Maps Embed with Location Marker (Reduced by 25%) */}
+              <div className="relative w-full h-[340px] sm:h-[390px] rounded-2xl overflow-hidden border border-gray-200 shadow-inner bg-gray-100">
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3766.862413725553!2d72.86214347598357!3d19.288339945242277!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b036573752e5%3A0xc3b44b827dbd8761!2sShanti%20Nagar%2C%20Mira%20Road%20East%2C%20Mira%20Bhayandar%2C%20Maharashtra%20401107!5e0!3m2!1sen!2sin!4v1711000000000!5m2!1sen!2sin"
                   width="100%"

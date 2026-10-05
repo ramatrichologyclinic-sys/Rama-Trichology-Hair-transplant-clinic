@@ -172,7 +172,7 @@ export default function ServicesGrid() {
                     className={`service-card-bg absolute inset-0 rounded-3xl pointer-events-none transition-all duration-300 ${
                       isHovered
                         ? "bg-white opacity-100"
-                        : "bg-white/95 backdrop-blur-md"
+                        : "bg-white/95"
                     }`}
                   />
 

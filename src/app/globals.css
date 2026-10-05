@@ -88,12 +88,10 @@ html.lenis, html.lenis body {
 }
 
 @media (hover: hover) {
-  body:has(.service-card-wrapper:hover) #page-hover-dim-overlay,
   body.services-hovering #page-hover-dim-overlay {
     opacity: 1;
   }
 
-  body:has(.service-card-wrapper:hover) .services-section,
   body.services-hovering .services-section {
     z-index: 40 !important;
   }

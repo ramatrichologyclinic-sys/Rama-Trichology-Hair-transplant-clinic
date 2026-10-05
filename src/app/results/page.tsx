@@ -117,13 +117,13 @@ export default function ResultsPage() {
               <StaggerItem key={item.id}>
                 <div className="bg-ice-50 rounded-2xl p-6 border border-gray-200 shadow-soft hover:shadow-card transition-all flex flex-col justify-between h-full">
                   <div>
-                    <div className="flex items-center justify-between gap-2 mb-3">
-                      <span className="text-xs font-bold uppercase tracking-wider text-blue-700 bg-white px-3 py-1 rounded-full border border-gray-200">
+                    <div className="flex items-center justify-between gap-2.5 mb-3">
+                      <span className="inline-flex items-center justify-center text-xs font-bold uppercase tracking-wider text-blue-700 bg-white px-3.5 py-1 rounded-full border border-gray-200 shadow-2xs whitespace-nowrap shrink-0">
                         {item.patientToken}
                       </span>
-                      <span className="text-xs font-semibold text-ink-900 flex items-center gap-1">
-                        <Sparkles className="w-3.5 h-3.5 text-blue-700" />
-                        {item.timeline}
+                      <span className="text-xs font-semibold text-ink-900 flex items-center gap-1.5 shrink-0">
+                        <Sparkles className="w-3.5 h-3.5 text-blue-700 shrink-0" />
+                        <span>{item.timeline}</span>
                       </span>
                     </div>
 
