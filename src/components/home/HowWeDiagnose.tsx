@@ -82,32 +82,32 @@ export default function HowWeDiagnose({ variant = "sapphire" }: HowWeDiagnosePro
 
         {/* Steps Container */}
         <div className="relative">
-          <StaggerContainer className="grid grid-cols-1 lg:grid-cols-3 gap-8 relative z-10">
+          <StaggerContainer className="grid grid-cols-1 lg:grid-cols-3 gap-5 sm:gap-6 lg:gap-8 relative z-10 items-stretch">
             {steps.map((item, idx) => {
               const Icon = item.icon;
               return (
-                <StaggerItem key={idx}>
-                  <div className="group h-full bg-white rounded-3xl p-8 border border-white/90 shadow-[0_20px_50px_rgba(0,0,0,0.32)] hover:shadow-[0_25px_60px_rgba(0,0,0,0.42)] hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
+                <StaggerItem key={idx} className="h-full">
+                  <div className="group h-full bg-white rounded-3xl p-5 sm:p-6 lg:p-8 border border-white/90 shadow-[0_20px_50px_rgba(0,0,0,0.32)] hover:shadow-[0_25px_60px_rgba(0,0,0,0.42)] hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
                     <div>
-                      <div className="flex items-center justify-between mb-6">
-                        <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-sky-400 to-blue-600 flex items-center justify-center text-white shadow-md shadow-blue-500/20 group-hover:shadow-[0_0_25px_rgba(56,189,248,0.9),0_0_40px_rgba(37,99,235,0.5)] group-hover:scale-110 transition-all duration-300">
-                          <Icon className="w-7 h-7" />
+                      <div className="flex items-center justify-between mb-4 lg:mb-6">
+                        <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-gradient-to-br from-sky-400 to-blue-600 flex items-center justify-center text-white shadow-md shadow-blue-500/20 group-hover:shadow-[0_0_25px_rgba(56,189,248,0.9),0_0_40px_rgba(37,99,235,0.5)] group-hover:scale-110 transition-all duration-300">
+                          <Icon className="w-6 h-6 sm:w-7 sm:h-7" />
                         </div>
-                        <span className="font-serif text-3xl font-bold text-sky-600">
+                        <span className="font-serif text-2xl sm:text-3xl font-bold text-sky-600">
                           {item.step}
                         </span>
                       </div>
 
-                      <h3 className="font-serif text-xl sm:text-2xl font-bold text-navy-950 mb-3">
+                      <h3 className="font-serif text-lg sm:text-xl lg:text-2xl font-bold text-navy-950 mb-2 sm:mb-2.5 lg:mb-3">
                         {item.title}
                       </h3>
 
-                      <p className="text-sm text-slate-700 leading-relaxed font-normal">
+                      <p className="text-xs sm:text-sm text-slate-700 leading-relaxed font-normal">
                         {item.desc}
                       </p>
                     </div>
 
-                    <div className="mt-8 pt-4 border-t border-sky-100 flex items-center gap-2 text-xs font-semibold text-blue-700">
+                    <div className="mt-5 sm:mt-6 lg:mt-8 pt-3 sm:pt-4 border-t border-sky-100 flex items-center gap-2 text-xs font-semibold text-blue-700">
                       <span>Phase {item.step} Protocol</span>
                     </div>
                   </div>

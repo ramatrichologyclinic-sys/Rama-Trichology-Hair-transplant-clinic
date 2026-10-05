@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { Dna, Activity, Apple, Stethoscope } from "lucide-react";
 import {
   StaggerContainer,
@@ -180,65 +181,16 @@ export default function WhyHairFallHappens() {
                       )}
 
                       {cause.artType === "stress" && (
-                        /* Tensed Man Stressed Profile & Cortisol Waves Graphic */
-                        <svg
-                          className="w-full h-full drop-shadow-md"
-                          viewBox="0 0 120 120"
-                          fill="none"
-                        >
-                          <defs>
-                            <linearGradient id="manProfile" x1="15" y1="10" x2="95" y2="110" gradientUnits="userSpaceOnUse">
-                              <stop offset="0%" stopColor="#38bdf8" stopOpacity="0.85" />
-                              <stop offset="60%" stopColor="#0284c7" stopOpacity="0.4" />
-                              <stop offset="100%" stopColor="#1e3a8a" stopOpacity="0.1" />
-                            </linearGradient>
-                            <radialGradient id="cortisolPulse" cx="52" cy="42" r="26" gradientUnits="userSpaceOnUse">
-                              <stop offset="0%" stopColor="#f43f5e" stopOpacity="0.9" />
-                              <stop offset="50%" stopColor="#fb7185" stopOpacity="0.5" />
-                              <stop offset="85%" stopColor="#38bdf8" stopOpacity="0.2" />
-                              <stop offset="100%" stopColor="#0284c7" stopOpacity="0" />
-                            </radialGradient>
-                          </defs>
-
-                          {/* Concentric Cortisol Tension Waves Radiating from Brain */}
-                          <circle cx="52" cy="42" r="24" stroke="#f43f5e" strokeWidth="1" strokeDasharray="3 3" opacity="0.4" />
-                          <circle cx="52" cy="42" r="18" stroke="#fb7185" strokeWidth="1.2" opacity="0.5" />
-                          <circle cx="52" cy="42" r="12" fill="url(#cortisolPulse)" />
-
-                          {/* Stressed Head Profile Silhouette */}
-                          <path
-                            d="M32,105 L32,86 C32,80 36,74 38,68 C34,60 34,44 42,32 C49,20 66,18 78,24 C86,29 90,38 91,48 C92,54 96,57 95,64 C93,70 88,74 86,82 L86,105 Z"
-                            fill="url(#manProfile)"
-                            stroke="#0284c7"
-                            strokeWidth="1.5"
-                            strokeOpacity="0.6"
+                        /* User-specified Stress & Cortisol Clinical Vector Illustration */
+                        <div className="w-full h-full flex items-center justify-center p-1">
+                          <Image
+                            src="/images/stress-cortisol.png"
+                            alt="Chronic Stress & Cortisol"
+                            width={160}
+                            height={160}
+                            className="w-full h-full object-contain"
                           />
-
-                          {/* Tension Hand clutching temples / forehead */}
-                          <path
-                            d="M24,78 C28,68 34,54 44,48 C48,45 52,46 54,49 C55,52 50,56 46,60 C40,68 36,78 30,85 Z"
-                            fill="#0284c7"
-                            opacity="0.65"
-                          />
-
-                          {/* High-frequency Arrhythmic Stress / Cortisol Spike Line */}
-                          <path
-                            d="M15,92 L35,92 L42,80 L48,100 L54,74 L60,92 L105,92"
-                            stroke="#f43f5e"
-                            strokeWidth="2"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            opacity="0.85"
-                          />
-
-                          {/* Glowing Synaptic Tension Hotspots */}
-                          <circle cx="52" cy="42" r="3.5" fill="#ffffff" />
-                          <circle cx="52" cy="42" r="5" stroke="#f43f5e" strokeWidth="1.5" />
-                          <line x1="52" y1="42" x2="68" y2="34" stroke="#f43f5e" strokeWidth="1.5" strokeLinecap="round" />
-                          <circle cx="68" cy="34" r="2.5" fill="#f43f5e" />
-                          <line x1="52" y1="42" x2="40" y2="30" stroke="#fb7185" strokeWidth="1.5" strokeLinecap="round" />
-                          <circle cx="40" cy="30" r="2" fill="#ffffff" />
-                        </svg>
+                        </div>
                       )}
 
                       {cause.artType === "nutrition" && (

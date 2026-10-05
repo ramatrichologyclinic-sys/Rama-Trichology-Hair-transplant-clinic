@@ -59,9 +59,44 @@ export default function MeetTheDoctor() {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        {/* Mobile-Only Circular Doctor Portrait (Matching Reference Image) */}
+        <div className="block lg:hidden text-center mb-8">
+          <motion.div
+            initial={{ scale: 0.85, opacity: 0 }}
+            whileInView={{ scale: 1, opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{
+              type: "spring",
+              stiffness: 220,
+              damping: 18,
+            }}
+            className="inline-flex flex-col items-center"
+          >
+            {/* Elegant warm golden/metallic circular framed portrait */}
+            <div className="relative w-44 h-44 sm:w-52 sm:h-52 rounded-full p-1.5 sm:p-2 bg-gradient-to-b from-[#e6c875] via-[#c59b27] to-[#8d6914] shadow-[0_15px_40px_rgba(0,0,0,0.45)]">
+              <div className="w-full h-full rounded-full overflow-hidden border-2 border-white/80 bg-navy-950 relative">
+                <Image
+                  src="/images/doctor-photo.jpg"
+                  alt="Dr. Ritesh Safariya - Lead Consultant & Trichologist"
+                  width={400}
+                  height={400}
+                  priority
+                  className="object-cover object-[center_20%] w-full h-full"
+                />
+              </div>
+            </div>
+
+            {/* Status indicator badge directly below circle */}
+            <div className="mt-4 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/15 backdrop-blur-md border border-white/25 text-xs font-semibold text-white shadow-sm">
+              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+              <span>Available for Consultations</span>
+            </div>
+          </motion.div>
+        </div>
+
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-          {/* Doctor Portrait Photo: Creative Pop-Up from Left-Bottom */}
-          <div className="lg:col-span-6">
+          {/* Desktop-Only Doctor Portrait Photo: Creative Pop-Up from Left-Bottom */}
+          <div className="hidden lg:block lg:col-span-6">
             <motion.div
               initial={{ x: -80, y: 80, opacity: 0, scale: 0.85, rotate: -3 }}
               whileInView={{ x: 0, y: 0, opacity: 1, scale: 1, rotate: 0 }}
@@ -115,14 +150,14 @@ export default function MeetTheDoctor() {
           </div>
 
           {/* Doctor Bio & Clinical Philosophy */}
-          <div className="lg:col-span-6 space-y-6">
+          <div className="lg:col-span-6 space-y-6 text-center lg:text-left">
             <AnimatedSection delay={0.15}>
               <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/15 text-sky-200 border border-white/20 shadow-sm text-xs sm:text-sm font-bold uppercase tracking-wider backdrop-blur-md">
                 Clinical Leadership
               </div>
 
               {/* Title with Letters Popping from Below Animation */}
-              <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-white mt-4 mb-4 flex flex-wrap items-baseline gap-x-2.5">
+              <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-white mt-4 mb-4 flex flex-wrap items-baseline justify-center lg:justify-start gap-x-2.5">
                 <PoppingLetters text="Meet " delayOffset={0.15} />
                 <span className="text-sky-300 relative inline-block">
                   <PoppingLetters text={CLINIC_INFO.doctorName} delayOffset={0.3} />
@@ -204,7 +239,7 @@ export default function MeetTheDoctor() {
             </AnimatedSection>
 
             <AnimatedSection delay={0.4}>
-              <div className="pt-4 flex flex-wrap items-center gap-4">
+              <div className="pt-4 flex flex-wrap items-center justify-center lg:justify-start gap-4">
                 <Link
                   href="/about"
                   className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full font-semibold text-white bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 active:scale-95 transition-all shadow-md shadow-blue-500/25 focus-visible:ring-2 focus-visible:ring-blue-400"
