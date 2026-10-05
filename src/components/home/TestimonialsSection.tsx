@@ -25,14 +25,14 @@ export default function TestimonialsSection() {
   const touchStartX = useRef(0);
   const touchEndX = useRef(0);
 
-  // Auto-advance carousel to the left every 1.5 seconds on mobile
+  // Auto-advance carousel to the left every 3 seconds on mobile
   useEffect(() => {
     if (isPaused) return;
 
     const timer = setInterval(() => {
       setIsTransitioning(true);
       setCurrentIndex((prev) => prev + 1);
-    }, 1500);
+    }, 3000);
 
     return () => clearInterval(timer);
   }, [isPaused]);

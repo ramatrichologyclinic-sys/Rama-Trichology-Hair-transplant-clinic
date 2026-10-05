@@ -59,44 +59,9 @@ export default function MeetTheDoctor() {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Mobile-Only Circular Doctor Portrait (Matching Reference Image) */}
-        <div className="block lg:hidden text-center mb-8">
-          <motion.div
-            initial={{ scale: 0.85, opacity: 0 }}
-            whileInView={{ scale: 1, opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{
-              type: "spring",
-              stiffness: 220,
-              damping: 18,
-            }}
-            className="inline-flex flex-col items-center"
-          >
-            {/* Elegant warm golden/metallic circular framed portrait */}
-            <div className="relative w-44 h-44 sm:w-52 sm:h-52 rounded-full p-1.5 sm:p-2 bg-gradient-to-b from-[#e6c875] via-[#c59b27] to-[#8d6914] shadow-[0_15px_40px_rgba(0,0,0,0.45)]">
-              <div className="w-full h-full rounded-full overflow-hidden border-2 border-white/80 bg-navy-950 relative">
-                <Image
-                  src="/images/doctor-photo.jpg"
-                  alt="Dr. Ritesh Safariya - Lead Consultant & Trichologist"
-                  width={400}
-                  height={400}
-                  priority
-                  className="object-cover object-[center_20%] w-full h-full"
-                />
-              </div>
-            </div>
-
-            {/* Status indicator badge directly below circle */}
-            <div className="mt-4 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/15 backdrop-blur-md border border-white/25 text-xs font-semibold text-white shadow-sm">
-              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-              <span>Available for Consultations</span>
-            </div>
-          </motion.div>
-        </div>
-
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-          {/* Desktop-Only Doctor Portrait Photo: Creative Pop-Up from Left-Bottom */}
-          <div className="hidden lg:block lg:col-span-6">
+          {/* Doctor Portrait Photo: Creative Pop-Up from Left-Bottom (Rectangular Pattern) */}
+          <div className="lg:col-span-6">
             <motion.div
               initial={{ x: -80, y: 80, opacity: 0, scale: 0.85, rotate: -3 }}
               whileInView={{ x: 0, y: 0, opacity: 1, scale: 1, rotate: 0 }}

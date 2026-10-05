@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { motion } from "framer-motion";
 import {
   ArrowRight,
   MessageCircle,
@@ -68,6 +69,40 @@ export default function HeroSection() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           {/* Left Text Content */}
           <div className="lg:col-span-7 space-y-6 sm:space-y-7 text-center lg:text-left">
+            {/* Dr. Safariya Circular Animating Portrait (Reference Style) */}
+            <AnimatedSection delay={0.05} className="flex justify-center lg:justify-start">
+              <motion.div
+                initial={{ scale: 0.85, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={{
+                  type: "spring",
+                  stiffness: 220,
+                  damping: 18,
+                }}
+                className="relative inline-block"
+              >
+                {/* Elegant warm golden/metallic circular framed portrait matching reference style */}
+                <div className="relative w-24 h-24 sm:w-28 sm:h-28 lg:w-32 lg:h-32 rounded-full p-1 sm:p-1.5 bg-gradient-to-b from-[#e6c875] via-[#c59b27] to-[#8d6914] shadow-[0_12px_30px_rgba(0,0,0,0.18)] hover:scale-105 transition-transform duration-300">
+                  <div className="w-full h-full rounded-full overflow-hidden border-2 border-white/90 bg-navy-950 relative">
+                    <Image
+                      src="/images/doctor-photo.jpg"
+                      alt={`${CLINIC_INFO.doctorName} - Lead Consultant & Trichologist`}
+                      width={240}
+                      height={240}
+                      priority
+                      className="object-cover object-[center_20%] w-full h-full"
+                    />
+                  </div>
+                </div>
+
+                {/* Status indicator badge */}
+                <div className="absolute -bottom-1 -right-1 bg-white/95 backdrop-blur-md rounded-full shadow-md py-0.5 px-2.5 border border-sky-100 flex items-center gap-1.5">
+                  <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                  <span className="text-[10px] sm:text-xs font-bold text-navy-950">Dr. Safariya</span>
+                </div>
+              </motion.div>
+            </AnimatedSection>
+
             <AnimatedSection delay={0.1}>
               <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-sky-100/90 border border-sky-200 shadow-sm text-xs sm:text-sm font-semibold text-sky-900">
                 <span className="w-2.5 h-2.5 rounded-full bg-sky-500 animate-pulse" />
