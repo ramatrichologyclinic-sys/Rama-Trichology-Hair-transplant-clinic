@@ -7,21 +7,12 @@ const nextConfig = {
   basePath: basePath,
   trailingSlash: true,
   reactStrictMode: true,
+  env: {
+    NEXT_PUBLIC_BASE_PATH: basePath,
+  },
   images: {
-    unoptimized: true,
-    dangerouslyAllowSVG: true,
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "placehold.co",
-        pathname: "/**",
-      },
-      {
-        protocol: "http",
-        hostname: "placehold.co",
-        pathname: "/**",
-      },
-    ],
+    loader: "custom",
+    loaderFile: "./src/lib/image-loader.ts",
   },
 };
 
