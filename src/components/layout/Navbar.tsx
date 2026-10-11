@@ -149,10 +149,10 @@ export default function Navbar() {
               />
             </div>
             <div className="flex flex-col">
-              <span className="font-serif text-xl sm:text-[22px] font-bold tracking-tight text-navy-950 group-hover:text-blue-700 transition-colors">
+              <span className="font-serif text-2xl sm:text-[26.5px] font-bold tracking-tight text-navy-950 group-hover:text-blue-700 transition-colors">
                 {CLINIC_INFO.brandName}
               </span>
-              <span className="text-[11px] sm:text-[12px] uppercase tracking-widest text-sky-800 font-semibold -mt-0.5">
+              <span className="text-[12px] sm:text-[13.5px] uppercase tracking-widest text-sky-800 font-semibold -mt-0.5">
                 {CLINIC_INFO.tagline}
               </span>
             </div>
@@ -341,7 +341,7 @@ export default function Navbar() {
                     setIsBookOpen(false);
                   }
                 }}
-                className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full text-[15px] font-semibold text-white bg-gradient-to-r from-blue-600 via-blue-600 to-blue-700 hover:from-blue-700 hover:to-navy-950 active:scale-95 transition-all shadow-md shadow-blue-600/25 focus-visible:ring-2 focus-visible:ring-blue-400"
+                className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full text-[15px] font-semibold text-white bg-[#007baa] hover:bg-[#006992] active:scale-95 transition-all shadow-md shadow-[#007baa]/25 focus-visible:ring-2 focus-visible:ring-[#007baa]"
                 aria-haspopup="true"
                 aria-expanded={isBookOpen}
                 aria-label="Book Consultation options"
@@ -590,7 +590,7 @@ export default function Navbar() {
                   onClick={() => setIsMobileBookOpen((prev) => !prev)}
                   aria-expanded={isMobileBookOpen}
                   aria-controls="mobile-book-accordion"
-                  className="w-full flex items-center justify-between px-5 py-3 rounded-xl text-base font-semibold text-white bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-navy-950 transition-colors shadow-sm focus-visible:ring-2 focus-visible:ring-blue-400"
+                  className="w-full flex items-center justify-between px-5 py-3 rounded-xl text-base font-semibold text-white bg-[#007baa] hover:bg-[#006992] transition-colors shadow-sm focus-visible:ring-2 focus-visible:ring-[#007baa]"
                 >
                   <div className="flex items-center gap-2">
                     <Calendar className="w-5 h-5 text-white" />

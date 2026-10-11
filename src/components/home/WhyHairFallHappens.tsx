@@ -31,10 +31,7 @@ export default function WhyHairFallHappens() {
   ];
 
   return (
-    <section
-      className="relative overflow-hidden pt-12 sm:pt-16 lg:pt-20"
-      style={{ paddingBottom: "clamp(180px, 15vw, 220px)" }}
-    >
+    <section className="relative overflow-hidden pt-12 sm:pt-16 lg:pt-20 pb-16 sm:pb-20 lg:pb-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <AnimatedSection className="text-center max-w-3xl mx-auto mb-14 sm:mb-20">

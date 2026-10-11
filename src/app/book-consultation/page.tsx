@@ -725,7 +725,7 @@ function BookingContent() {
                           <button
                             type="submit"
                             disabled={isOnlineSubmitting}
-                            className="w-full py-3.5 px-6 rounded-full font-semibold text-white bg-gradient-to-r from-blue-600 via-blue-600 to-blue-700 hover:from-blue-700 hover:to-navy-950 active:scale-98 transition-all shadow-md shadow-blue-600/25 flex items-center justify-center gap-2 focus-visible:ring-2 focus-visible:ring-blue-400 disabled:opacity-75"
+                            className="w-full py-3.5 px-6 rounded-full font-semibold text-white bg-[#007baa] hover:bg-[#006992] active:scale-98 transition-all shadow-md shadow-[#007baa]/25 flex items-center justify-center gap-2 focus-visible:ring-2 focus-visible:ring-[#007baa] disabled:opacity-75"
                           >
                             {isOnlineSubmitting ? (
                               <>

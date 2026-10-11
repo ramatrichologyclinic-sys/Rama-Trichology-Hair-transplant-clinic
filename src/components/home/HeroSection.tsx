@@ -188,7 +188,7 @@ export default function HeroSection() {
               <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
                 <Link
                   href="/contact#book"
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full font-semibold text-white bg-gradient-to-r from-blue-600 via-blue-600 to-blue-700 hover:from-blue-700 hover:to-navy-950 active:scale-95 transition-all shadow-lg shadow-blue-500/25 focus-visible:ring-2 focus-visible:ring-blue-400"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full font-semibold text-white bg-[#007baa] hover:bg-[#006992] active:scale-95 transition-all shadow-lg shadow-[#007baa]/30 focus-visible:ring-2 focus-visible:ring-[#007baa]"
                 >
                   <Calendar className="w-4 h-4 text-white" />
                   <span>Book Free Consultation</span>

@@ -6,7 +6,6 @@ import { ArrowRight, CheckCircle2, Award, Stethoscope } from "lucide-react";
 import { motion } from "framer-motion";
 import { CLINIC_INFO } from "@/lib/constants";
 import { AnimatedSection } from "@/components/common/AnimatedSection";
-import TrustBar from "@/components/home/TrustBar";
 
 /**
  * Animated letters popping up sequentially from below
@@ -50,7 +49,7 @@ export default function MeetTheDoctor() {
       className="relative overflow-hidden"
       style={{
         paddingTop: "clamp(48px, 6vw, 80px)",
-        paddingBottom: "clamp(180px, 15vw, 214px)",
+        paddingBottom: "clamp(48px, 6vw, 80px)",
       }}
     >
       {/* Background ambient lighting */}
@@ -223,9 +222,6 @@ export default function MeetTheDoctor() {
             </AnimatedSection>
           </div>
         </div>
-
-        {/* Clinical Credentials & Trust Statistics */}
-        <TrustBar />
       </div>
     </section>
   );
