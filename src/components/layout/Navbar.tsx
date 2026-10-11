@@ -130,25 +130,25 @@ export default function Navbar() {
       style={{ transform: "translateZ(0)", willChange: "transform" }}
     >
       <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
-        <div className="bg-white/95 backdrop-blur-md rounded-2xl sm:rounded-full border border-sky-100 shadow-[0_8px_30px_rgba(2,132,199,0.07)] px-4 sm:px-7 min-h-[82px] sm:min-h-[92px] h-[82px] sm:h-[92px] flex items-center justify-between">
-          {/* Logo with highlighted emblem only and unhighlighted brand text */}
+        <div className="bg-white/95 backdrop-blur-md rounded-2xl sm:rounded-full border border-sky-100 shadow-[0_8px_30px_rgba(2,132,199,0.07)] px-4 sm:px-7 min-h-[96px] sm:min-h-[114px] flex items-center justify-between py-1.5 sm:py-2">
+          {/* Logo without background highlight */}
           <Link
             href="/"
-            className="flex items-center gap-3 sm:gap-3.5 group focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 py-1"
+            className="flex items-center gap-3 sm:gap-4 group focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 py-1"
             aria-label={`${CLINIC_INFO.brandName} — ${CLINIC_INFO.tagline}`}
           >
-            {/* Highlighted logo emblem only, enlarged by 70%+ */}
-            <div className="relative w-[70px] h-[70px] sm:w-[78px] sm:h-[78px] p-1.5 bg-sky-100/90 group-hover:bg-sky-200/80 border border-sky-200/70 shadow-sm rounded-2xl flex-shrink-0 flex items-center justify-center transition-all duration-200">
+            {/* Logo emblem increased by 50% with background highlight removed */}
+            <div className="relative w-[105px] h-[105px] sm:w-[116px] sm:h-[116px] flex-shrink-0 flex items-center justify-center">
               <Image
                 src="/images/clinic-logo-v3.png"
                 alt="Rama Hair Clinic – Trichology Center official logo emblem"
-                width={85}
-                height={85}
+                width={120}
+                height={120}
                 priority
                 className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200"
               />
             </div>
-            {/* Unhighlighted brand name */}
+            {/* Brand name */}
             <div className="flex flex-col justify-center">
               <span className="font-serif text-lg sm:text-[21px] font-bold tracking-tight text-navy-950 group-hover:text-blue-700 transition-colors leading-tight">
                 {CLINIC_INFO.brandName}
