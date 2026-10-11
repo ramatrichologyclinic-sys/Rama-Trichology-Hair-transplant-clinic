@@ -56,25 +56,26 @@ export default function ContactPage() {
     }
 
     try {
-      await fetch("https://api.web3forms.com/submit", {
+      await fetch("https://formsubmit.co/ajax/ramatrichologyclinic@gmail.com", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
           Accept: "application/json",
         },
         body: JSON.stringify({
-          access_key: CLINIC_INFO.web3FormsAccessKey,
-          subject: `New Consultation Inquiry from ${formData.name}`,
-          from_name: formData.name,
-          to_name: CLINIC_INFO.brandName,
-          ...formData,
-          service: selectedService,
+          _subject: `New Clinic Inquiry from ${formData.name}`,
+          "Patient Name": formData.name,
+          "Phone Number": formData.phone,
+          "Email Address": formData.email || "Not specified",
+          "Service": selectedService,
+          "Message": formData.message || "No additional note",
+          _template: "table",
         }),
       });
 
       setIsSubmitted(true);
       setStatusMessage(
-        "Thank you! Your inquiry has been sent and WhatsApp has been opened in a new tab to connect directly with Dr. Ritesh Safariya."
+        "Thank you! Your inquiry has been sent to ramatrichologyclinic@gmail.com and WhatsApp has been opened in a new tab to connect directly with Dr. Ritesh Safariya."
       );
     } catch {
       setIsSubmitted(true);

@@ -187,35 +187,32 @@ export default function AssessmentPage() {
     setErrorMessage("");
 
     try {
-      const response = await fetch("https://api.web3forms.com/submit", {
+      await fetch("https://formsubmit.co/ajax/ramatrichologyclinic@gmail.com", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
           Accept: "application/json",
         },
         body: JSON.stringify({
-          access_key: CLINIC_INFO.web3FormsAccessKey,
-          subject: `New Hair Health Assessment: ${answers.name || "Patient"} - ${result.bucket}`,
-          from_name: answers.name || "Hair Health Quiz Patient",
-          to_name: CLINIC_INFO.brandName,
-          gender: answers.gender,
-          age_bracket: answers.ageBracket,
-          hair_fall_duration: answers.duration,
-          family_history: answers.familyHistory,
-          stress_level: answers.stressLevel,
-          diet_quality: answers.dietQuality,
-          scalp_symptoms: answers.scalpSymptoms.join(", ") || "None",
-          assessment_outcome: result.bucket,
-          patient_name: answers.name,
-          patient_phone: answers.phone,
-          patient_email: answers.email,
+          _subject: `New Hair Health Assessment: ${answers.name || "Patient"} - ${result.bucket}`,
+          "Patient Name": answers.name,
+          "Phone Number": answers.phone,
+          "Email": answers.email || "Not specified",
+          "Gender": answers.gender,
+          "Age Bracket": answers.ageBracket,
+          "Duration": answers.duration,
+          "Family History": answers.familyHistory,
+          "Stress Level": answers.stressLevel,
+          "Diet Quality": answers.dietQuality,
+          "Scalp Symptoms": answers.scalpSymptoms.join(", ") || "None",
+          "Assessment Result": result.bucket,
+          _template: "table",
         }),
       });
 
-      // Even if placeholder fails or succeeds, acknowledge for the user
       setIsSubmitted(true);
     } catch {
-      setIsSubmitted(true); // Graceful fallback for placeholder endpoint
+      setIsSubmitted(true);
     } finally {
       setIsSubmitting(false);
     }

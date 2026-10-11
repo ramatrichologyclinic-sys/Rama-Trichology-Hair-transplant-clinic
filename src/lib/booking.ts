@@ -45,11 +45,11 @@ export const GOOGLE_MAPS_DIRECTIONS_URL = `https://www.google.com/maps/search/?a
 )}`;
 
 export const CLINIC_WHATSAPP_NUMBER = "919699581541";
-export const CLINIC_GOOGLE_EMAIL = "ramatrichology@gmail.com";
+export const CLINIC_GOOGLE_EMAIL = "ramatrichologyclinic@gmail.com";
 
 /**
  * Builds a pre-filled Google Calendar event URL that automatically invites
- * the clinic (ramatrichology@gmail.com) and attaches Google Meet conferencing.
+ * the clinic (ramatrichologyclinic@gmail.com) and attaches Google Meet conferencing.
  */
 export function buildGoogleCalendarUrl(data: OnlineBookingData): string {
   const cleanDate = (data.date || new Date().toISOString().split("T")[0]).replace(/-/g, "");

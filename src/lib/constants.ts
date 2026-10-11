@@ -17,7 +17,7 @@ export const CLINIC_INFO = {
   address:
     "A2-104, 1st Floor, Prabhakar CHS Society, Shanti Nagar, Sec. 4, Mira Road (E), Mira Bhayandar, Maharashtra 401107, India",
   phone: "+91 96995 81541",
-  email: "ramatrichology@gmail.com",
+  email: "ramatrichologyclinic@gmail.com",
   whatsappNumber: "919699581541",
   whatsappUrl: "https://wa.me/919699581541",
   stats: {

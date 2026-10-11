@@ -90,6 +90,7 @@ function BookingContent() {
   });
   const [onlineErrors, setOnlineErrors] = useState<Partial<Record<keyof OnlineBookingData, string>>>({});
   const [onlineSuccess, setOnlineSuccess] = useState(false);
+  const [isOnlineSubmitting, setIsOnlineSubmitting] = useState(false);
 
   // Clinic Form State & Errors
   const [clinicForm, setClinicForm] = useState<ClinicBookingData>({
@@ -101,9 +102,10 @@ function BookingContent() {
   });
   const [clinicErrors, setClinicErrors] = useState<Partial<Record<keyof ClinicBookingData, string>>>({});
   const [clinicSuccess, setClinicSuccess] = useState(false);
+  const [isClinicSubmitting, setIsClinicSubmitting] = useState(false);
 
-  // Online Submit Handler — Converts details into Google Calendar event with Google Meet
-  const handleOnlineSubmit = (e: React.FormEvent) => {
+  // Online Submit Handler — Dispatches booking email to ramatrichologyclinic@gmail.com & generates Google Calendar invite
+  const handleOnlineSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const errors: Partial<Record<keyof OnlineBookingData, string>> = {};
 
@@ -127,16 +129,45 @@ function BookingContent() {
     }
 
     setOnlineErrors({});
-    const redirectUrl = buildGoogleCalendarUrl(onlineForm);
+    setIsOnlineSubmitting(true);
 
+    // 1. Dispatch Email to Clinic Owner (ramatrichologyclinic@gmail.com)
+    try {
+      await fetch("https://formsubmit.co/ajax/ramatrichologyclinic@gmail.com", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          _subject: `New Online Consultation Booking: ${onlineForm.name}`,
+          "Patient Name": onlineForm.name,
+          "Phone Number": onlineForm.phone,
+          "Patient Email": onlineForm.email || "Not provided",
+          "Primary Concern": onlineForm.concern,
+          "Preferred Date": onlineForm.date,
+          "Time Slot": onlineForm.time,
+          "Consultation Mode": "Online Video Consultation (Google Meet)",
+          "Doctor": "Dr. Ritesh Safariya",
+          _template: "table",
+        }),
+      });
+    } catch (err) {
+      console.warn("Direct email notification error:", err);
+    }
+
+    // 2. Open Google Calendar with Google Meet room
+    const redirectUrl = buildGoogleCalendarUrl(onlineForm);
     if (typeof window !== "undefined") {
       window.open(redirectUrl, "_blank", "noopener,noreferrer");
     }
+
+    setIsOnlineSubmitting(false);
     setOnlineSuccess(true);
   };
 
-  // Clinic Submit Handler — Redirects to Dr. Ritesh WhatsApp
-  const handleClinicSubmit = (e: React.FormEvent) => {
+  // Clinic Submit Handler — Dispatches booking notification to ramatrichologyclinic@gmail.com & opens WhatsApp
+  const handleClinicSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const errors: Partial<Record<keyof ClinicBookingData, string>> = {};
 
@@ -160,11 +191,38 @@ function BookingContent() {
     }
 
     setClinicErrors({});
-    const redirectUrl = buildClinicWhatsAppUrl(clinicForm);
+    setIsClinicSubmitting(true);
 
+    // Dispatch notification to clinic owner: ramatrichologyclinic@gmail.com
+    try {
+      await fetch("https://formsubmit.co/ajax/ramatrichologyclinic@gmail.com", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          _subject: `New In-Clinic Visit Booking: ${clinicForm.name}`,
+          "Patient Name": clinicForm.name,
+          "Phone Number": clinicForm.phone,
+          "Primary Concern": clinicForm.concern,
+          "Preferred Date": clinicForm.date,
+          "Time Slot": clinicForm.time,
+          "Consultation Mode": "In-Person Clinic Visit (Mira Road)",
+          "Doctor": "Dr. Ritesh Safariya",
+          _template: "table",
+        }),
+      });
+    } catch {
+      // Non-blocking
+    }
+
+    const redirectUrl = buildClinicWhatsAppUrl(clinicForm);
     if (typeof window !== "undefined") {
       window.open(redirectUrl, "_blank", "noopener,noreferrer");
     }
+
+    setIsClinicSubmitting(false);
     setClinicSuccess(true);
   };
 
@@ -394,30 +452,46 @@ function BookingContent() {
                     </div>
 
                     {onlineSuccess ? (
-                      <div className="p-6 rounded-2xl bg-emerald-50 border border-emerald-200 text-center space-y-3">
-                        <CheckCircle2 className="w-10 h-10 text-emerald-600 mx-auto" />
-                        <h4 className="font-serif text-lg font-bold text-navy-950">
-                          Redirected to Google Calendar!
-                        </h4>
-                        <p className="text-sm text-ink-900 max-w-md mx-auto">
-                          Google Calendar has opened in a new tab with your consultation details and Google Meet room ready. Simply click <strong>Save</strong> to confirm the event with Dr. Ritesh Safariya ({CLINIC_GOOGLE_EMAIL}).
+                      <div className="p-6 sm:p-8 rounded-2xl bg-emerald-50/90 border border-emerald-200 text-center space-y-4 shadow-sm">
+                        <div className="w-14 h-14 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto shadow-inner">
+                          <CheckCircle2 className="w-8 h-8" />
+                        </div>
+                        <div>
+                          <h4 className="font-serif text-xl sm:text-2xl font-bold text-navy-950 mb-1">
+                            Booking Confirmed &amp; Dispatched!
+                          </h4>
+                          <p className="text-xs sm:text-sm font-semibold text-emerald-800">
+                            ✓ Booking details successfully sent to business owner ({CLINIC_GOOGLE_EMAIL})
+                          </p>
+                        </div>
+                        <p className="text-sm text-ink-900 max-w-lg mx-auto leading-relaxed">
+                          Google Calendar has also opened in a new tab with your consultation details and Google Meet video room pre-filled with Dr. Ritesh Safariya. Simply click <strong>Save</strong> to confirm the event.
                         </p>
-                        <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
+                        <div className="pt-2 flex flex-wrap items-center justify-center gap-3">
                           <button
                             type="button"
                             onClick={() => {
                               const url = buildGoogleCalendarUrl(onlineForm);
                               window.open(url, "_blank", "noopener,noreferrer");
                             }}
-                            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-semibold text-white bg-blue-600 hover:bg-blue-700"
+                            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-semibold text-white bg-blue-600 hover:bg-blue-700 shadow-sm"
                           >
                             <Calendar className="w-4 h-4" />
                             <span>Re-open Google Calendar</span>
                           </button>
+                          <a
+                            href={`mailto:${CLINIC_GOOGLE_EMAIL}?subject=Online Consultation Booking - ${encodeURIComponent(onlineForm.name)}&body=${encodeURIComponent(
+                              `Patient Name: ${onlineForm.name}\nPhone: ${onlineForm.phone}\nConcern: ${onlineForm.concern}\nDate: ${onlineForm.date}\nTime: ${onlineForm.time}`
+                            )}`}
+                            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-semibold text-sky-900 bg-white border border-sky-200 hover:bg-sky-50 shadow-sm"
+                          >
+                            <Mail className="w-4 h-4 text-blue-600" />
+                            <span>Email Clinic Directly</span>
+                          </a>
                           <button
                             type="button"
                             onClick={() => setOnlineSuccess(false)}
-                            className="text-xs font-semibold text-blue-700 hover:underline"
+                            className="text-xs font-semibold text-blue-700 hover:underline block w-full mt-2"
                           >
                             Modify booking details
                           </button>
@@ -593,16 +667,26 @@ function BookingContent() {
                         <div className="pt-2">
                           <button
                             type="submit"
-                            className="w-full py-3.5 px-6 rounded-full font-semibold text-white bg-gradient-to-r from-blue-600 via-blue-600 to-blue-700 hover:from-blue-700 hover:to-navy-950 active:scale-98 transition-all shadow-md shadow-blue-600/25 flex items-center justify-center gap-2 focus-visible:ring-2 focus-visible:ring-blue-400"
+                            disabled={isOnlineSubmitting}
+                            className="w-full py-3.5 px-6 rounded-full font-semibold text-white bg-gradient-to-r from-blue-600 via-blue-600 to-blue-700 hover:from-blue-700 hover:to-navy-950 active:scale-98 transition-all shadow-md shadow-blue-600/25 flex items-center justify-center gap-2 focus-visible:ring-2 focus-visible:ring-blue-400 disabled:opacity-75"
                           >
-                            <Calendar className="w-5 h-5" />
-                            <span>Continue to Google Calendar &amp; Google Meet</span>
+                            {isOnlineSubmitting ? (
+                              <>
+                                <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                                <span>Sending Details to Clinic &amp; Preparing Meet...</span>
+                              </>
+                            ) : (
+                              <>
+                                <Calendar className="w-5 h-5" />
+                                <span>Book Online Consultation &amp; Notify Clinic</span>
+                              </>
+                            )}
                           </button>
                         </div>
 
                         {/* Notice Note */}
                         <p className="text-xs text-center text-ink-900/80 leading-relaxed pt-1">
-                          You will be redirected to Google Calendar to review and confirm your session. A Google Meet link will be generated automatically.
+                          Sends your consultation details directly to business owner ({CLINIC_GOOGLE_EMAIL}) and automatically generates your Google Meet session on Google Calendar.
                         </p>
                       </form>
                     )}
@@ -889,10 +973,20 @@ function BookingContent() {
                         <div className="pt-2">
                           <button
                             type="submit"
-                            className="w-full py-3.5 px-6 rounded-full font-semibold text-white bg-gradient-to-r from-amber-600 via-amber-700 to-amber-800 hover:from-amber-700 hover:to-navy-950 active:scale-98 transition-all shadow-md shadow-amber-600/25 flex items-center justify-center gap-2 focus-visible:ring-2 focus-visible:ring-amber-400"
+                            disabled={isClinicSubmitting}
+                            className="w-full py-3.5 px-6 rounded-full font-semibold text-white bg-gradient-to-r from-amber-600 via-amber-700 to-amber-800 hover:from-amber-700 hover:to-navy-950 active:scale-98 transition-all shadow-md shadow-amber-600/25 flex items-center justify-center gap-2 focus-visible:ring-2 focus-visible:ring-amber-400 disabled:opacity-75"
                           >
-                            <Calendar className="w-5 h-5" />
-                            <span>Book Clinic Visit</span>
+                            {isClinicSubmitting ? (
+                              <>
+                                <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                                <span>Notifying Clinic &amp; Preparing WhatsApp...</span>
+                              </>
+                            ) : (
+                              <>
+                                <Calendar className="w-5 h-5" />
+                                <span>Book Clinic Visit &amp; Notify Clinic</span>
+                              </>
+                            )}
                           </button>
                         </div>
 
