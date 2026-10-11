@@ -67,26 +67,20 @@ export default function AboutPage() {
                     className="object-cover object-center w-full h-full"
                   />
 
-                  {/* Doctor's Team Card attached at bottom right */}
-                  <div className="absolute bottom-3 right-3 sm:bottom-5 sm:right-5 z-20 bg-white/95 backdrop-blur-md rounded-2xl p-2 sm:p-3 border-2 border-white shadow-2xl flex items-center gap-2.5 sm:gap-3.5 max-w-[240px] sm:max-w-[320px]">
-                    <div className="relative w-16 h-12 sm:w-24 sm:h-18 rounded-xl overflow-hidden flex-shrink-0 border border-sky-100 shadow-sm bg-slate-100">
+                  {/* Doctor's Clinical Team Frame attached at bottom right */}
+                  <div className="absolute bottom-3 right-3 sm:bottom-5 sm:right-5 z-20 bg-white rounded-xl sm:rounded-2xl p-[5px] sm:p-[6px] shadow-2xl max-w-[210px] sm:max-w-[280px]">
+                    <div className="relative aspect-[4/3] w-full rounded-lg sm:rounded-xl overflow-hidden bg-slate-100">
                       <Image
                         src="/images/clinical-team.jpg"
-                        alt="Dr. Ritesh Safariya with the Clinical Team"
-                        width={240}
-                        height={180}
-                        className="object-cover w-full h-full"
+                        alt="Clinical Team of Rama Hair Clinic"
+                        width={400}
+                        height={300}
+                        className="w-full h-full object-cover"
                       />
                     </div>
-                    <div className="text-left">
-                      <span className="text-[10px] sm:text-xs font-bold text-[#007baa] uppercase tracking-wider block font-mono">
-                        Clinical Team
-                      </span>
-                      <span className="text-xs sm:text-sm font-bold text-navy-950 block leading-tight">
-                        Support &amp; Surgical Specialists
-                      </span>
-                      <span className="text-[10px] sm:text-[11px] text-slate-600 hidden sm:block leading-tight mt-0.5">
-                        In-Clinic Medical Team
+                    <div className="pt-2 pb-1 text-center px-1">
+                      <span className="text-[11px] sm:text-xs font-semibold text-navy-950 block leading-tight">
+                        Clinical Team of Rama Hair Clinic
                       </span>
                     </div>
                   </div>
