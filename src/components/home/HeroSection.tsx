@@ -109,7 +109,7 @@ export default function HeroSection() {
                     <span className="font-semibold text-navy-950">
                       Dr. Ritesh Safariya
                     </span>{" "}
-                    (<span className="font-medium text-[#007baa]">MBBS, MD — Dermatology</span>)
+                    (<span className="font-medium text-[#007baa]">MBBS, Diploma – Dermatology, Diploma – Trichology</span>)
                     using advanced digital trichoscopic diagnostics.
                   </p>
                 </div>
@@ -210,9 +210,9 @@ export default function HeroSection() {
                 <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3.5 pt-2">
                   <Link
                     href="/contact#book"
-                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full font-semibold text-white bg-[#007baa] hover:bg-[#006992] active:scale-95 transition-all shadow-md shadow-[#007baa]/25 focus-visible:ring-2 focus-visible:ring-[#007baa] text-sm sm:text-base whitespace-nowrap"
+                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-3.5 sm:py-4 rounded-full font-bold text-white bg-[#007baa] hover:bg-[#006992] active:scale-95 transition-all shadow-md shadow-[#007baa]/25 focus-visible:ring-2 focus-visible:ring-[#007baa] text-base sm:text-lg whitespace-nowrap"
                   >
-                    <Calendar className="w-4 h-4 text-white" />
+                    <Calendar className="w-5 h-5 text-white" />
                     <span>Book Consultation</span>
                   </Link>
 
@@ -220,9 +220,9 @@ export default function HeroSection() {
                     href={CLINIC_INFO.whatsappUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full font-semibold text-sky-900 bg-white border border-sky-200 hover:bg-sky-50 active:scale-95 transition-all shadow-xs focus-visible:ring-2 focus-visible:ring-[#007baa] text-sm sm:text-base whitespace-nowrap"
+                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 sm:py-4 rounded-full font-semibold text-sky-900 bg-white border border-sky-200 hover:bg-sky-50 active:scale-95 transition-all shadow-xs focus-visible:ring-2 focus-visible:ring-[#007baa] text-base whitespace-nowrap"
                   >
-                    <MessageCircle className="w-4 h-4 text-[#007baa]" />
+                    <MessageCircle className="w-4.5 h-4.5 text-[#007baa]" />
                     <span>Chat on WhatsApp</span>
                   </a>
 

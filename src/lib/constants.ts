@@ -12,7 +12,7 @@ export const CLINIC_INFO = {
   brandName: "Rama Trichology",
   tagline: "Hair and Scalp Clinic",
   doctorName: "Dr. Ritesh Safariya",
-  credentials: "[MBBS, MD — Dermatology]",
+  credentials: "[MBBS, Diploma – Dermatology, Diploma – Trichology]",
   experience: "15+ Years of Experience",
   address:
     "A2-104, 1st Floor, Prabhakar CHS Society, Shanti Nagar, Sec. 4, Mira Road (E), Mira Bhayandar, Maharashtra 401107, India",

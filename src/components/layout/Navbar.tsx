@@ -340,15 +340,15 @@ export default function Navbar() {
                     setIsBookOpen(false);
                   }
                 }}
-                className="inline-flex items-center justify-center gap-1.5 px-4 py-2 rounded-full text-sm font-semibold whitespace-nowrap text-white bg-[#007baa] hover:bg-[#006992] active:scale-95 transition-all shadow-sm shadow-[#007baa]/20 focus-visible:ring-2 focus-visible:ring-[#007baa]"
+                className="inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-2.5 rounded-full text-[15px] sm:text-base font-bold whitespace-nowrap text-white bg-[#007baa] hover:bg-[#006992] active:scale-95 transition-all shadow-sm shadow-[#007baa]/20 focus-visible:ring-2 focus-visible:ring-[#007baa]"
                 aria-haspopup="true"
                 aria-expanded={isBookOpen}
                 aria-label="Book Consultation options"
               >
-                <Calendar className="w-4 h-4 text-white" />
+                <Calendar className="w-4.5 h-4.5 text-white" />
                 <span>Book Consultation</span>
                 <ChevronDown
-                  className={`w-3.5 h-3.5 transition-transform duration-200 ${
+                  className={`w-4 h-4 transition-transform duration-200 ${
                     isBookOpen ? "transform rotate-180" : ""
                   }`}
                 />

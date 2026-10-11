@@ -18,19 +18,19 @@ import { AnimatedSection } from "@/components/common/AnimatedSection";
 const MAGNIFIED_SLIDES = [
   {
     src: "/images/magnified-hair-shaft.jpg",
-    alt: "Scanning electron micrograph of human hair shaft emerging from scalp pore",
-    tag: "500x ELECTRON MICROSCOPY",
-    title: "Follicular Ostium & Cuticle Architecture",
+    alt: "Clinical micro-examination of human scalp and hair follicles under polarized light",
+    tag: "POLARIZED SCALP TRICHOSCOPY",
+    title: "Follicular Density & Scalp Ostia Scan",
     description:
-      "High-magnification visualization of hair shaft emergence, inspecting keratin scale integrity and pore blockage.",
+      "Direct polarized clinical magnification visualizing follicle cluster density, terminal hair caliber, and scalp surface vascularity.",
   },
   {
     src: "/images/magnified-follicle-cross-section.jpg",
-    alt: "Polarized histology cross section of active human hair follicle",
-    tag: "POLARIZED MICRO-HISTOLOGY",
-    title: "Active Follicle Stem Cell Matrix",
+    alt: "High-magnification analysis of hair shafts under incident toplight microscopy",
+    tag: "MICRO-ANALYSIS OF HAIR SHAFTS",
+    title: "Hair Shaft Caliber & Cuticle Integrity",
     description:
-      "Microscopic dermal sheath inspection identifying regenerative stem cell activity and follicle miniaturization levels.",
+      "Incident toplight microscopy analyzing individual hair shaft diameters, cuticle patterns, and structural fiber integrity.",
   },
   {
     src: "/images/magnified-trichoscopy-screen.jpg",
@@ -148,9 +148,9 @@ export default function TrichoscopySlideshowSection() {
               <div className="pt-3 flex flex-wrap items-center justify-center lg:justify-start gap-3.5">
                 <Link
                   href="/contact#book"
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-semibold text-white bg-[#007baa] hover:bg-[#006992] active:scale-95 transition-all shadow-md shadow-[#007baa]/30 focus-visible:ring-2 focus-visible:ring-[#007baa] text-sm sm:text-base whitespace-nowrap"
+                  className="inline-flex items-center gap-2.5 px-8 py-3.5 sm:py-4 rounded-full font-bold text-white bg-[#007baa] hover:bg-[#006992] active:scale-95 transition-all shadow-md shadow-[#007baa]/30 focus-visible:ring-2 focus-visible:ring-[#007baa] text-base sm:text-lg whitespace-nowrap"
                 >
-                  <Calendar className="w-4 h-4 text-white" />
+                  <Calendar className="w-5 h-5 text-white" />
                   <span>Book Consultation</span>
                 </Link>
 

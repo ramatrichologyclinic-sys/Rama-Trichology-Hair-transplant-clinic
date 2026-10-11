@@ -1,6 +1,6 @@
 "use client";
 
-import { Search, Activity, HeartHandshake } from "lucide-react";
+import Image from "next/image";
 import {
   AnimatedSection,
   StaggerContainer,
@@ -16,19 +16,19 @@ export default function HowWeDiagnose({ variant = "sapphire" }: HowWeDiagnosePro
   const steps = [
     {
       step: "01",
-      icon: Search,
+      image: "/images/diagnose-scalp-scan.jpg",
       title: "Comprehensive Scalp & Follicle Scan",
       desc: "We begin with high-magnification polarized digital trichoscopy, inspecting follicle density, diameter diversity, sebum buildup, and micro-vascular inflammation across the crown, temples, and donor areas.",
     },
     {
       step: "02",
-      icon: Activity,
+      image: "/images/diagnose-pathology-lab.jpg",
       title: "Root-Cause Pathology Identification",
       desc: "We cross-examine microscopic findings against your medical history, hormonal markers, and nutritional profiles to differentiate between androgenetic thinning, telogen effluvium, or autoimmune scalp conditions.",
     },
     {
       step: "03",
-      icon: HeartHandshake,
+      image: "/images/diagnose-personalized-protocol.jpg",
       title: "Personalized Protocol & Digital Tracking",
       desc: "You receive an exact medical prescription combining evidence-backed pharmaceuticals, clinical scalp therapies, and nutritional optimization, supported by scheduled quarterly photographic check-ins.",
     },
@@ -80,25 +80,37 @@ export default function HowWeDiagnose({ variant = "sapphire" }: HowWeDiagnosePro
           </p>
         </AnimatedSection>
 
-        {/* Steps Container */}
+        {/* Steps Container: Single row on desktop (lg:grid-cols-3), 1 card at a time on mobile and tablet (grid-cols-1) */}
         <div className="relative">
-          <StaggerContainer className="grid grid-cols-1 lg:grid-cols-3 gap-5 sm:gap-6 lg:gap-8 relative z-10 items-stretch">
-            {steps.map((item, idx) => {
-              const Icon = item.icon;
-              return (
-                <StaggerItem key={idx} className="h-full">
-                  <div className="group h-full bg-white rounded-3xl p-6 sm:p-7 lg:p-9 min-h-[340px] border border-white/90 shadow-[0_20px_50px_rgba(0,0,0,0.32)] hover:shadow-[0_25px_60px_rgba(0,0,0,0.42)] hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
-                    <div>
-                      <div className="flex items-center justify-between mb-4 lg:mb-6">
-                        <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-gradient-to-br from-sky-400 to-blue-600 flex items-center justify-center text-white shadow-md shadow-blue-500/20 group-hover:shadow-[0_0_25px_rgba(56,189,248,0.9),0_0_40px_rgba(37,99,235,0.5)] group-hover:scale-110 transition-all duration-300">
-                          <Icon className="w-7 h-7 sm:w-8 sm:h-8" />
-                        </div>
-                        <span className="font-serif text-2xl sm:text-3xl font-bold text-sky-600">
-                          {item.step}
-                        </span>
-                      </div>
+          <StaggerContainer className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-7 lg:gap-8 relative z-10 items-stretch">
+            {steps.map((item, idx) => (
+              <StaggerItem key={idx} className="h-full">
+                <div className="group h-full bg-white rounded-3xl overflow-hidden border border-white/90 shadow-[0_20px_50px_rgba(0,0,0,0.32)] hover:shadow-[0_25px_60px_rgba(0,0,0,0.42)] hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between">
+                  {/* Fitted Image Header */}
+                  <div className="relative w-full aspect-[16/10] overflow-hidden bg-slate-100">
+                    <Image
+                      src={item.image}
+                      alt={item.title}
+                      width={800}
+                      height={500}
+                      className="object-cover object-center w-full h-full group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent pointer-events-none" />
+                    
+                    {/* Phase Badge */}
+                    <div className="absolute top-3.5 left-3.5 px-3 py-1 rounded-full bg-navy-950/85 backdrop-blur-md text-white border border-white/20 text-xs font-bold tracking-wider font-mono">
+                      Phase {item.step}
+                    </div>
+                  </div>
 
-                      <h3 className="font-serif text-lg sm:text-xl lg:text-2xl font-bold text-navy-950 mb-2 sm:mb-2.5 lg:mb-3">
+                  {/* Card Content */}
+                  <div className="p-6 sm:p-7 flex flex-col justify-between flex-1">
+                    <div>
+                      <span className="text-xs font-bold uppercase tracking-wider text-[#007baa] mb-2 block font-mono">
+                        Clinical Step {item.step}
+                      </span>
+
+                      <h3 className="font-serif text-xl sm:text-2xl font-bold text-navy-950 mb-3 group-hover:text-[#007baa] transition-colors leading-snug">
                         {item.title}
                       </h3>
 
@@ -107,13 +119,14 @@ export default function HowWeDiagnose({ variant = "sapphire" }: HowWeDiagnosePro
                       </p>
                     </div>
 
-                    <div className="mt-5 sm:mt-6 lg:mt-8 pt-3 sm:pt-4 border-t border-sky-100 flex items-center gap-2 text-xs font-semibold text-blue-700">
-                      <span>Phase {item.step} Protocol</span>
+                    <div className="mt-5 pt-3.5 border-t border-sky-100 flex items-center justify-between text-xs font-semibold text-[#007baa]">
+                      <span>Evidence-Based Diagnostics</span>
+                      <span className="font-mono text-slate-400">0{idx + 1}/03</span>
                     </div>
                   </div>
-                </StaggerItem>
-              );
-            })}
+                </div>
+              </StaggerItem>
+            ))}
           </StaggerContainer>
         </div>
       </div>

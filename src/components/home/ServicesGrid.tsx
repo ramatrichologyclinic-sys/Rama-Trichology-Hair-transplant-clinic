@@ -102,7 +102,7 @@ export default function ServicesGrid() {
                 <div
                   onMouseEnter={() => setHoveredCard(idx)}
                   onMouseLeave={() => setHoveredCard(null)}
-                  className={`service-card-wrapper relative h-full rounded-3xl p-7 sm:p-8 min-h-[310px] border transition-all duration-300 flex flex-col justify-between group overflow-hidden ${
+                  className={`service-card-wrapper relative h-full rounded-3xl p-6 sm:p-7 pb-4 sm:pb-5 min-h-[220px] sm:min-h-[235px] border transition-all duration-300 flex flex-col justify-between group overflow-hidden ${
                     isHovered
                       ? "border-[#007baa] -translate-y-2 scale-[1.02] shadow-[0_20px_45px_rgba(0,123,170,0.22)] ring-2 ring-[#007baa] bg-white opacity-100 z-30"
                       : isOtherDimmed
@@ -111,24 +111,24 @@ export default function ServicesGrid() {
                   }`}
                 >
                   {/* Card Content: Text, icons, and buttons remain 100% opaque and fully readable */}
-                  <div className="relative z-10 flex flex-col justify-between h-full">
+                  <div className="relative z-10 flex flex-col h-full">
                     <div>
                       {/* Top Bar: Icon on Left, Explore Link on Top Right */}
-                      <div className="flex items-start justify-between gap-4 mb-5">
+                      <div className="flex items-start justify-between gap-4 mb-4">
                         <div
-                          className={`w-[58px] h-[58px] sm:w-[64px] sm:h-[64px] rounded-2xl bg-gradient-to-br from-sky-400 to-[#007baa] text-white flex items-center justify-center transition-all duration-300 ${
+                          className={`w-[54px] h-[54px] sm:w-[60px] sm:h-[60px] rounded-2xl bg-gradient-to-br from-sky-400 to-[#007baa] text-white flex items-center justify-center transition-all duration-300 ${
                             isHovered
                               ? "scale-105 shadow-[0_0_20px_rgba(0,123,170,0.4)]"
                               : "shadow-md shadow-blue-500/20 group-hover:scale-105"
                           }`}
                         >
-                          <Icon className="w-7 h-7 sm:w-8 sm:h-8" />
+                          <Icon className="w-6 h-6 sm:w-7 sm:h-7" />
                         </div>
 
                         {/* Explore link positioned top right opposite the icon */}
                         <Link
                           href={`/services/${service.slug}`}
-                          className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-semibold text-[#007baa] bg-sky-50/90 hover:bg-[#007baa] hover:text-white border border-sky-200/70 shadow-xs transition-all duration-200 group/btn"
+                          className="inline-flex items-center gap-1.5 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full text-xs sm:text-sm font-semibold text-[#007baa] bg-sky-50/90 hover:bg-[#007baa] hover:text-white border border-sky-200/70 shadow-xs transition-all duration-200 group/btn"
                           aria-label={`Explore ${service.title} details`}
                         >
                           <span>Explore</span>
@@ -137,10 +137,10 @@ export default function ServicesGrid() {
                       </div>
 
                       {/* Content */}
-                      <h3 className="font-serif text-xl sm:text-2xl font-bold text-navy-950 mb-2.5 group-hover:text-[#007baa] transition-colors">
+                      <h3 className="font-serif text-lg sm:text-xl lg:text-[22px] font-bold text-navy-950 mb-2 group-hover:text-[#007baa] transition-colors leading-snug">
                         {service.title}
                       </h3>
-                      <p className="text-sm text-ink-900 leading-relaxed font-normal">
+                      <p className="text-xs sm:text-sm text-slate-700 leading-relaxed font-normal">
                         {service.shortDesc}
                       </p>
                     </div>
