@@ -782,7 +782,7 @@ function BookingContent() {
                           [Clinic Photo Placeholder]
                         </span>
                         <p className="text-[11px] text-stone-600 mt-1 max-w-xs">
-                          Rama Trichology Hair and Scalp Clinic · Mira Road East
+                          Rama Hair Clinic – Trichology Center · Mira Road East
                         </p>
                       </div>
                     </div>
@@ -821,7 +821,7 @@ function BookingContent() {
                     <div className="relative rounded-2xl overflow-hidden border border-gray-200 aspect-[16/9] shadow-inner bg-gray-50">
                       {/* Embedded Google Map iframe */}
                       <iframe
-                        title="Rama Trichology Clinic Location on Google Maps"
+                        title="Rama Hair Clinic – Trichology Center Location on Google Maps"
                         src="https://maps.google.com/maps?q=A2-104%2C%201st%20Floor%2C%20Prabhakar%20CHS%20Society%2C%20Shanti%20Nagar%2C%20Sec.4%2C%20Mira%20Road%20(E)%2C%20Mira%20Bhayandar%2C%20Maharashtra%20401107&t=&z=15&ie=UTF8&iwloc=&output=embed"
                         className="w-full h-full border-0"
                         loading="lazy"

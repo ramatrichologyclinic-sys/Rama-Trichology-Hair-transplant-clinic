@@ -11,11 +11,11 @@ export const metadata: Metadata = {
 };
 
 const SERVICE_ALT_TEXTS: Record<string, string> = {
-  "hair-fall": "Hair fall treatment at Rama Trichology",
-  "hair-scalp-diseases": "Trichoscopic examination and medical therapy for hair and scalp diseases at Rama Trichology",
-  "hair-transplant": "Advanced follicular unit hair transplant procedure at Rama Trichology",
-  "hair-camouflage": "Medical grade scalp micropigmentation equipment and hairline camouflage at Rama Trichology",
-  "wigs-extensions": "Custom-fitted medical hair system fitment and styling at Rama Trichology",
+  "hair-fall": "Hair fall treatment at Rama Hair Clinic",
+  "hair-scalp-diseases": "Trichoscopic examination and medical therapy for hair and scalp diseases at Rama Hair Clinic",
+  "hair-transplant": "Advanced follicular unit hair transplant procedure at Rama Hair Clinic",
+  "hair-camouflage": "Medical grade scalp micropigmentation equipment and hairline camouflage at Rama Hair Clinic",
+  "wigs-extensions": "Custom-fitted medical hair system fitment and styling at Rama Hair Clinic",
 };
 
 export default function ServicesPage() {
@@ -64,7 +64,7 @@ export default function ServicesPage() {
                               src={service.placeholderImage}
                               alt={
                                 SERVICE_ALT_TEXTS[service.slug] ||
-                                `${service.title} at Rama Trichology`
+                                `${service.title} at Rama Hair Clinic`
                               }
                               width={900}
                               height={620}

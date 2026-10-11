@@ -1,6 +1,6 @@
 /**
  * Shared Consultation Booking Utilities
- * Rama Trichology Hair & Scalp Clinic
+ * Rama Hair Clinic – Trichology Center
  */
 
 export type ConsultationMode = "online" | "clinic";
@@ -89,7 +89,7 @@ export function buildGoogleCalendarUrl(
   const title = `Online Video Consultation - ${data.name} | Dr. Ritesh Safariya`;
 
   const detailsLines = [
-    "🩺 RAMA TRICHOLOGY CLINICAL CONSULTATION",
+    "🩺 Rama Hair Clinic – Trichology CenterAL CONSULTATION",
     "========================================",
     `Patient Name: ${data.name}`,
     `Phone: ${data.phone}`,

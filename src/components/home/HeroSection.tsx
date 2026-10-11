@@ -128,7 +128,7 @@ export default function HeroSection() {
                   <span className="font-semibold text-navy-950">
                     Dr. Ritesh Safariya
                   </span>{" "}
-                  founded Rama Trichology to bridge the gap between commercial hair
+                  founded Rama Hair Clinic to bridge the gap between commercial hair
                   salons and hospital-grade clinical science.
                 </p>
 

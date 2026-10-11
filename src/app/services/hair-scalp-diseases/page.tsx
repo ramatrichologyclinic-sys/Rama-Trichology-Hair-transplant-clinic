@@ -73,7 +73,7 @@ export default function ScalpDiseasesPage() {
                 <div className="relative aspect-[16/11] rounded-2xl overflow-hidden shadow-xl border-4 sm:border-6 border-white bg-white">
                   <Image
                     src={service.placeholderImage}
-                    alt="Trichoscopic scalp examination and medical therapy at Rama Trichology"
+                    alt="Trichoscopic scalp examination and medical therapy at Rama Hair Clinic"
                     width={900}
                     height={620}
                     loading="lazy"

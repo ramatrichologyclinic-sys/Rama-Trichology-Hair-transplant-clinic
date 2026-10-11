@@ -77,7 +77,7 @@ export default function MeetTheDoctor() {
               <div className="relative aspect-[16/10] sm:aspect-[1.62/1] rounded-3xl overflow-hidden shadow-[0_24px_55px_rgba(0,0,0,0.38)] border-4 sm:border-8 border-white/95 bg-white">
                 <Image
                   src="/images/doctor-photo.jpg"
-                  alt="Dr. Ritesh Safariya - Lead Consultant & Trichologist at Rama Trichology Clinic"
+                  alt="Dr. Ritesh Safariya - Lead Consultant & Trichologist at Rama Hair Clinic – Trichology Center"
                   width={1100}
                   height={680}
                   priority
@@ -151,7 +151,7 @@ export default function MeetTheDoctor() {
                 <span className="font-semibold text-white">
                   {CLINIC_INFO.doctorName}
                 </span>{" "}
-                founded Rama Trichology to bridge the gap between commercial hair
+                founded Rama Hair Clinic to bridge the gap between commercial hair
                 salons and hospital-grade clinical science.
               </p>
             </AnimatedSection>

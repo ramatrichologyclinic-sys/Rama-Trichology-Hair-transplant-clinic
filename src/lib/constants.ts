@@ -9,8 +9,9 @@ export interface ServiceItem {
 }
 
 export const CLINIC_INFO = {
-  brandName: "Rama Trichology",
-  tagline: "Hair and Scalp Clinic",
+  brandName: "Rama Hair Clinic",
+  tagline: "Trichology Center",
+  fullName: "Rama Hair Clinic – Trichology Center",
   doctorName: "Dr. Ritesh Safariya",
   credentials: "[MBBS, Diploma – Dermatology, Diploma – Trichology]",
   experience: "15+ Years of Experience",
@@ -222,7 +223,7 @@ export const HOME_FAQS = [
   {
     question: "What is the difference between a Trichologist and a General Dermatologist?",
     answer:
-      "While general dermatologists manage conditions of the entire skin organ, a trichologist focuses specifically on the scientific pathology of hair follicles, scalp health, and biochemical causes of thinning. At Rama Trichology, clinical care combines medical dermatology with specialized follicular trichoscopy for focused, root-cause results.",
+      "While general dermatologists manage conditions of the entire skin organ, a trichologist focuses specifically on the scientific pathology of hair follicles, scalp health, and biochemical causes of thinning. At Rama Hair Clinic, clinical care combines medical dermatology with specialized follicular trichoscopy for focused, root-cause results.",
   },
   {
     question: "How soon can I expect to see visible results from hair loss treatments?",
@@ -240,7 +241,7 @@ export const HOME_FAQS = [
       "Yes, the vast majority of our patients are treated successfully through non-surgical protocols, including targeted pharmacological regimens, nutritional rebalancing, customized scalp infusions, and scalp micropigmentation camouflage.",
   },
   {
-    question: "How do I prepare for my first appointment at Rama Trichology?",
+    question: "How do I prepare for my first appointment at Rama Hair Clinic?",
     answer:
       "Please arrive with clean, dry hair. Refrain from applying hair styling gels, concealers, or fibers on the morning of your visit so our trichoscopic imaging can evaluate your scalp in its natural state. Bringing any recent blood test reports (within the last 6 months) is also helpful.",
   },

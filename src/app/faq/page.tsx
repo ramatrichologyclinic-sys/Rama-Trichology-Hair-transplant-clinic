@@ -9,7 +9,7 @@ import { AnimatedSection } from "@/components/common/AnimatedSection";
 
 const DETAILED_FAQS = [
   {
-    q: "What happens during my initial consultation at Rama Trichology?",
+    q: "What happens during my initial consultation at Rama Hair Clinic?",
     a: "Your initial visit includes an unhurried, private 45-minute clinical evaluation directly with Dr. Ritesh Safariya. We take a detailed medical, genetic, and lifestyle history, perform a physical scalp inspection, and conduct polarized digital trichoscopy at up to 200x magnification. We show you the live scans on-screen so you understand the exact health of your follicles before any regimen is formulated.",
   },
   {

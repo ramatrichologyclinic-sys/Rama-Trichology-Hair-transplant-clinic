@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     "alopecia treatment",
     "hair transplant",
     "scalp micropigmentation",
-    "Rama Trichology",
+    "Rama Hair Clinic",
   ],
   authors: [{ name: `${CLINIC_INFO.brandName}` }],
   creator: `${CLINIC_INFO.brandName}`,

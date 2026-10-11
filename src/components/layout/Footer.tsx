@@ -144,7 +144,7 @@ export default function Footer() {
             <div className="mt-4 pt-3 border-t border-white/10">
               <div className="relative rounded-xl overflow-hidden border border-white/15 bg-white/5 shadow-inner">
                 <iframe
-                  title="Rama Trichology Clinic Location Map"
+                  title="Rama Hair Clinic – Trichology Center Location Map"
                   src="https://maps.google.com/maps?q=Rama+Trichology+Hair+transplant+clinic+Mira+Road+Thane&t=&z=14&ie=UTF8&iwloc=&output=embed"
                   className="w-full h-28 border-0 opacity-85 hover:opacity-100 transition-opacity"
                   loading="lazy"

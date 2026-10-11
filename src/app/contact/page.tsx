@@ -334,7 +334,7 @@ export default function ContactPage() {
                     <span>Clinic Location &amp; Directions</span>
                   </div>
                   <h2 className="font-serif text-2xl sm:text-4xl font-bold text-navy-950">
-                    Find Rama Trichology Clinic
+                    Find Rama Hair Clinic – Trichology Center
                   </h2>
                   <p className="text-sm sm:text-base text-ink-900 mt-1 max-w-2xl">
                     Located in Shanti Nagar, Mira Road (East). Private clinical suites, dedicated parking, and full microscopic diagnostic facilities.
@@ -371,7 +371,7 @@ export default function ContactPage() {
                   allowFullScreen={true}
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  title="Rama Trichology Clinic Location Map — Shanti Nagar, Mira Road (East)"
+                  title="Rama Hair Clinic – Trichology Center Location Map — Shanti Nagar, Mira Road (East)"
                   className="w-full h-full"
                 />
               </div>

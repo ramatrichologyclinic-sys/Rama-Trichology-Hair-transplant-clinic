@@ -24,7 +24,7 @@ export default function AboutPage() {
               Clinical Science, Compassionate Trichology
             </h1>
             <p className="text-base sm:text-lg lg:text-xl text-ink-900 leading-relaxed">
-              Rama Trichology is an independent, doctor-led clinical practice founded to provide rigorous medical diagnosis and genuine root-cause treatments for men, women, and adolescents experiencing hair and scalp distress.
+              Rama Hair Clinic is an independent, doctor-led clinical practice founded to provide rigorous medical diagnosis and genuine root-cause treatments for men, women, and adolescents experiencing hair and scalp distress.
             </p>
           </AnimatedSection>
         </div>
@@ -60,7 +60,7 @@ export default function AboutPage() {
                 <div className="relative aspect-[16/10] sm:aspect-[1.62/1] rounded-3xl overflow-hidden shadow-[0_24px_55px_rgba(0,0,0,0.18)] border-4 sm:border-8 border-white/95 bg-white">
                   <Image
                     src="/images/doctor-photo.jpg"
-                    alt="Dr. Ritesh Safariya - Lead Consultant & Trichologist at Rama Trichology"
+                    alt="Dr. Ritesh Safariya - Lead Consultant & Trichologist at Rama Hair Clinic"
                     width={1200}
                     height={750}
                     priority
@@ -184,7 +184,7 @@ export default function AboutPage() {
                   The commercial hair market is saturated with unproven oils, salon masks, and miracle claims that cause patients to lose critical months of early follicular intervention.
                 </p>
                 <p className="text-sm sm:text-base text-ink-900 leading-relaxed">
-                  At Rama Trichology, we only prescribe treatments validated by peer-reviewed clinical dermatological literature. If a follicle is permanently scarred or miniaturized beyond recovery, we advise honest restorative alternatives rather than taking you through indefinite unhelpful cycles.
+                  At Rama Hair Clinic, we only prescribe treatments validated by peer-reviewed clinical dermatological literature. If a follicle is permanently scarred or miniaturized beyond recovery, we advise honest restorative alternatives rather than taking you through indefinite unhelpful cycles.
                 </p>
               </div>
             </AnimatedSection>

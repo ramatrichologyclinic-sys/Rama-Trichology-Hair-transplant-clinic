@@ -169,6 +169,56 @@ function MetabolismIcon() {
   );
 }
 
+function SystemicDiseasesIcon() {
+  return (
+    <svg viewBox="0 0 80 80" fill="none" className="w-7 h-7 sm:w-9 sm:h-9 text-current">
+      <path
+        d="M40 64S18 48 18 32C18 24 24 18 32 18C36 18 39 20 40 22C41 20 44 18 48 18C56 18 62 24 62 32C62 48 40 64 40 64Z"
+        stroke="currentColor"
+        strokeWidth="3.2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M26 36H33L37 28L43 44L47 36H54"
+        stroke="currentColor"
+        strokeWidth="2.8"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+function MedicationsIcon() {
+  return (
+    <svg viewBox="0 0 80 80" fill="none" className="w-7 h-7 sm:w-9 sm:h-9 text-current">
+      <rect
+        x="24"
+        y="36"
+        width="40"
+        height="18"
+        rx="9"
+        transform="rotate(-45 24 36)"
+        stroke="currentColor"
+        strokeWidth="3.2"
+        strokeLinecap="round"
+      />
+      <line
+        x1="33"
+        y1="40"
+        x2="45"
+        y2="28"
+        stroke="currentColor"
+        strokeWidth="3"
+        strokeLinecap="round"
+      />
+      <circle cx="58" cy="54" r="8" stroke="currentColor" strokeWidth="2.8" />
+      <line x1="53" y1="54" x2="63" y2="54" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" />
+    </svg>
+  );
+}
+
 const ROOT_CAUSES = [
   {
     title: "Nutrition",
@@ -199,6 +249,16 @@ const ROOT_CAUSES = [
     title: "Metabolism",
     desc: "When your body can't absorb nutrients well, hair becomes dry, weak, and brittle.",
     icon: MetabolismIcon,
+  },
+  {
+    title: "Systemic Diseases",
+    desc: "Thyroid imbalances, chronic anemia, or autoimmune disorders directly disrupt follicle cycling.",
+    icon: SystemicDiseasesIcon,
+  },
+  {
+    title: "Few Medications",
+    desc: "Certain prescription drugs, antihypertensives, or hormonal treatments can trigger sudden telogen shedding.",
+    icon: MedicationsIcon,
   },
 ];
 
@@ -239,21 +299,21 @@ export default function WhyHairFallHappens() {
           </p>
         </AnimatedSection>
 
-        {/* 6 Cards: 2 cards in a row on mobile/tablet (3 rows total), 3 cards per row on desktop (2 rows) */}
-        <StaggerContainer className="grid grid-cols-2 lg:grid-cols-3 gap-3.5 sm:gap-5 lg:gap-6 items-stretch">
+        {/* 8 Cards: 4 cards per row on laptop (lg:grid-cols-4), 2 cards per row on mobile/tablet (grid-cols-2) */}
+        <StaggerContainer className="grid grid-cols-2 lg:grid-cols-4 gap-3.5 sm:gap-5 lg:gap-6 items-stretch">
           {ROOT_CAUSES.map((item, idx) => {
             const Icon = item.icon;
             return (
               <StaggerItem key={idx} className="h-full">
-                <div className="group h-full bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-7 border border-sky-100 shadow-[0_4px_20px_rgba(2,132,199,0.06)] hover:shadow-[0_14px_32px_rgba(2,132,199,0.18)] hover:border-sky-300 hover:-translate-y-1 transition-all duration-300 flex flex-col items-center text-center justify-between">
+                <div className="group h-full bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-7 border border-sky-100 shadow-[0_4px_20px_rgba(2,132,199,0.06)] hover:shadow-[0_14px_32px_rgba(2,132,199,0.18)] hover:border-sky-300 hover:-translate-y-1 transition-all duration-300 flex flex-col items-center text-center justify-between">
                   {/* Top Centered Icon with subtle blue styling */}
                   <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl bg-sky-50 text-[#007baa] border border-sky-100/80 flex items-center justify-center mb-3 sm:mb-4 group-hover:scale-105 group-hover:bg-[#007baa] group-hover:text-white transition-all duration-300 shadow-xs">
                     <Icon />
                   </div>
 
-                  {/* Title & Description */}
+                  {/* Title & Description with larger font */}
                   <div className="space-y-1.5 sm:space-y-2.5 max-w-[270px]">
-                    <h3 className="font-serif text-sm sm:text-lg lg:text-xl font-bold text-navy-950 tracking-tight group-hover:text-[#007baa] transition-colors">
+                    <h3 className="font-serif text-base sm:text-xl lg:text-[22px] font-bold text-navy-950 tracking-tight group-hover:text-[#007baa] transition-colors leading-snug">
                       {item.title}
                     </h3>
                     <p className="text-[11px] sm:text-xs lg:text-sm text-slate-600 leading-relaxed font-normal">

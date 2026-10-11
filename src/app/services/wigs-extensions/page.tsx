@@ -72,7 +72,7 @@ export default function WigsExtensionsPage() {
                 <div className="relative aspect-[16/11] rounded-2xl overflow-hidden shadow-xl border-4 sm:border-6 border-white bg-white">
                   <Image
                     src={service.placeholderImage}
-                    alt={`Clinical Solution: ${service.title} at Rama Trichology`}
+                    alt={`Clinical Solution: ${service.title} at Rama Hair Clinic`}
                     width={900}
                     height={620}
                     className="object-cover w-full h-full"

@@ -121,10 +121,6 @@ export default function ResultsPage() {
                       <span className="inline-flex items-center justify-center text-xs font-bold uppercase tracking-wider text-blue-700 bg-white px-3.5 py-1 rounded-full border border-gray-200 shadow-2xs whitespace-nowrap shrink-0">
                         {item.patientToken}
                       </span>
-                      <span className="text-xs font-semibold text-ink-900 flex items-center gap-1.5 shrink-0">
-                        <Sparkles className="w-3.5 h-3.5 text-blue-700 shrink-0" />
-                        <span>{item.timeline}</span>
-                      </span>
                     </div>
 
                     <h3 className="font-serif text-lg sm:text-xl font-bold text-navy-950 mb-4">

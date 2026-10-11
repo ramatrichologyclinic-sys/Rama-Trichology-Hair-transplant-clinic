@@ -72,7 +72,7 @@ export default function HairFallPage() {
                 <div className="relative aspect-[16/11] rounded-2xl overflow-hidden shadow-xl border-4 sm:border-6 border-white bg-white">
                   <Image
                     src="/images/hair-fall-treatment-card.jpg"
-                    alt="Clinical hair fall treatment and follicular science at Rama Trichology"
+                    alt="Clinical hair fall treatment and follicular science at Rama Hair Clinic"
                     width={900}
                     height={620}
                     loading="lazy"

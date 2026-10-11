@@ -131,27 +131,27 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
         <div className="bg-white/95 backdrop-blur-md rounded-2xl sm:rounded-full border border-sky-100 shadow-[0_8px_30px_rgba(2,132,199,0.07)] px-4 sm:px-7 min-h-[82px] sm:min-h-[92px] h-[82px] sm:h-[92px] flex items-center justify-between">
-          {/* Logo — enlarged by 25% for prominent clinical branding */}
+          {/* Logo with matching nav hover background and baseline alignment */}
           <Link
             href="/"
-            className="flex items-center gap-3.5 sm:gap-4 group focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 rounded-xl py-1 pr-2"
-            aria-label={`${CLINIC_INFO.brandName} Home`}
+            className="flex items-center gap-2.5 sm:gap-3.5 group focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 rounded-full py-1.5 px-3 sm:px-4 bg-sky-100/90 hover:bg-sky-200/80 border border-sky-200/60 shadow-sm transition-all duration-200"
+            aria-label={`${CLINIC_INFO.brandName} — ${CLINIC_INFO.tagline}`}
           >
-            <div className="relative w-[68px] h-[68px] sm:w-[80px] sm:h-[80px] flex-shrink-0 flex items-center justify-center">
+            <div className="relative w-10 h-10 sm:w-11 sm:h-11 flex-shrink-0 flex items-center justify-center">
               <Image
                 src="/images/clinic-logo-v3.png"
-                alt="Rama Trichology Hair and Scalp Clinic official logo"
-                width={100}
-                height={80}
+                alt="Rama Hair Clinic – Trichology Center official logo emblem"
+                width={64}
+                height={64}
                 priority
-                className="w-auto h-[64px] sm:h-[75px] object-contain hover:scale-105 transition-transform duration-200"
+                className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200"
               />
             </div>
-            <div className="flex flex-col">
-              <span className="font-serif text-2xl sm:text-[26.5px] font-bold tracking-tight text-navy-950 group-hover:text-blue-700 transition-colors">
+            <div className="flex flex-col justify-center">
+              <span className="font-serif text-lg sm:text-[21px] font-bold tracking-tight text-navy-950 group-hover:text-blue-700 transition-colors leading-tight">
                 {CLINIC_INFO.brandName}
               </span>
-              <span className="text-[12px] sm:text-[13.5px] uppercase tracking-widest text-sky-800 font-semibold -mt-0.5">
+              <span className="text-[10px] sm:text-[11.5px] uppercase tracking-widest text-[#007baa] font-semibold leading-none mt-0.5">
                 {CLINIC_INFO.tagline}
               </span>
             </div>
