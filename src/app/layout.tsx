@@ -72,10 +72,14 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: "/icon.png", type: "image/png" },
-      { url: "/favicon.ico", sizes: "any" },
+      { url: `${process.env.NEXT_PUBLIC_BASE_PATH || ""}/favicon.png`, type: "image/png" },
+      { url: `${process.env.NEXT_PUBLIC_BASE_PATH || ""}/favicon-32x32.png`, sizes: "32x32", type: "image/png" },
+      { url: `${process.env.NEXT_PUBLIC_BASE_PATH || ""}/favicon-16x16.png`, sizes: "16x16", type: "image/png" },
+      { url: `${process.env.NEXT_PUBLIC_BASE_PATH || ""}/icon.png`, type: "image/png" },
+      { url: `${process.env.NEXT_PUBLIC_BASE_PATH || ""}/favicon.ico`, sizes: "any" },
     ],
-    apple: "/apple-touch-icon.png",
+    apple: `${process.env.NEXT_PUBLIC_BASE_PATH || ""}/apple-touch-icon.png`,
+    shortcut: `${process.env.NEXT_PUBLIC_BASE_PATH || ""}/favicon.ico`,
   },
 };
 
@@ -128,9 +132,13 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${fraunces.variable}`}>
       <head>
-        <link rel="icon" href="/favicon.png" type="image/png" />
-        <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <link rel="icon" href={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/favicon.png`} type="image/png" />
+        <link rel="icon" href={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/favicon-32x32.png`} sizes="32x32" type="image/png" />
+        <link rel="icon" href={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/favicon-16x16.png`} sizes="16x16" type="image/png" />
+        <link rel="icon" href={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/icon.png`} type="image/png" />
+        <link rel="icon" href={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/favicon.ico`} sizes="any" />
+        <link rel="shortcut icon" href={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/favicon.ico`} />
+        <link rel="apple-touch-icon" href={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/apple-touch-icon.png`} />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
