@@ -94,10 +94,10 @@ export default function BeforeAfterCarousel({ variant = "sapphire" }: BeforeAfte
         <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
           {SAMPLE_CASES.map((item) => (
             <StaggerItem key={item.id}>
-              <div className="bg-ice-50 rounded-2xl p-6 sm:p-7 border border-gray-200 shadow-soft hover:shadow-card transition-all flex flex-col justify-between h-full">
+              <div className="bg-ice-50 rounded-2xl p-6 sm:p-8 border border-gray-200 shadow-soft hover:shadow-card transition-all flex flex-col justify-between h-full">
                 <div>
                   <div className="flex items-center justify-between gap-2 mb-4">
-                    <span className="text-xs font-bold uppercase tracking-wider text-blue-700 bg-white px-3 py-1 rounded-full border border-gray-200">
+                    <span className="text-xs font-bold uppercase tracking-wider text-blue-700 bg-white px-3.5 py-1 rounded-full border border-gray-200 shadow-2xs">
                       {item.patient}
                     </span>
                     <span className="text-xs font-semibold text-ink-900 flex items-center gap-1">
@@ -106,42 +106,42 @@ export default function BeforeAfterCarousel({ variant = "sapphire" }: BeforeAfte
                     </span>
                   </div>
 
-                  <h3 className="font-serif text-xl font-bold text-navy-950 mb-5">
+                  <h3 className="font-serif text-xl sm:text-2xl font-bold text-navy-950 mb-5">
                     {item.title}
                   </h3>
 
-                  {/* Before / After Images Side by Side */}
-                  <div className="grid grid-cols-2 gap-3 sm:gap-4 mb-4">
+                  {/* Before / After Images Side by Side (Increased by 15%) */}
+                  <div className="grid grid-cols-2 gap-3.5 sm:gap-5 mb-5">
                     {/* Before Image */}
-                    <div className="relative rounded-xl overflow-hidden border border-gray-200 bg-white">
-                      <div className="relative aspect-square">
+                    <div className="relative rounded-2xl overflow-hidden border border-gray-200/90 bg-white shadow-sm">
+                      <div className="relative aspect-[1/1.15]">
                         <Image
                           src={item.beforeImage}
                           alt={`${item.patient.replace(/\[|\]/g, "")} before treatment`}
-                          width={400}
-                          height={400}
+                          width={480}
+                          height={550}
                           loading="lazy"
                           className="object-cover object-top w-full h-full"
                         />
                       </div>
-                      <div className="absolute top-2 left-2 bg-navy-950/80 backdrop-blur-sm text-white text-[11px] font-bold px-2 py-0.5 rounded">
+                      <div className="absolute top-2.5 left-2.5 bg-navy-950/85 backdrop-blur-sm text-white text-[11px] font-bold px-2.5 py-0.5 rounded-md shadow-sm">
                         BEFORE
                       </div>
                     </div>
 
                     {/* After Image */}
-                    <div className="relative rounded-xl overflow-hidden border border-gray-200 bg-white">
-                      <div className="relative aspect-square">
+                    <div className="relative rounded-2xl overflow-hidden border border-gray-200/90 bg-white shadow-sm">
+                      <div className="relative aspect-[1/1.15]">
                         <Image
                           src={item.afterImage}
                           alt={`${item.patient.replace(/\[|\]/g, "")} after treatment`}
-                          width={400}
-                          height={400}
+                          width={480}
+                          height={550}
                           loading="lazy"
                           className="object-cover object-top w-full h-full"
                         />
                       </div>
-                      <div className="absolute top-2 left-2 bg-blue-700 text-white text-[11px] font-bold px-2 py-0.5 rounded">
+                      <div className="absolute top-2.5 left-2.5 bg-blue-700 text-white text-[11px] font-bold px-2.5 py-0.5 rounded-md shadow-sm">
                         AFTER
                       </div>
                     </div>

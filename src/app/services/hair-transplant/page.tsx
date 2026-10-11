@@ -66,15 +66,15 @@ export default function HairTransplantPage() {
               </AnimatedSection>
             </div>
 
-            {/* Transplant Procedure Image Placeholder */}
-            <div className="lg:col-span-5">
+            {/* Transplant Procedure Image (Enlarged by 15%) */}
+            <div className="lg:col-span-5 lg:scale-[1.06] origin-center">
               <AnimatedSection delay={0.2}>
-                <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-card border-4 border-ice-50 bg-ice-50">
+                <div className="relative aspect-[16/11] rounded-2xl overflow-hidden shadow-xl border-4 sm:border-6 border-white bg-white">
                   <Image
                     src={service.placeholderImage}
-                    alt={`Placeholder: ${service.title}`}
-                    width={800}
-                    height={600}
+                    alt={`Clinical Procedure: ${service.title} at Rama Trichology`}
+                    width={900}
+                    height={620}
                     className="object-cover w-full h-full"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-navy-950/70 via-transparent to-transparent pointer-events-none" />
@@ -180,30 +180,30 @@ export default function HairTransplantPage() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 w-full">
-              <div className="relative rounded-2xl overflow-hidden border border-gray-200 bg-white aspect-[4/3] shadow-sm">
+              <div className="relative rounded-2xl overflow-hidden border border-gray-200 bg-white aspect-[4/3.5] shadow-md">
                 <Image
                   src="/images/case3-before.jpg"
                   alt="Patient Case temporal recession before FUE hair transplant"
-                  width={800}
-                  height={600}
+                  width={900}
+                  height={750}
                   loading="lazy"
                   className="object-cover object-top w-full h-full"
                 />
-                <div className="absolute top-3 left-3 bg-navy-950/80 text-white text-xs font-bold px-3 py-1 rounded-md shadow-sm">
+                <div className="absolute top-3.5 left-3.5 bg-navy-950/85 backdrop-blur-sm text-white text-xs font-bold px-3 py-1 rounded-md shadow-sm">
                   BEFORE PROCEDURE
                 </div>
               </div>
 
-              <div className="relative rounded-2xl overflow-hidden border border-gray-200 bg-white aspect-[4/3] shadow-sm">
+              <div className="relative rounded-2xl overflow-hidden border border-gray-200 bg-white aspect-[4/3.5] shadow-md">
                 <Image
                   src="/images/case3-after.jpg"
                   alt="Patient Case restored natural hairline 9 months after FUE procedure"
-                  width={800}
-                  height={600}
+                  width={900}
+                  height={750}
                   loading="lazy"
                   className="object-cover object-top w-full h-full"
                 />
-                <div className="absolute top-3 left-3 bg-blue-700 text-white text-xs font-bold px-3 py-1 rounded-md shadow-sm">
+                <div className="absolute top-3.5 left-3.5 bg-blue-700 text-white text-xs font-bold px-3 py-1 rounded-md shadow-sm">
                   AFTER 9 MONTHS
                 </div>
               </div>

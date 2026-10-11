@@ -13,21 +13,21 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12 pb-12 border-b border-white/10">
           {/* Brand Info with 10% enlarged logo */}
           <div className="space-y-4">
-            <div className="flex items-center gap-3.5">
-              <div className="relative w-14 h-14 flex-shrink-0 flex items-center justify-center">
+            <div className="flex items-center gap-4">
+              <div className="relative w-[72px] h-[72px] flex-shrink-0 flex items-center justify-center">
                 <Image
                   src="/images/logo-clean-white.png"
                   alt={`${CLINIC_INFO.brandName} Logo`}
-                  width={68}
-                  height={55}
-                  className="w-auto h-12 object-contain"
+                  width={90}
+                  height={72}
+                  className="w-auto h-[60px] object-contain"
                 />
               </div>
               <div>
-                <h3 className="font-serif text-lg font-bold text-white tracking-wide">
+                <h3 className="font-serif text-xl font-bold text-white tracking-wide">
                   {CLINIC_INFO.brandName}
                 </h3>
-                <p className="text-xs text-ice-50 uppercase tracking-widest">
+                <p className="text-xs text-ice-50 uppercase tracking-widest font-medium">
                   {CLINIC_INFO.tagline}
                 </p>
               </div>

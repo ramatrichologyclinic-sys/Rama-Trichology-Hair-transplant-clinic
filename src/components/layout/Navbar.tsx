@@ -127,32 +127,32 @@ export default function Navbar() {
 
   return (
     <header
-      className="sticky top-0 z-50 w-full pt-2 sm:pt-3 pb-2 transition-all duration-200"
+      className="sticky top-0 z-50 w-full pt-2.5 sm:pt-3.5 pb-2.5 sm:pb-3 transition-all duration-200"
       style={{ transform: "translateZ(0)", willChange: "transform" }}
     >
       <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
-        <div className="bg-white/95 backdrop-blur-md rounded-2xl sm:rounded-full border border-sky-100 shadow-[0_8px_30px_rgba(2,132,199,0.07)] px-4 sm:px-6 h-18 sm:h-20 flex items-center justify-between">
-          {/* Logo — circular frame removed, enlarged and crisp directly */}
+        <div className="bg-white/95 backdrop-blur-md rounded-2xl sm:rounded-full border border-sky-100 shadow-[0_8px_30px_rgba(2,132,199,0.07)] px-4 sm:px-7 min-h-[82px] sm:min-h-[92px] h-[82px] sm:h-[92px] flex items-center justify-between">
+          {/* Logo — enlarged by 25% for prominent clinical branding */}
           <Link
             href="/"
-            className="flex items-center gap-3.5 group focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 rounded-xl py-1 pr-2"
+            className="flex items-center gap-3.5 sm:gap-4 group focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 rounded-xl py-1 pr-2"
             aria-label={`${CLINIC_INFO.brandName} Home`}
           >
-            <div className="relative w-14 h-14 sm:w-16 sm:h-16 flex-shrink-0 flex items-center justify-center">
+            <div className="relative w-[68px] h-[68px] sm:w-[80px] sm:h-[80px] flex-shrink-0 flex items-center justify-center">
               <Image
                 src="/images/logo-clean.png"
                 alt="Rama Trichology Hair and Scalp Clinic official logo"
-                width={80}
-                height={64}
+                width={100}
+                height={80}
                 priority
-                className="w-auto h-[51px] sm:h-[60px] object-contain hover:scale-105 transition-transform duration-200"
+                className="w-auto h-[64px] sm:h-[75px] object-contain hover:scale-105 transition-transform duration-200"
               />
             </div>
             <div className="flex flex-col">
-              <span className="font-serif text-lg sm:text-xl font-bold tracking-tight text-navy-950 group-hover:text-blue-700 transition-colors">
+              <span className="font-serif text-xl sm:text-[22px] font-bold tracking-tight text-navy-950 group-hover:text-blue-700 transition-colors">
                 {CLINIC_INFO.brandName}
               </span>
-              <span className="text-[10px] sm:text-[11px] uppercase tracking-widest text-sky-800 font-semibold -mt-0.5">
+              <span className="text-[11px] sm:text-[12px] uppercase tracking-widest text-sky-800 font-semibold -mt-0.5">
                 {CLINIC_INFO.tagline}
               </span>
             </div>
@@ -461,7 +461,7 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3, ease: "easeOut" }}
-            className="lg:hidden fixed inset-x-0 top-20 bg-white/95 backdrop-blur-xl border-b border-gray-200 shadow-xl max-h-[calc(100vh-5rem)] overflow-y-auto z-40"
+            className="lg:hidden fixed inset-x-0 top-[88px] sm:top-[98px] bg-white/95 backdrop-blur-xl border-b border-gray-200 shadow-xl max-h-[calc(100vh-6rem)] overflow-y-auto z-40"
           >
             <div className="px-4 py-6 space-y-3">
               {/* 1. Home */}

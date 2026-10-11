@@ -11,12 +11,10 @@ export default function SmoothScroll({ children }: { children: React.ReactNode }
     }
 
     const lenis = new Lenis({
-      duration: 0.5,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      duration: 0.25,
       orientation: "vertical",
-      smoothWheel: true,
-      wheelMultiplier: 1.0,
-      touchMultiplier: 1.5,
+      smoothWheel: false, // Instant, 0-latency native hardware wheel scroll without sluggish inertia
+      touchMultiplier: 1.0,
     });
 
     let animationFrameId: number;

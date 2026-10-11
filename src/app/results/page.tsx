@@ -115,9 +115,9 @@ export default function ResultsPage() {
           <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {ALL_CASES.map((item) => (
               <StaggerItem key={item.id}>
-                <div className="bg-ice-50 rounded-2xl p-6 border border-gray-200 shadow-soft hover:shadow-card transition-all flex flex-col justify-between h-full">
+                <div className="bg-ice-50 rounded-2xl p-6 sm:p-7 border border-gray-200 shadow-soft hover:shadow-card transition-all flex flex-col justify-between h-full">
                   <div>
-                    <div className="flex items-center justify-between gap-2.5 mb-3">
+                    <div className="flex items-center justify-between gap-2.5 mb-3.5">
                       <span className="inline-flex items-center justify-center text-xs font-bold uppercase tracking-wider text-blue-700 bg-white px-3.5 py-1 rounded-full border border-gray-200 shadow-2xs whitespace-nowrap shrink-0">
                         {item.patientToken}
                       </span>
@@ -127,33 +127,33 @@ export default function ResultsPage() {
                       </span>
                     </div>
 
-                    <h3 className="font-serif text-lg font-bold text-navy-950 mb-4">
+                    <h3 className="font-serif text-lg sm:text-xl font-bold text-navy-950 mb-4">
                       {item.title}
                     </h3>
 
-                    {/* Side-by-side Before/After */}
-                    <div className="grid grid-cols-2 gap-3 mb-4">
-                      <div className="relative rounded-xl overflow-hidden border border-gray-200 bg-white aspect-square">
+                    {/* Side-by-side Before/After (Increased by 15%) */}
+                    <div className="grid grid-cols-2 gap-3.5 mb-4">
+                      <div className="relative rounded-2xl overflow-hidden border border-gray-200 bg-white aspect-[1/1.15] shadow-sm">
                         <Image
                           src={item.beforeImg}
                           alt={`${item.title} - Before Treatment`}
-                          width={400}
-                          height={400}
+                          width={480}
+                          height={550}
                           loading="lazy"
                           decoding="async"
                           className="object-cover w-full h-full"
                         />
-                        <div className="absolute top-2 left-2 bg-navy-950/80 text-white text-[10px] font-bold px-2 py-0.5 rounded">
+                        <div className="absolute top-2 left-2 bg-navy-950/80 backdrop-blur-sm text-white text-[10px] font-bold px-2 py-0.5 rounded">
                           BEFORE
                         </div>
                       </div>
 
-                      <div className="relative rounded-xl overflow-hidden border border-gray-200 bg-white aspect-square">
+                      <div className="relative rounded-2xl overflow-hidden border border-gray-200 bg-white aspect-[1/1.15] shadow-sm">
                         <Image
                           src={item.afterImg}
                           alt={`${item.title} - After Treatment`}
-                          width={400}
-                          height={400}
+                          width={480}
+                          height={550}
                           loading="lazy"
                           decoding="async"
                           className="object-cover w-full h-full"

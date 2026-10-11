@@ -132,6 +132,18 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              if ('serviceWorker' in navigator) {
+                window.addEventListener('load', function() {
+                  var base = window.location.pathname.startsWith('/Rama-Trichology-Hair-transplant-clinic') ? '/Rama-Trichology-Hair-transplant-clinic' : '';
+                  navigator.serviceWorker.register(base + '/sw.js', { scope: base + '/' }).catch(function() {});
+                });
+              }
+            `,
+          }}
+        />
       </head>
       <body className="min-h-screen flex flex-col font-sans antialiased text-ink-900 relative" style={{ backgroundColor: "#f8fbff" }}>
         <BackgroundWaves />

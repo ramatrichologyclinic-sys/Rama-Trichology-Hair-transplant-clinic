@@ -73,14 +73,14 @@ export default function MeetTheDoctor() {
                 mass: 0.9,
                 delay: 0.1,
               }}
-              className="relative mx-auto max-w-lg lg:max-w-none"
+              className="relative mx-auto max-w-[590px] lg:max-w-none lg:w-[108%]"
             >
-              <div className="relative aspect-[16/10] sm:aspect-[1.68/1] rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.4)] border-4 sm:border-8 border-white/90 bg-white">
+              <div className="relative aspect-[16/10] sm:aspect-[1.62/1] rounded-3xl overflow-hidden shadow-[0_24px_55px_rgba(0,0,0,0.38)] border-4 sm:border-8 border-white/95 bg-white">
                 <Image
                   src="/images/doctor-photo.jpg"
                   alt="Dr. Ritesh Safariya - Lead Consultant & Trichologist at Rama Trichology Clinic"
-                  width={1024}
-                  height={611}
+                  width={1100}
+                  height={680}
                   priority
                   className="object-cover object-center w-full h-full"
                 />

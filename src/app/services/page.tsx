@@ -53,25 +53,25 @@ export default function ServicesPage() {
                   <AnimatedSection delay={0.1}>
                     <div className="bg-white rounded-3xl border border-gray-200 shadow-soft overflow-hidden">
                       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center p-6 sm:p-8 lg:p-12">
-                        {/* Image Placeholder */}
+                        {/* Image Placeholder (Expanded by 15-20% in card) */}
                         <div
-                          className={`lg:col-span-5 ${
+                          className={`lg:col-span-6 ${
                             isEven ? "lg:order-2" : "lg:order-1"
                           }`}
                         >
-                          <div className="relative aspect-[4/3] rounded-2xl overflow-hidden border border-gray-200 bg-ice-50 shadow-sm">
+                          <div className="relative aspect-[16/11] rounded-2xl overflow-hidden border border-gray-200 bg-ice-50 shadow-md">
                             <Image
                               src={service.placeholderImage}
                               alt={
                                 SERVICE_ALT_TEXTS[service.slug] ||
                                 `${service.title} at Rama Trichology`
                               }
-                              width={800}
-                              height={600}
+                              width={900}
+                              height={620}
                               loading="lazy"
                               className="object-cover w-full h-full"
                             />
-                            <div className="absolute top-3 left-3 bg-navy-950/80 backdrop-blur-sm text-white text-xs font-bold px-3 py-1 rounded-full">
+                            <div className="absolute top-3.5 left-3.5 bg-navy-950/85 backdrop-blur-sm text-white text-xs font-bold px-3.5 py-1 rounded-full shadow-sm">
                               Pillar 0{idx + 1}
                             </div>
                           </div>
@@ -79,7 +79,7 @@ export default function ServicesPage() {
 
                         {/* Content */}
                         <div
-                          className={`lg:col-span-7 space-y-6 ${
+                          className={`lg:col-span-6 space-y-6 ${
                             isEven ? "lg:order-1" : "lg:order-2"
                           }`}
                         >

@@ -76,9 +76,9 @@ export default function WhyHairFallHappens() {
             const Icon = cause.icon;
             return (
               <StaggerItem key={idx} className="h-full">
-                <div className="group h-full bg-white rounded-3xl p-7 sm:p-8 border border-white/90 shadow-[0_20px_50px_rgba(0,35,70,0.22)] hover:shadow-[0_25px_60px_rgba(0,35,70,0.32)] hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between relative overflow-hidden">
+                <div className="group h-full bg-white rounded-3xl p-7 sm:p-9 min-h-[380px] border border-white/90 shadow-[0_20px_50px_rgba(0,35,70,0.22)] hover:shadow-[0_25px_60px_rgba(0,35,70,0.32)] hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between relative overflow-hidden">
                   {/* Bottom wave gradient inside card */}
-                  <div className="absolute bottom-0 inset-x-0 h-36 bg-gradient-to-t from-sky-50/80 via-sky-50/20 to-transparent pointer-events-none rounded-b-3xl" />
+                  <div className="absolute bottom-0 inset-x-0 h-40 bg-gradient-to-t from-sky-50/80 via-sky-50/20 to-transparent pointer-events-none rounded-b-3xl" />
 
                   {/* Card Top Content */}
                   <div className="relative z-10">
@@ -108,8 +108,8 @@ export default function WhyHairFallHappens() {
                       </div>
                     </div>
 
-                    {/* Bottom-Right Custom Illustrated Graphics (Increased by 20%) */}
-                    <div className="relative w-[135px] h-[135px] sm:w-[154px] sm:h-[154px] flex-shrink-0 -mb-1 -mr-1 pointer-events-none">
+                    {/* Bottom-Right Custom Illustrated Graphics (Increased by 15%) */}
+                    <div className="relative w-[155px] h-[155px] sm:w-[178px] sm:h-[178px] flex-shrink-0 -mb-1 -mr-1 pointer-events-none">
                       {cause.artType === "dna" && (
                         /* DNA Strand 3D Double Helix Graphic */
                         <svg

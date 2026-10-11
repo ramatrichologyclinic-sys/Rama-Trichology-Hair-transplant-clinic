@@ -147,17 +147,17 @@ html.lenis, html.lenis body {
   50% { opacity: 0.32; }
 }
 
-.anim-bg-mesh { animation: bgMeshPulse 12s ease-in-out infinite; will-change: opacity; }
-.anim-bg-float-1 { animation: bgFloat1 16s ease-in-out infinite; will-change: transform; }
-.anim-bg-float-2 { animation: bgFloat2 18s ease-in-out infinite; will-change: transform; }
-.anim-bg-float-3 { animation: bgFloat3 16s ease-in-out infinite; will-change: transform; }
-.anim-bg-float-4 { animation: bgFloat4 15s ease-in-out infinite; will-change: transform; }
-.anim-bg-float-5 { animation: bgFloat5 17s ease-in-out infinite; will-change: transform; }
-.anim-bg-float-6 { animation: bgFloat6 20s ease-in-out infinite; will-change: transform; }
-.anim-bg-float-7 { animation: bgFloat7 16s ease-in-out infinite; will-change: transform; }
-.anim-bg-float-8 { animation: bgFloat8 19s ease-in-out infinite; will-change: transform; }
-.anim-bg-float-9 { animation: bgFloat9 17s ease-in-out infinite; will-change: transform; }
-.anim-bg-helix { animation: bgFloatHelix 14s ease-in-out infinite; transform-origin: 1020px 410px; will-change: transform; }
+.anim-bg-mesh { animation: bgMeshPulse 12s ease-in-out infinite; }
+.anim-bg-float-1 { animation: bgFloat1 16s ease-in-out infinite; }
+.anim-bg-float-2 { animation: bgFloat2 18s ease-in-out infinite; }
+.anim-bg-float-3 { animation: bgFloat3 16s ease-in-out infinite; }
+.anim-bg-float-4 { animation: bgFloat4 15s ease-in-out infinite; }
+.anim-bg-float-5 { animation: bgFloat5 17s ease-in-out infinite; }
+.anim-bg-float-6 { animation: bgFloat6 20s ease-in-out infinite; }
+.anim-bg-float-7 { animation: bgFloat7 16s ease-in-out infinite; }
+.anim-bg-float-8 { animation: bgFloat8 19s ease-in-out infinite; }
+.anim-bg-float-9 { animation: bgFloat9 17s ease-in-out infinite; }
+.anim-bg-helix { animation: bgFloatHelix 14s ease-in-out infinite; transform-origin: 1020px 410px; }
 
 
 

@@ -87,11 +87,11 @@ export default function HowWeDiagnose({ variant = "sapphire" }: HowWeDiagnosePro
               const Icon = item.icon;
               return (
                 <StaggerItem key={idx} className="h-full">
-                  <div className="group h-full bg-white rounded-3xl p-5 sm:p-6 lg:p-8 border border-white/90 shadow-[0_20px_50px_rgba(0,0,0,0.32)] hover:shadow-[0_25px_60px_rgba(0,0,0,0.42)] hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
+                  <div className="group h-full bg-white rounded-3xl p-6 sm:p-7 lg:p-9 min-h-[340px] border border-white/90 shadow-[0_20px_50px_rgba(0,0,0,0.32)] hover:shadow-[0_25px_60px_rgba(0,0,0,0.42)] hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
                     <div>
                       <div className="flex items-center justify-between mb-4 lg:mb-6">
-                        <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-gradient-to-br from-sky-400 to-blue-600 flex items-center justify-center text-white shadow-md shadow-blue-500/20 group-hover:shadow-[0_0_25px_rgba(56,189,248,0.9),0_0_40px_rgba(37,99,235,0.5)] group-hover:scale-110 transition-all duration-300">
-                          <Icon className="w-6 h-6 sm:w-7 sm:h-7" />
+                        <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-gradient-to-br from-sky-400 to-blue-600 flex items-center justify-center text-white shadow-md shadow-blue-500/20 group-hover:shadow-[0_0_25px_rgba(56,189,248,0.9),0_0_40px_rgba(37,99,235,0.5)] group-hover:scale-110 transition-all duration-300">
+                          <Icon className="w-7 h-7 sm:w-8 sm:h-8" />
                         </div>
                         <span className="font-serif text-2xl sm:text-3xl font-bold text-sky-600">
                           {item.step}

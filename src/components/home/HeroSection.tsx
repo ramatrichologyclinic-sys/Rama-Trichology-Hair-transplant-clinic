@@ -81,14 +81,14 @@ export default function HeroSection() {
                 }}
                 className="relative inline-block"
               >
-                {/* Elegant warm golden/metallic circular framed portrait (Increased by 15% on mobile) */}
-                <div className="relative w-[110px] h-[110px] sm:w-[128px] sm:h-[128px] rounded-full p-1 sm:p-1.5 bg-gradient-to-b from-[#e6c875] via-[#c59b27] to-[#8d6914] shadow-[0_12px_30px_rgba(0,0,0,0.18)]">
+                {/* Elegant warm golden/metallic circular framed portrait (Increased by 15%) */}
+                <div className="relative w-[128px] h-[128px] sm:w-[148px] sm:h-[148px] rounded-full p-1 sm:p-1.5 bg-gradient-to-b from-[#e6c875] via-[#c59b27] to-[#8d6914] shadow-[0_14px_34px_rgba(0,0,0,0.22)]">
                   <div className="w-full h-full rounded-full overflow-hidden border-2 border-white/90 bg-navy-950 relative">
                     <Image
                       src="/images/doctor-photo.jpg"
                       alt={`${CLINIC_INFO.doctorName} - Lead Consultant & Trichologist`}
-                      width={260}
-                      height={260}
+                      width={300}
+                      height={300}
                       priority
                       className="object-cover object-[center_20%] w-full h-full"
                     />
@@ -208,11 +208,11 @@ export default function HeroSection() {
             </AnimatedSection>
           </div>
 
-          {/* Hero Visual: 3-Image Auto Slideshow with Floating Badges matching Reference 1 */}
+          {/* Hero Visual: 3-Image Auto Slideshow with Floating Badges (Increased by 15%) */}
           <div className="lg:col-span-5">
             <AnimatedSection delay={0.3} yOffset={20}>
-              <div className="relative mx-auto max-w-md lg:max-w-none">
-                <div className="relative aspect-[4/4] rounded-3xl overflow-hidden shadow-[0_25px_60px_rgba(2,132,199,0.18)] border-4 sm:border-8 border-white bg-white">
+              <div className="relative mx-auto max-w-[515px] lg:max-w-none lg:w-[108%] lg:-mr-[8%]">
+                <div className="relative aspect-[4/4] rounded-3xl overflow-hidden shadow-[0_28px_65px_rgba(2,132,199,0.22)] border-4 sm:border-8 border-white bg-white">
                   {HERO_SLIDES.map((slide, index) => (
                     <div
                       key={slide.src}

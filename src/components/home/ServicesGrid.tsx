@@ -152,7 +152,7 @@ export default function ServicesGrid() {
                 <div
                   onMouseEnter={() => setHoveredCard(idx)}
                   onMouseLeave={() => setHoveredCard(null)}
-                  className={`service-card-wrapper relative h-full rounded-3xl p-7 sm:p-8 border transition-all duration-300 flex flex-col justify-between group overflow-hidden ${
+                  className={`service-card-wrapper relative h-full rounded-3xl p-7 sm:p-9 min-h-[340px] border transition-all duration-300 flex flex-col justify-between group overflow-hidden ${
                     isHovered
                       ? "border-sky-500 -translate-y-2 z-50 ring-2 ring-sky-400/60"
                       : isOtherDimmed
@@ -179,16 +179,16 @@ export default function ServicesGrid() {
                   {/* Card Content: Text, icons, and buttons remain 100% opaque and fully readable */}
                   <div className="relative z-10 flex flex-col justify-between h-full">
                     <div>
-                      {/* Top Bar: Icon on Left, Explore Link on Top Right */}
+                      {/* Top Bar: Icon on Left, Explore Link on Top Right (Increased by 15%) */}
                       <div className="flex items-start justify-between gap-4 mb-6">
                         <div
-                          className={`w-13 h-13 sm:w-14 sm:h-14 rounded-2xl bg-gradient-to-br from-sky-400 to-blue-600 text-white flex items-center justify-center transition-all duration-300 ${
+                          className={`w-[60px] h-[60px] sm:w-[68px] sm:h-[68px] rounded-2xl bg-gradient-to-br from-sky-400 to-blue-600 text-white flex items-center justify-center transition-all duration-300 ${
                             isHovered
-                              ? "scale-105 shadow-[0_0_22px_rgba(2,132,199,0.4)]"
+                              ? "scale-105 shadow-[0_0_24px_rgba(2,132,199,0.45)]"
                               : "shadow-md shadow-blue-500/20 group-hover:scale-105"
                           }`}
                         >
-                          <Icon className="w-7 h-7" />
+                          <Icon className="w-8 h-8" />
                         </div>
 
                         {/* Explore link positioned top right opposite the icon */}
