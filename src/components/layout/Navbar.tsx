@@ -137,13 +137,13 @@ export default function Navbar() {
             className="flex items-center gap-3 sm:gap-3.5 group focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 py-1"
             aria-label={`${CLINIC_INFO.brandName} — ${CLINIC_INFO.tagline}`}
           >
-            {/* Logo emblem increased by 35% and base-aligned with text */}
-            <div className="relative w-[51px] h-[51px] sm:w-[57px] sm:h-[57px] flex-shrink-0 flex items-center justify-center -translate-y-1 sm:-translate-y-1.5">
+            {/* Logo emblem increased by another 35% and base-aligned with text */}
+            <div className="relative w-[69px] h-[69px] sm:w-[77px] sm:h-[77px] flex-shrink-0 flex items-center justify-center -translate-y-1 sm:-translate-y-1.5">
               <Image
                 src="/images/clinic-logo-v3.png"
                 alt="Rama Hair Clinic – Trichology Center official logo emblem"
-                width={72}
-                height={72}
+                width={96}
+                height={96}
                 priority
                 className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200"
               />
