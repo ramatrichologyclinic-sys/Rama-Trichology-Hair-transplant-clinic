@@ -32,16 +32,16 @@ export default function HomeStackingCards() {
       </section>
 
       {/* SECTION B: Why Hair Fall Happens */}
-      <section
-        className="w-full relative z-10"
-        style={{
-          background: "linear-gradient(145deg, #0076a3 0%, #0088bc 50%, #006691 100%)",
-        }}
-      >
+      <section className="w-full relative z-10 bg-white">
         <WhyHairFallHappens />
       </section>
 
-      {/* SECTION C: How We Diagnose & Treat */}
+      {/* SECTION C: Our Clinical Services */}
+      <section className="w-full relative z-10" id="services">
+        <ServicesGrid />
+      </section>
+
+      {/* SECTION D: How We Diagnose & Treat */}
       <section
         className="w-full relative z-10"
         style={{
@@ -49,11 +49,6 @@ export default function HomeStackingCards() {
         }}
       >
         <HowWeDiagnose variant="sapphire" />
-      </section>
-
-      {/* SECTION D: Our Clinical Services */}
-      <section className="w-full relative z-10">
-        <ServicesGrid />
       </section>
     </div>
   );

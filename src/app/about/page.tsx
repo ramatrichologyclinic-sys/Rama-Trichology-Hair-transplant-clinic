@@ -33,52 +33,51 @@ export default function AboutPage() {
       {/* Doctor Biography Section */}
       <section className="pt-8 sm:pt-10 lg:pt-12 pb-12 sm:pb-16 lg:pb-20">
         <div className="max-w-container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-            {/* Doctor Portrait Photo with Full Uncropped Framing */}
-            <div className="lg:col-span-6">
-              <AnimatedSection delay={0.1}>
-                <div className="relative mx-auto max-w-[590px] lg:max-w-none lg:w-[108%]">
-                  <div className="relative aspect-[16/10] sm:aspect-[1.62/1] rounded-3xl overflow-hidden shadow-[0_24px_55px_rgba(0,0,0,0.18)] border-4 sm:border-8 border-white/95 bg-white">
-                    <Image
-                      src="/images/doctor-photo.jpg"
-                      alt="Dr. Ritesh Safariya - Lead Consultant & Trichologist at Rama Trichology"
-                      width={1100}
-                      height={680}
-                      priority
-                      className="object-cover object-center w-full h-full"
-                    />
-                  </div>
-
-                  <div className="mt-4 bg-white/90 backdrop-blur-md rounded-2xl p-4 border border-sky-100 flex items-center justify-between text-xs text-ink-900 shadow-sm">
-                    <span className="font-semibold text-navy-950">Clinical Focus:</span>
-                    <span>Polarized Trichoscopy, Root-Cause Pathology, Hair Regrowth</span>
-                  </div>
-                </div>
-              </AnimatedSection>
-            </div>
-
-            {/* Biography Content */}
-            <div className="lg:col-span-6 space-y-6">
-              <AnimatedSection delay={0.2}>
-                <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-blue-700 bg-ice-50 px-3.5 py-1.5 rounded-full border border-gray-200">
-                  Doctor Profile
+          <div className="max-w-4xl mx-auto text-center space-y-10">
+            {/* Header: Doctor Profile tag, Name, Credentials */}
+            <AnimatedSection delay={0.1} className="space-y-4">
+              <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-blue-700 bg-ice-50 px-3.5 py-1.5 rounded-full border border-gray-200 inline-block">
+                Doctor Profile
+              </span>
+              <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-navy-950">
+                {CLINIC_INFO.doctorName}
+              </h2>
+              <div className="flex flex-wrap items-center justify-center gap-3 text-sm text-navy-950 font-semibold pt-1">
+                <span className="bg-ice-50 px-3.5 py-1.5 rounded-lg border border-gray-200 flex items-center gap-1.5">
+                  <GraduationCap className="w-4 h-4 text-blue-700" />
+                  {CLINIC_INFO.credentials}
                 </span>
-                <h2 className="font-serif text-3xl sm:text-4xl font-bold text-navy-950 mt-4 mb-4">
-                  {CLINIC_INFO.doctorName}
-                </h2>
-                <div className="flex flex-wrap items-center gap-3 text-sm text-navy-950 font-semibold mb-6">
-                  <span className="bg-ice-50 px-3 py-1 rounded-lg border border-gray-200 flex items-center gap-1.5">
-                    <GraduationCap className="w-4 h-4 text-blue-700" />
-                    {CLINIC_INFO.credentials}
-                  </span>
-                  <span className="bg-ice-50 px-3 py-1 rounded-lg border border-gray-200 flex items-center gap-1.5">
-                    <Award className="w-4 h-4 text-blue-700" />
-                    {CLINIC_INFO.experience}
-                  </span>
-                </div>
-              </AnimatedSection>
+                <span className="bg-ice-50 px-3.5 py-1.5 rounded-lg border border-gray-200 flex items-center gap-1.5">
+                  <Award className="w-4 h-4 text-blue-700" />
+                  {CLINIC_INFO.experience}
+                </span>
+              </div>
+            </AnimatedSection>
 
-              <AnimatedSection delay={0.3} className="space-y-4 text-base text-ink-900 leading-relaxed">
+            {/* Doctor Portrait Photo with Full Uncropped Centered Framing */}
+            <AnimatedSection delay={0.2}>
+              <div className="relative mx-auto max-w-3xl lg:max-w-4xl">
+                <div className="relative aspect-[16/10] sm:aspect-[1.62/1] rounded-3xl overflow-hidden shadow-[0_24px_55px_rgba(0,0,0,0.18)] border-4 sm:border-8 border-white/95 bg-white">
+                  <Image
+                    src="/images/doctor-photo.jpg"
+                    alt="Dr. Ritesh Safariya - Lead Consultant & Trichologist at Rama Trichology"
+                    width={1200}
+                    height={750}
+                    priority
+                    className="object-cover object-center w-full h-full"
+                  />
+                </div>
+
+                <div className="mt-4 max-w-xl mx-auto bg-white/90 backdrop-blur-md rounded-2xl p-4 border border-sky-100 flex flex-col sm:flex-row items-center justify-center gap-2 text-xs sm:text-sm text-ink-900 shadow-sm text-center">
+                  <span className="font-semibold text-navy-950">Clinical Focus:</span>
+                  <span>Polarized Trichoscopy, Root-Cause Pathology, Hair Regrowth</span>
+                </div>
+              </div>
+            </AnimatedSection>
+
+            {/* Biography Content - Centered */}
+            <div className="space-y-8 max-w-3xl mx-auto">
+              <AnimatedSection delay={0.3} className="space-y-4 text-base sm:text-lg text-ink-900 leading-relaxed text-center">
                 <p>
                   Dr. Ritesh Safariya is a distinguished clinical dermatologist and certified trichologist with over 15+ years of clinical experience specializing in follicular biology, scalp disorders, and hair restoration therapies.
                 </p>
@@ -91,20 +90,20 @@ export default function AboutPage() {
               </AnimatedSection>
 
               <AnimatedSection delay={0.35} className="pt-2">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm">
-                  <div className="flex items-center gap-2.5">
+                <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 text-sm">
+                  <div className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white border border-gray-200 shadow-xs">
                     <CheckCircle2 className="w-5 h-5 text-blue-700 flex-shrink-0" />
                     <span className="text-navy-950 font-medium">Solo Doctor Practice</span>
                   </div>
-                  <div className="flex items-center gap-2.5">
+                  <div className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white border border-gray-200 shadow-xs">
                     <CheckCircle2 className="w-5 h-5 text-blue-700 flex-shrink-0" />
                     <span className="text-navy-950 font-medium">Polarized Micro-Imaging</span>
                   </div>
-                  <div className="flex items-center gap-2.5">
+                  <div className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white border border-gray-200 shadow-xs">
                     <CheckCircle2 className="w-5 h-5 text-blue-700 flex-shrink-0" />
                     <span className="text-navy-950 font-medium">Clear Treatment Timelines</span>
                   </div>
-                  <div className="flex items-center gap-2.5">
+                  <div className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white border border-gray-200 shadow-xs">
                     <CheckCircle2 className="w-5 h-5 text-blue-700 flex-shrink-0" />
                     <span className="text-navy-950 font-medium">Comprehensive Biomarkers</span>
                   </div>
