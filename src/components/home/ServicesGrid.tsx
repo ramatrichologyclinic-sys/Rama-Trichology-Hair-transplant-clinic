@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import {
   ArrowRight,
@@ -22,80 +22,30 @@ const ICONS = [Feather, ShieldAlert, Cpu, Sparkles, Layers];
 export default function ServicesGrid() {
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
 
-  useEffect(() => {
-    if (hoveredCard !== null) {
-      document.body.classList.add("services-hovering");
-    } else {
-      document.body.classList.remove("services-hovering");
-    }
-    return () => {
-      document.body.classList.remove("services-hovering");
-    };
-  }, [hoveredCard]);
-
   return (
-    <section className={`services-section relative overflow-hidden py-14 sm:py-20 lg:py-26 transition-all duration-300 ${hoveredCard !== null ? "z-40" : "z-10"}`}>
-      {/* Embedded style for hover glow on active card + dimming background & inactive cards */}
-      <style jsx>{`
-        .services-bg-layer,
-        .services-header-content,
-        .service-card-wrapper {
-          transition: filter 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
-        }
-
-        @media (hover: hover) {
-          /* Dim section background layers when any card in the section is hovered */
-          .services-section:has(.service-card-wrapper:hover) .services-bg-layer {
-            filter: brightness(0.55);
-          }
-
-          /* Dim section header content when any card in the section is hovered */
-          .services-section:has(.service-card-wrapper:hover) .services-header-content {
-            opacity: 0.55;
-            filter: brightness(0.55);
-          }
-
-          /* Dim all other service cards when a service card is hovered */
-          .services-cards-grid:has(.service-card-wrapper:hover) .service-card-wrapper:not(:hover) {
-            opacity: 0.6;
-            filter: brightness(0.55);
-          }
-
-          /* Active hovered card: Highlighting glowing box-shadow, pure solid white background, pops out at full brightness */
-          .service-card-wrapper:hover {
-            box-shadow: 0 0 0 2.5px #0284c7, 0 20px 45px -10px rgba(2, 132, 199, 0.45), 0 0 50px 12px rgba(14, 165, 233, 0.35) !important;
-            filter: brightness(1) opacity(1) !important;
-            background: #ffffff !important;
-            transform: translateY(-8px);
-            z-index: 50 !important;
-          }
-        }
-      `}</style>
-
+    <section className="services-section relative overflow-hidden pt-12 sm:pt-16 pb-8 sm:pb-12 transition-all duration-300">
       {/* Smooth top-left to bottom-right white-to-skyblue gradient */}
       <div
-        className="services-bg-layer absolute inset-0 pointer-events-none transition-[filter] duration-300 ease-out"
+        className="services-bg-layer absolute inset-0 pointer-events-none transition-all duration-300 ease-out"
         style={{
           background:
             "linear-gradient(135deg, #ffffff 0%, #f4faff 35%, #e1f2fe 75%, #cae8ff 100%)",
-          filter: hoveredCard !== null ? "brightness(0.6)" : "brightness(1)",
         }}
       />
 
       {/* Subtle ambient light orb */}
       <div
-        className="services-bg-layer absolute top-1/4 -right-20 w-96 h-96 rounded-full blur-[100px] pointer-events-none transition-[filter] duration-300 ease-out"
+        className="absolute top-1/4 -right-20 w-96 h-96 rounded-full blur-[100px] pointer-events-none"
         style={{
           background: "rgba(56, 189, 248, 0.2)",
-          filter: hoveredCard !== null ? "brightness(0.6)" : "brightness(1)",
           transform: "translateZ(0)",
         }}
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <AnimatedSection
-          className={`services-header-content text-center max-w-3xl mx-auto mb-14 sm:mb-18 transition-[filter] duration-300 ${
-            hoveredCard !== null ? "brightness-[0.6]" : ""
+          className={`services-header-content text-center max-w-3xl mx-auto mb-10 sm:mb-14 transition-opacity duration-300 ${
+            hoveredCard !== null ? "opacity-75" : "opacity-100"
           }`}
         >
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-sky-100/90 border border-sky-200 shadow-sm text-xs sm:text-sm font-bold uppercase tracking-wider text-sky-800 mb-4">
@@ -103,7 +53,7 @@ export default function ServicesGrid() {
           </div>
           <h2 className="font-serif text-3xl sm:text-5xl font-bold text-navy-950 mt-1 mb-5">
             Our Clinical{" "}
-            <span className="text-blue-600 relative inline-block">
+            <span className="text-[#007baa] relative inline-block">
               Services
               <svg
                 className="absolute -bottom-2 left-0 w-full h-3 text-sky-400"
@@ -128,7 +78,7 @@ export default function ServicesGrid() {
         </AnimatedSection>
 
         {/* 5-Card Layout: Row 1 has 3 cards, Row 2 has 2 cards centered between columns */}
-        <StaggerContainer className="services-cards-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 items-stretch">
+        <StaggerContainer className="services-cards-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-6 sm:gap-8 items-stretch">
           {SERVICES.map((service, idx) => {
             const Icon = ICONS[idx % ICONS.length];
             const isHovered = hoveredCard === idx;
@@ -147,54 +97,38 @@ export default function ServicesGrid() {
             return (
               <StaggerItem
                 key={service.slug}
-                className={`h-full ${colClasses} ${isHovered ? "relative z-50" : "relative z-10"}`}
+                className={`h-full ${colClasses} ${isHovered ? "relative z-30" : "relative z-10"}`}
               >
                 <div
                   onMouseEnter={() => setHoveredCard(idx)}
                   onMouseLeave={() => setHoveredCard(null)}
-                  className={`service-card-wrapper relative h-full rounded-3xl p-7 sm:p-9 min-h-[340px] border transition-all duration-300 flex flex-col justify-between group overflow-hidden ${
+                  className={`service-card-wrapper relative h-full rounded-3xl p-7 sm:p-8 min-h-[310px] border transition-all duration-300 flex flex-col justify-between group overflow-hidden ${
                     isHovered
-                      ? "border-sky-500 -translate-y-2 z-50 ring-2 ring-sky-400/60"
+                      ? "border-[#007baa] -translate-y-2 scale-[1.02] shadow-[0_20px_45px_rgba(0,123,170,0.22)] ring-2 ring-[#007baa] bg-white opacity-100 z-30"
                       : isOtherDimmed
-                      ? "border-sky-100/40 z-10 opacity-60"
-                      : "border-sky-100/90 hover:-translate-y-1.5 z-10"
+                      ? "border-sky-100/50 bg-white/70 opacity-40 scale-[0.98] z-10"
+                      : "border-sky-100 bg-white hover:-translate-y-1 shadow-[0_8px_30px_rgba(2,132,199,0.06)] opacity-100 z-10"
                   }`}
-                  style={{
-                    backgroundColor: isHovered ? "#ffffff" : undefined,
-                    boxShadow: isHovered
-                      ? "0 0 0 2.5px #0284c7, 0 20px 45px -10px rgba(2, 132, 199, 0.45), 0 0 50px 12px rgba(14, 165, 233, 0.35)"
-                      : "0 12px 35px rgba(2, 132, 199, 0.07)",
-                    filter: isOtherDimmed ? "brightness(0.55)" : "brightness(1)",
-                  }}
                 >
-                  {/* Clean card background layer */}
-                  <div
-                    className={`service-card-bg absolute inset-0 rounded-3xl pointer-events-none transition-all duration-300 ${
-                      isHovered
-                        ? "bg-white opacity-100"
-                        : "bg-white/95"
-                    }`}
-                  />
-
                   {/* Card Content: Text, icons, and buttons remain 100% opaque and fully readable */}
                   <div className="relative z-10 flex flex-col justify-between h-full">
                     <div>
-                      {/* Top Bar: Icon on Left, Explore Link on Top Right (Increased by 15%) */}
-                      <div className="flex items-start justify-between gap-4 mb-6">
+                      {/* Top Bar: Icon on Left, Explore Link on Top Right */}
+                      <div className="flex items-start justify-between gap-4 mb-5">
                         <div
-                          className={`w-[60px] h-[60px] sm:w-[68px] sm:h-[68px] rounded-2xl bg-gradient-to-br from-sky-400 to-blue-600 text-white flex items-center justify-center transition-all duration-300 ${
+                          className={`w-[58px] h-[58px] sm:w-[64px] sm:h-[64px] rounded-2xl bg-gradient-to-br from-sky-400 to-[#007baa] text-white flex items-center justify-center transition-all duration-300 ${
                             isHovered
-                              ? "scale-105 shadow-[0_0_24px_rgba(2,132,199,0.45)]"
+                              ? "scale-105 shadow-[0_0_20px_rgba(0,123,170,0.4)]"
                               : "shadow-md shadow-blue-500/20 group-hover:scale-105"
                           }`}
                         >
-                          <Icon className="w-8 h-8" />
+                          <Icon className="w-7 h-7 sm:w-8 sm:h-8" />
                         </div>
 
                         {/* Explore link positioned top right opposite the icon */}
                         <Link
                           href={`/services/${service.slug}`}
-                          className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-semibold text-blue-700 bg-sky-50/90 hover:bg-blue-600 hover:text-white border border-sky-200/70 shadow-xs transition-all duration-200 group/btn"
+                          className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-semibold text-[#007baa] bg-sky-50/90 hover:bg-[#007baa] hover:text-white border border-sky-200/70 shadow-xs transition-all duration-200 group/btn"
                           aria-label={`Explore ${service.title} details`}
                         >
                           <span>Explore</span>
@@ -202,8 +136,8 @@ export default function ServicesGrid() {
                         </Link>
                       </div>
 
-                      {/* Content without redundant bottom whitespace */}
-                      <h3 className="font-serif text-xl sm:text-2xl font-bold text-navy-950 mb-3 group-hover:text-blue-700 transition-colors">
+                      {/* Content */}
+                      <h3 className="font-serif text-xl sm:text-2xl font-bold text-navy-950 mb-2.5 group-hover:text-[#007baa] transition-colors">
                         {service.title}
                       </h3>
                       <p className="text-sm text-ink-900 leading-relaxed font-normal">

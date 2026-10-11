@@ -68,32 +68,3 @@ html.lenis, html.lenis body {
   pointer-events: none;
 }
 
-/* ========================================================
-   Our Clinical Services — High-Performance Page-Wide Dim System
-   When hovering ANY service card:
-   - Fixed dark overlay transitions opacity: 0 -> 1 (40% black = exactly 0.6 brightness)
-   - Hovered card stays full brightness + 12% primary blue glow above overlay (z-50)
-   - Navbar and Floating WhatsApp stay at full brightness (z-50)
-   - Zero filter recalculations on scroll or hover (100% GPU-composited)
-   ======================================================== */
-#page-hover-dim-overlay {
-  position: fixed;
-  inset: 0;
-  background-color: rgba(0, 0, 0, 0.45);
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s ease;
-  z-index: 35;
-  will-change: opacity;
-}
-
-@media (hover: hover) {
-  body.services-hovering #page-hover-dim-overlay {
-    opacity: 1;
-  }
-
-  body.services-hovering .services-section {
-    z-index: 40 !important;
-  }
-}
-

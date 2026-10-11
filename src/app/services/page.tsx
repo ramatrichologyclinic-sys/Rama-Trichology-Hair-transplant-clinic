@@ -142,31 +142,6 @@ export default function ServicesPage() {
           */}
         </div>
       </section>
-
-      {/* Free Quiz Promo Banner */}
-      <section className="relative pt-12 pb-16 text-center">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <AnimatedSection>
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-gray-200 text-xs font-semibold text-blue-700 mb-4 shadow-sm">
-              <Sparkles className="w-4 h-4" />
-              <span>Not Sure Which Treatment You Need?</span>
-            </div>
-            <h2 className="font-serif text-3xl sm:text-4xl font-bold text-navy-950 mb-4">
-              Take Our Free 3-Minute Hair Health Assessment
-            </h2>
-            <p className="text-base text-ink-900 mb-8 max-w-xl mx-auto">
-              Answer 6 quick questions regarding your shedding duration, scalp symptoms, and genetics for an instant rule-based recommendation.
-            </p>
-            <Link
-              href="/assessment"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-semibold text-white bg-blue-700 hover:bg-navy-950 active:scale-95 transition-all shadow-md focus-visible:ring-2 focus-visible:ring-blue-400 text-base"
-            >
-              <span>Start Free Assessment Quiz</span>
-              <ArrowRight className="w-5 h-5" />
-            </Link>
-          </AnimatedSection>
-        </div>
-      </section>
     </div>
   );
 }

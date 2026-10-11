@@ -198,16 +198,10 @@ export default function ResultsPage() {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link
                 href="/contact#book"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl font-semibold text-white bg-blue-700 hover:bg-navy-950 transition-all shadow-sm focus-visible:ring-2 focus-visible:ring-blue-400"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl font-semibold text-white bg-[#007baa] hover:bg-[#006992] transition-all shadow-sm focus-visible:ring-2 focus-visible:ring-[#007baa]"
               >
                 <span>Book Doctor Consultation</span>
                 <ArrowRight className="w-4 h-4" />
-              </Link>
-              <Link
-                href="/assessment"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-semibold text-navy-950 bg-white hover:bg-gray-50 border border-gray-200 transition-all focus-visible:ring-2 focus-visible:ring-blue-400"
-              >
-                <span>Take Free Assessment</span>
               </Link>
             </div>
           </AnimatedSection>

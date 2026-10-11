@@ -147,8 +147,6 @@ export default function RootLayout({
       </head>
       <body className="min-h-screen flex flex-col font-sans antialiased text-ink-900 relative" style={{ backgroundColor: "#f8fbff" }}>
         <BackgroundWaves />
-        {/* GPU-composited full-page service hover dimming overlay */}
-        <div id="page-hover-dim-overlay" aria-hidden="true" />
         <SmoothScroll>
           <Navbar />
           <main id="main-content" className="flex-grow relative">

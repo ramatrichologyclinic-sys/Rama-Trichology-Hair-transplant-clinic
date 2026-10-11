@@ -28,6 +28,7 @@ export const CLINIC_INFO = {
   },
   hours: "Mon – Sat: 10:00 AM – 8:00 PM | Sun: By Appointment",
   websiteUrl: "https://ramatrichologyclinic-sys.github.io/Rama-Trichology-Hair-transplant-clinic/",
+  googleMapsUrl: "https://maps.google.com/?q=Rama+Trichology+Hair+transplant+clinic+Mira+Road+Thane",
   googleMeetUrl: "https://meet.google.com/rtc-hair-meet",
   calendlyUrl: "https://calendly.com/PLACEHOLDER-LINK",
   web3FormsAccessKey: "YOUR_ACCESS_KEY_HERE",

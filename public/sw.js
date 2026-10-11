@@ -1,4 +1,4 @@
-const CACHE_NAME = 'rama-trichology-v2';
+const CACHE_NAME = 'rama-trichology-v4';
 
 self.addEventListener('install', (event) => {
   self.skipWaiting();
@@ -24,12 +24,24 @@ self.addEventListener('fetch', (event) => {
 
   const url = new URL(request.url);
 
-  // Cache-first with background revalidation for images, fonts, styles, and scripts
-  if (
-    url.pathname.match(/\.(jpg|jpeg|png|webp|avif|gif|svg|ico|woff2|woff|ttf|css|js)$/) ||
-    url.pathname.includes('/_next/static/') ||
-    url.pathname.includes('/images/')
-  ) {
+  // Network-first for clinic images to ensure new logos and visual updates show immediately
+  if (url.pathname.includes('/images/') || url.pathname.match(/\.(png|jpg|jpeg|webp|ico)$/)) {
+    event.respondWith(
+      fetch(request)
+        .then((networkResponse) => {
+          if (networkResponse && networkResponse.status === 200) {
+            const responseToCache = networkResponse.clone();
+            caches.open(CACHE_NAME).then((cache) => cache.put(request, responseToCache));
+          }
+          return networkResponse;
+        })
+        .catch(() => caches.match(request))
+    );
+    return;
+  }
+
+  // Cache-first for immutable static bundles and fonts
+  if (url.pathname.includes('/_next/static/') || url.pathname.match(/\.(woff2|woff|ttf)$/)) {
     event.respondWith(
       caches.match(request).then((cachedResponse) => {
         if (cachedResponse) {

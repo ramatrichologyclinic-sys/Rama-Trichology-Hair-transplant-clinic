@@ -30,7 +30,6 @@ const NAV_ITEMS: NavItem[] = [
   { name: "Services", href: "/services", hasDropdown: true },
   { name: "About", href: "/about" },
   { name: "Results", href: "/results" },
-  { name: "Free Quiz", href: "/assessment", icon: Sparkles },
   { name: "FAQ", href: "/faq" },
   { name: "Contact", href: "/contact" },
 ];
@@ -140,7 +139,7 @@ export default function Navbar() {
           >
             <div className="relative w-[68px] h-[68px] sm:w-[80px] sm:h-[80px] flex-shrink-0 flex items-center justify-center">
               <Image
-                src="/images/logo-clean.png"
+                src="/images/clinic-logo-v3.png"
                 alt="Rama Trichology Hair and Scalp Clinic official logo"
                 width={100}
                 height={80}
@@ -341,7 +340,7 @@ export default function Navbar() {
                     setIsBookOpen(false);
                   }
                 }}
-                className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full text-[15px] font-semibold text-white bg-[#007baa] hover:bg-[#006992] active:scale-95 transition-all shadow-md shadow-[#007baa]/25 focus-visible:ring-2 focus-visible:ring-[#007baa]"
+                className="inline-flex items-center justify-center gap-1.5 px-4 py-2 rounded-full text-sm font-semibold whitespace-nowrap text-white bg-[#007baa] hover:bg-[#006992] active:scale-95 transition-all shadow-sm shadow-[#007baa]/20 focus-visible:ring-2 focus-visible:ring-[#007baa]"
                 aria-haspopup="true"
                 aria-expanded={isBookOpen}
                 aria-label="Book Consultation options"
@@ -544,22 +543,7 @@ export default function Navbar() {
                 Before &amp; After Gallery
               </Link>
 
-              {/* 5. Free Quiz */}
-              <Link
-                href="/assessment"
-                className={`block px-4 py-3 rounded-xl font-semibold text-base flex items-center justify-between ${
-                  pathname === "/assessment"
-                    ? "bg-sky-50 text-blue-700"
-                    : "text-navy-950 hover:bg-gray-50"
-                }`}
-              >
-                <span>Free Hair Health Quiz</span>
-                <span className="text-xs bg-blue-700 text-white px-2 py-0.5 rounded-full font-medium">
-                  3 Mins
-                </span>
-              </Link>
-
-              {/* 6. FAQ */}
+              {/* 5. FAQ */}
               <Link
                 href="/faq"
                 className={`block px-4 py-3 rounded-xl font-semibold text-base ${

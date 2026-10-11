@@ -16,7 +16,7 @@ export default function Footer() {
             <div className="flex items-center gap-4">
               <div className="relative w-[72px] h-[72px] flex-shrink-0 flex items-center justify-center">
                 <Image
-                  src="/images/logo-clean-white.png"
+                  src="/images/clinic-logo-white-v3.png"
                   alt={`${CLINIC_INFO.brandName} Logo`}
                   width={90}
                   height={72}
@@ -70,11 +70,6 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/assessment" className="hover:text-white hover:underline transition-colors focus-visible:ring-1 focus-visible:ring-blue-400 rounded">
-                  Free Hair Health Check Quiz
-                </Link>
-              </li>
-              <li>
                 <Link href="/faq" className="hover:text-white hover:underline transition-colors focus-visible:ring-1 focus-visible:ring-blue-400 rounded">
                   Frequently Asked Questions
                 </Link>
@@ -106,12 +101,12 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Clinic Contact Details */}
+          {/* Clinic Contact Details & Map Card */}
           <div>
             <h4 className="font-serif text-base font-semibold text-white tracking-wide mb-4">
               Clinic Details
             </h4>
-            <ul className="space-y-3 text-sm text-ice-50/90">
+            <ul className="space-y-2.5 text-sm text-ice-50/90">
               <li className="flex items-start gap-2.5">
                 <MapPin className="w-4 h-4 text-blue-400 flex-shrink-0 mt-0.5" />
                 <span className="leading-snug">{CLINIC_INFO.address}</span>
@@ -144,6 +139,27 @@ export default function Footer() {
                 <span>{CLINIC_INFO.hours}</span>
               </li>
             </ul>
+
+            {/* Compact Business Map Card on Right Side */}
+            <div className="mt-4 pt-3 border-t border-white/10">
+              <div className="relative rounded-xl overflow-hidden border border-white/15 bg-white/5 shadow-inner">
+                <iframe
+                  title="Rama Trichology Clinic Location Map"
+                  src="https://maps.google.com/maps?q=Rama+Trichology+Hair+transplant+clinic+Mira+Road+Thane&t=&z=14&ie=UTF8&iwloc=&output=embed"
+                  className="w-full h-28 border-0 opacity-85 hover:opacity-100 transition-opacity"
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                />
+                <a
+                  href={CLINIC_INFO.googleMapsUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block text-center py-1.5 px-3 bg-white/10 hover:bg-[#007baa] text-white text-xs font-semibold transition-colors border-t border-white/10"
+                >
+                  View on Google Maps →
+                </a>
+              </div>
+            </div>
           </div>
         </div>
 

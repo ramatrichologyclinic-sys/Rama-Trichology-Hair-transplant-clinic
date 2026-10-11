@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import MeetTheDoctor from "@/components/home/MeetTheDoctor";
+import TrichoscopySlideshowSection from "@/components/home/TrichoscopySlideshowSection";
 import WhyHairFallHappens from "@/components/home/WhyHairFallHappens";
 import HowWeDiagnose from "@/components/home/HowWeDiagnose";
 import ServicesGrid from "@/components/home/ServicesGrid";
@@ -10,7 +10,7 @@ import ServicesGrid from "@/components/home/ServicesGrid";
  * HomeStackingCards
  *
  * Renders the home page clinical narrative sections in seamless natural scroll flow:
- * - Section A: Meet Dr. Ritesh Safariya (Luminous Sapphire)
+ * - Section A: High-Magnification Trichoscopy Showcase (Luminous Sapphire)
  * - Section B: Why Hair Fall Happens (Rich Cerulean Blue)
  * - Section C: How We Diagnose & Treat (Deep Midnight Sapphire)
  * - Section D: Our Clinical Services (ServicesGrid)
@@ -21,14 +21,14 @@ import ServicesGrid from "@/components/home/ServicesGrid";
 export default function HomeStackingCards() {
   return (
     <div className="relative w-full">
-      {/* SECTION A: Meet Dr. Ritesh Safariya */}
+      {/* SECTION A: High-Magnification Trichoscopy Showcase */}
       <section
         className="w-full relative z-10"
         style={{
           background: "linear-gradient(145deg, #071930 0%, #0c274c 50%, #103160 100%)",
         }}
       >
-        <MeetTheDoctor />
+        <TrichoscopySlideshowSection />
       </section>
 
       {/* SECTION B: Why Hair Fall Happens */}
