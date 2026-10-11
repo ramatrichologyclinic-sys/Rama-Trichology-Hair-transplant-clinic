@@ -67,8 +67,8 @@ export default function AboutPage() {
                     className="object-cover object-center w-full h-full"
                   />
 
-                  {/* Doctor's Clinical Team Frame attached at bottom right */}
-                  <div className="absolute bottom-3 right-3 sm:bottom-5 sm:right-5 z-20 bg-white rounded-xl sm:rounded-2xl p-[5px] sm:p-[6px] shadow-2xl max-w-[210px] sm:max-w-[280px]">
+                  {/* Doctor's Clinical Team Frame attached at bottom right (reduced by 10%) */}
+                  <div className="absolute bottom-3 right-3 sm:bottom-5 sm:right-5 z-20 bg-white rounded-xl sm:rounded-2xl p-[5px] sm:p-[6px] shadow-2xl max-w-[189px] sm:max-w-[252px]">
                     <div className="relative aspect-[4/3] w-full rounded-lg sm:rounded-xl overflow-hidden bg-slate-100">
                       <Image
                         src="/images/clinical-team.jpg"

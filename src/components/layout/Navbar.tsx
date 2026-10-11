@@ -130,30 +130,30 @@ export default function Navbar() {
       style={{ transform: "translateZ(0)", willChange: "transform" }}
     >
       <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
-        <div className="bg-white/95 backdrop-blur-md rounded-2xl sm:rounded-full border border-sky-100 shadow-[0_8px_30px_rgba(2,132,199,0.07)] px-4 sm:px-7 min-h-[82px] sm:min-h-[92px] h-[82px] sm:h-[92px] flex items-center justify-between">
+        <div className="bg-white/95 backdrop-blur-md rounded-2xl sm:rounded-full border border-sky-100 shadow-[0_8px_30px_rgba(2,132,199,0.07)] px-5 sm:px-8 min-h-[92px] sm:min-h-[102px] h-[92px] sm:h-[102px] flex items-center justify-between">
           {/* Logo with highlighted emblem only and unhighlighted brand text */}
           <Link
             href="/"
             className="flex items-center gap-3 sm:gap-3.5 group focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 py-1"
             aria-label={`${CLINIC_INFO.brandName} — ${CLINIC_INFO.tagline}`}
           >
-            {/* Clean logo emblem decreased by 50% */}
-            <div className="relative w-[34px] h-[34px] sm:w-[38px] sm:h-[38px] flex-shrink-0 flex items-center justify-center">
+            {/* Logo emblem increased by 10% and base-aligned with text */}
+            <div className="relative w-[38px] h-[38px] sm:w-[42px] sm:h-[42px] flex-shrink-0 flex items-center justify-center -translate-y-1 sm:-translate-y-1.5">
               <Image
                 src="/images/clinic-logo-v3.png"
                 alt="Rama Hair Clinic – Trichology Center official logo emblem"
-                width={48}
-                height={48}
+                width={54}
+                height={54}
                 priority
                 className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200"
               />
             </div>
-            {/* Unhighlighted brand name */}
+            {/* Brand name increased by 10% */}
             <div className="flex flex-col justify-center">
-              <span className="font-serif text-lg sm:text-[21px] font-bold tracking-tight text-navy-950 group-hover:text-blue-700 transition-colors leading-tight">
+              <span className="font-serif text-xl sm:text-[23.5px] font-bold tracking-tight text-navy-950 group-hover:text-blue-700 transition-colors leading-tight">
                 {CLINIC_INFO.brandName}
               </span>
-              <span className="text-[10px] sm:text-[11.5px] uppercase tracking-widest text-[#007baa] font-semibold leading-none mt-0.5">
+              <span className="text-[11px] sm:text-[12.5px] uppercase tracking-widest text-[#007baa] font-semibold leading-none mt-1">
                 {CLINIC_INFO.tagline}
               </span>
             </div>
@@ -203,7 +203,7 @@ export default function Navbar() {
                       )}
                       <Link
                         href="/services"
-                        className={`relative z-10 px-3.5 py-1.5 text-[15px] font-semibold transition-colors flex items-center gap-1.5 ${
+                        className={`relative z-10 px-4 py-2 text-[16.5px] font-semibold transition-colors flex items-center gap-1.5 ${
                           isActive
                             ? "text-blue-700"
                             : "text-navy-950 hover:text-blue-700"
@@ -213,7 +213,7 @@ export default function Navbar() {
                       >
                         <span>{item.name}</span>
                         <ChevronDown
-                          className={`w-4 h-4 transition-transform duration-200 ${
+                          className={`w-4.5 h-4.5 transition-transform duration-200 ${
                             isServicesOpen ? "transform rotate-180" : ""
                           }`}
                         />
@@ -298,13 +298,13 @@ export default function Navbar() {
                   )}
                   <Link
                     href={item.href}
-                    className={`relative z-10 px-3.5 py-1.5 rounded-full text-[15px] font-semibold transition-colors flex items-center gap-1.5 ${
+                    className={`relative z-10 px-4 py-2 rounded-full text-[16.5px] font-semibold transition-colors flex items-center gap-1.5 ${
                       isActive
                         ? "text-blue-700"
                         : "text-navy-950 hover:text-blue-700"
                     }`}
                   >
-                    {Icon && <Icon className="w-4 h-4 text-blue-700" />}
+                    {Icon && <Icon className="w-4.5 h-4.5 text-blue-700" />}
                     <span>{item.name}</span>
                   </Link>
                 </div>
@@ -342,15 +342,15 @@ export default function Navbar() {
                     setIsBookOpen(false);
                   }
                 }}
-                className="inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-2.5 rounded-full text-[15px] sm:text-base font-bold whitespace-nowrap text-white bg-[#007baa] hover:bg-[#006992] active:scale-95 transition-all shadow-sm shadow-[#007baa]/20 focus-visible:ring-2 focus-visible:ring-[#007baa]"
+                className="inline-flex items-center justify-center gap-2.5 px-6 sm:px-7 py-3 rounded-full text-base sm:text-[17px] font-bold whitespace-nowrap text-white bg-[#007baa] hover:bg-[#006992] active:scale-95 transition-all shadow-sm shadow-[#007baa]/20 focus-visible:ring-2 focus-visible:ring-[#007baa]"
                 aria-haspopup="true"
                 aria-expanded={isBookOpen}
                 aria-label="Book Consultation options"
               >
-                <Calendar className="w-4.5 h-4.5 text-white" />
+                <Calendar className="w-5 h-5 text-white" />
                 <span>Book Consultation</span>
                 <ChevronDown
-                  className={`w-4 h-4 transition-transform duration-200 ${
+                  className={`w-4.5 h-4.5 transition-transform duration-200 ${
                     isBookOpen ? "transform rotate-180" : ""
                   }`}
                 />
@@ -440,14 +440,14 @@ export default function Navbar() {
             <button
               type="button"
               onClick={() => setIsMobileMenuOpen((prev) => !prev)}
-              className="lg:hidden p-2 rounded-xl text-navy-950 hover:bg-sky-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400"
+              className="lg:hidden p-2.5 rounded-xl text-navy-950 hover:bg-sky-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400"
               aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
               aria-expanded={isMobileMenuOpen}
             >
               {isMobileMenuOpen ? (
-                <X className="w-6 h-6" />
+                <X className="w-6.5 h-6.5" />
               ) : (
-                <Menu className="w-6 h-6" />
+                <Menu className="w-6.5 h-6.5" />
               )}
             </button>
           </div>
@@ -462,7 +462,7 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3, ease: "easeOut" }}
-            className="lg:hidden fixed inset-x-0 top-[88px] sm:top-[98px] bg-white/95 backdrop-blur-xl border-b border-gray-200 shadow-xl max-h-[calc(100vh-6rem)] overflow-y-auto z-40"
+            className="lg:hidden fixed inset-x-0 top-[96px] sm:top-[108px] bg-white/95 backdrop-blur-xl border-b border-gray-200 shadow-xl max-h-[calc(100vh-6rem)] overflow-y-auto z-40"
           >
             <div className="px-4 py-6 space-y-3">
               {/* 1. Home */}
