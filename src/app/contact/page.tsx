@@ -64,11 +64,13 @@ export default function ContactPage() {
         },
         body: JSON.stringify({
           _subject: `New Clinic Inquiry from ${formData.name}`,
+          _url: CLINIC_INFO.websiteUrl,
           "Patient Name": formData.name,
           "Phone Number": formData.phone,
           "Email Address": formData.email || "Not specified",
           "Service": selectedService,
           "Message": formData.message || "No additional note",
+          "Clinic Website": CLINIC_INFO.websiteUrl,
           _template: "table",
         }),
       });

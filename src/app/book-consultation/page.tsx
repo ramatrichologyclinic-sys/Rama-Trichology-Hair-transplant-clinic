@@ -28,6 +28,8 @@ import {
   CLINIC_ADDRESS,
   GOOGLE_MAPS_DIRECTIONS_URL,
   CLINIC_GOOGLE_EMAIL,
+  CLINIC_GOOGLE_MEET_URL,
+  CLINIC_WEBSITE_URL,
   buildGoogleCalendarUrl,
   buildClinicWhatsAppUrl,
 } from "@/lib/booking";
@@ -86,7 +88,7 @@ function BookingContent() {
     email: "",
     concern: "Hair fall",
     date: todayDate,
-    time: "Morning",
+    time: "10:00 AM – 11:00 AM",
   });
   const [onlineErrors, setOnlineErrors] = useState<Partial<Record<keyof OnlineBookingData, string>>>({});
   const [onlineSuccess, setOnlineSuccess] = useState(false);
@@ -98,7 +100,7 @@ function BookingContent() {
     phone: "",
     concern: "Hair fall",
     date: todayDate,
-    time: "Morning",
+    time: "10:00 AM – 11:00 AM",
   });
   const [clinicErrors, setClinicErrors] = useState<Partial<Record<keyof ClinicBookingData, string>>>({});
   const [clinicSuccess, setClinicSuccess] = useState(false);
@@ -131,6 +133,10 @@ function BookingContent() {
     setOnlineErrors({});
     setIsOnlineSubmitting(true);
 
+    const meetUrl = CLINIC_GOOGLE_MEET_URL;
+    const calendarInviteUrl = buildGoogleCalendarUrl(onlineForm, meetUrl);
+    const clinicWebsiteUrl = CLINIC_WEBSITE_URL;
+
     // 1. Dispatch Email to Clinic Owner (ramatrichologyclinic@gmail.com)
     try {
       await fetch("https://formsubmit.co/ajax/ramatrichologyclinic@gmail.com", {
@@ -140,15 +146,19 @@ function BookingContent() {
           Accept: "application/json",
         },
         body: JSON.stringify({
-          _subject: `New Online Consultation Booking: ${onlineForm.name}`,
+          _subject: `New Online Consultation Booking: ${onlineForm.name} (${onlineForm.date} at ${onlineForm.time})`,
+          _url: clinicWebsiteUrl,
           "Patient Name": onlineForm.name,
           "Phone Number": onlineForm.phone,
           "Patient Email": onlineForm.email || "Not provided",
           "Primary Concern": onlineForm.concern,
           "Preferred Date": onlineForm.date,
-          "Time Slot": onlineForm.time,
+          "Exact Time Slot": onlineForm.time,
           "Consultation Mode": "Online Video Consultation (Google Meet)",
-          "Doctor": "Dr. Ritesh Safariya",
+          "Doctor Name": CLINIC_INFO.doctorName,
+          "Google Meet Video Call Link": meetUrl,
+          "Meeting / Calendar Invitation Link": calendarInviteUrl,
+          "Clinic Website": clinicWebsiteUrl,
           _template: "table",
         }),
       });
@@ -157,9 +167,8 @@ function BookingContent() {
     }
 
     // 2. Open Google Calendar with Google Meet room
-    const redirectUrl = buildGoogleCalendarUrl(onlineForm);
     if (typeof window !== "undefined") {
-      window.open(redirectUrl, "_blank", "noopener,noreferrer");
+      window.open(calendarInviteUrl, "_blank", "noopener,noreferrer");
     }
 
     setIsOnlineSubmitting(false);
@@ -202,14 +211,17 @@ function BookingContent() {
           Accept: "application/json",
         },
         body: JSON.stringify({
-          _subject: `New In-Clinic Visit Booking: ${clinicForm.name}`,
+          _subject: `New In-Clinic Visit Booking: ${clinicForm.name} (${clinicForm.date} at ${clinicForm.time})`,
+          _url: CLINIC_WEBSITE_URL,
           "Patient Name": clinicForm.name,
           "Phone Number": clinicForm.phone,
           "Primary Concern": clinicForm.concern,
           "Preferred Date": clinicForm.date,
-          "Time Slot": clinicForm.time,
+          "Exact Time Slot": clinicForm.time,
           "Consultation Mode": "In-Person Clinic Visit (Mira Road)",
-          "Doctor": "Dr. Ritesh Safariya",
+          "Doctor Name": CLINIC_INFO.doctorName,
+          "Clinic Address": CLINIC_ADDRESS,
+          "Clinic Website": CLINIC_WEBSITE_URL,
           _template: "table",
         }),
       });
@@ -461,27 +473,72 @@ function BookingContent() {
                             Booking Confirmed &amp; Dispatched!
                           </h4>
                           <p className="text-xs sm:text-sm font-semibold text-emerald-800">
-                            ✓ Booking details successfully sent to business owner ({CLINIC_GOOGLE_EMAIL})
+                            ✓ Booking details and meeting links dispatched to {CLINIC_GOOGLE_EMAIL}
                           </p>
                         </div>
-                        <p className="text-sm text-ink-900 max-w-lg mx-auto leading-relaxed">
-                          Google Calendar has also opened in a new tab with your consultation details and Google Meet video room pre-filled with Dr. Ritesh Safariya. Simply click <strong>Save</strong> to confirm the event.
+
+                        {/* Booking Summary Card */}
+                        <div className="bg-white/90 rounded-2xl p-4 sm:p-5 text-left border border-emerald-200/70 max-w-lg mx-auto text-xs sm:text-sm space-y-2 text-navy-950 shadow-sm">
+                          <div className="flex justify-between items-center py-1 border-b border-gray-100">
+                            <span className="text-gray-500 font-medium">Patient:</span>
+                            <span className="font-bold">{onlineForm.name}</span>
+                          </div>
+                          <div className="flex justify-between items-center py-1 border-b border-gray-100">
+                            <span className="text-gray-500 font-medium">Scheduled Date:</span>
+                            <span className="font-bold">{onlineForm.date}</span>
+                          </div>
+                          <div className="flex justify-between items-center py-1 border-b border-gray-100">
+                            <span className="text-gray-500 font-medium">Exact Time Slot:</span>
+                            <span className="font-bold text-blue-700">{onlineForm.time}</span>
+                          </div>
+                          <div className="flex justify-between items-center py-1 border-b border-gray-100">
+                            <span className="text-gray-500 font-medium">Consultation Mode:</span>
+                            <span className="font-bold">Online Video (Google Meet)</span>
+                          </div>
+                          <div className="flex justify-between items-center py-1 border-b border-gray-100">
+                            <span className="text-gray-500 font-medium">Doctor:</span>
+                            <span className="font-bold">{CLINIC_INFO.doctorName}</span>
+                          </div>
+                          <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center py-1 gap-1">
+                            <span className="text-gray-500 font-medium">Google Meet Room:</span>
+                            <a
+                              href={CLINIC_GOOGLE_MEET_URL}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="font-mono text-xs text-blue-600 hover:underline break-all font-semibold"
+                            >
+                              {CLINIC_GOOGLE_MEET_URL}
+                            </a>
+                          </div>
+                        </div>
+
+                        <p className="text-xs sm:text-sm text-ink-900 max-w-lg mx-auto leading-relaxed">
+                          Your Google Calendar event with Google Meet conferencing was opened in a new tab. Both the meeting link and invitation details have also been dispatched to the clinic inbox.
                         </p>
                         <div className="pt-2 flex flex-wrap items-center justify-center gap-3">
+                          <a
+                            href={CLINIC_GOOGLE_MEET_URL}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-semibold text-white bg-blue-600 hover:bg-blue-700 shadow-sm"
+                          >
+                            <Video className="w-4 h-4" />
+                            <span>Join Google Meet</span>
+                          </a>
                           <button
                             type="button"
                             onClick={() => {
-                              const url = buildGoogleCalendarUrl(onlineForm);
+                              const url = buildGoogleCalendarUrl(onlineForm, CLINIC_GOOGLE_MEET_URL);
                               window.open(url, "_blank", "noopener,noreferrer");
                             }}
-                            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-semibold text-white bg-blue-600 hover:bg-blue-700 shadow-sm"
+                            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-semibold text-sky-950 bg-white border border-sky-300 hover:bg-sky-50 shadow-sm"
                           >
-                            <Calendar className="w-4 h-4" />
+                            <Calendar className="w-4 h-4 text-blue-600" />
                             <span>Re-open Google Calendar</span>
                           </button>
                           <a
                             href={`mailto:${CLINIC_GOOGLE_EMAIL}?subject=Online Consultation Booking - ${encodeURIComponent(onlineForm.name)}&body=${encodeURIComponent(
-                              `Patient Name: ${onlineForm.name}\nPhone: ${onlineForm.phone}\nConcern: ${onlineForm.concern}\nDate: ${onlineForm.date}\nTime: ${onlineForm.time}`
+                              `Patient Name: ${onlineForm.name}\nPhone: ${onlineForm.phone}\nConcern: ${onlineForm.concern}\nDate: ${onlineForm.date}\nTime Slot: ${onlineForm.time}\nMeeting Link: ${CLINIC_GOOGLE_MEET_URL}`
                             )}`}
                             className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-semibold text-sky-900 bg-white border border-sky-200 hover:bg-sky-50 shadow-sm"
                           >
@@ -642,7 +699,7 @@ function BookingContent() {
                             htmlFor="online-time"
                             className="block text-xs font-bold uppercase tracking-wider text-navy-950 mb-1.5"
                           >
-                            Preferred Time
+                            Preferred Time Slot <span className="text-red-500">*</span>
                           </label>
                           <select
                             id="online-time"
@@ -948,7 +1005,7 @@ function BookingContent() {
                             htmlFor="clinic-time"
                             className="block text-xs font-bold uppercase tracking-wider text-navy-950 mb-1.5"
                           >
-                            Preferred Time
+                            Preferred Time Slot <span className="text-red-500">*</span>
                           </label>
                           <select
                             id="clinic-time"

@@ -195,6 +195,7 @@ export default function AssessmentPage() {
         },
         body: JSON.stringify({
           _subject: `New Hair Health Assessment: ${answers.name || "Patient"} - ${result.bucket}`,
+          _url: CLINIC_INFO.websiteUrl,
           "Patient Name": answers.name,
           "Phone Number": answers.phone,
           "Email": answers.email || "Not specified",
@@ -206,6 +207,7 @@ export default function AssessmentPage() {
           "Diet Quality": answers.dietQuality,
           "Scalp Symptoms": answers.scalpSymptoms.join(", ") || "None",
           "Assessment Result": result.bucket,
+          "Clinic Website": CLINIC_INFO.websiteUrl,
           _template: "table",
         }),
       });
