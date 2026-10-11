@@ -34,22 +34,25 @@ export default function HeroSection() {
               <h1 className="font-serif text-3xl sm:text-5xl lg:text-[54px] font-bold tracking-tight text-navy-950 leading-[1.16]">
                 Scientific Hair &amp; Scalp Clinic{" "}
                 <br className="hidden sm:inline" />
-                <span className="text-[#007baa] relative inline-block mt-1">
-                  Guided by 18 years of Clinical Expertise
-                  {/* Subtle underline curve accent */}
-                  <svg
-                    className="absolute -bottom-2 left-0 w-full h-3 text-sky-400"
-                    viewBox="0 0 100 12"
-                    preserveAspectRatio="none"
-                    fill="none"
-                  >
-                    <path
-                      d="M0,8 Q50,0 100,6"
-                      stroke="currentColor"
-                      strokeWidth="3.5"
-                      strokeLinecap="round"
-                    />
-                  </svg>
+                <span className="text-[#007baa] inline-block mt-1">
+                  Guided by 18 years of Clinical{" "}
+                  <span className="relative inline-block">
+                    Expertise
+                    {/* Subtle underline curve accent sitting snugly right below 'Expertise' */}
+                    <svg
+                      className="absolute -bottom-2 left-0 w-full h-3 text-sky-400"
+                      viewBox="0 0 100 12"
+                      preserveAspectRatio="none"
+                      fill="none"
+                    >
+                      <path
+                        d="M0,8 Q50,0 100,6"
+                        stroke="currentColor"
+                        strokeWidth="3.5"
+                        strokeLinecap="round"
+                      />
+                    </svg>
+                  </span>
                 </span>
               </h1>
             </AnimatedSection>

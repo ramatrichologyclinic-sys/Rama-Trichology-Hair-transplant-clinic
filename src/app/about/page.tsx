@@ -66,6 +66,30 @@ export default function AboutPage() {
                     priority
                     className="object-cover object-center w-full h-full"
                   />
+
+                  {/* Doctor's Team Card attached at bottom right */}
+                  <div className="absolute bottom-3 right-3 sm:bottom-5 sm:right-5 z-20 bg-white/95 backdrop-blur-md rounded-2xl p-2 sm:p-3 border-2 border-white shadow-2xl flex items-center gap-2.5 sm:gap-3.5 max-w-[240px] sm:max-w-[320px]">
+                    <div className="relative w-16 h-12 sm:w-24 sm:h-18 rounded-xl overflow-hidden flex-shrink-0 border border-sky-100 shadow-sm bg-slate-100">
+                      <Image
+                        src="/images/clinical-team.jpg"
+                        alt="Dr. Ritesh Safariya with the Clinical Team"
+                        width={240}
+                        height={180}
+                        className="object-cover w-full h-full"
+                      />
+                    </div>
+                    <div className="text-left">
+                      <span className="text-[10px] sm:text-xs font-bold text-[#007baa] uppercase tracking-wider block font-mono">
+                        Clinical Team
+                      </span>
+                      <span className="text-xs sm:text-sm font-bold text-navy-950 block leading-tight">
+                        Support &amp; Surgical Specialists
+                      </span>
+                      <span className="text-[10px] sm:text-[11px] text-slate-600 hidden sm:block leading-tight mt-0.5">
+                        In-Clinic Medical Team
+                      </span>
+                    </div>
+                  </div>
                 </div>
 
                 <div className="mt-4 max-w-xl mx-auto bg-white/90 backdrop-blur-md rounded-2xl p-4 border border-sky-100 flex flex-col sm:flex-row items-center justify-center gap-2 text-xs sm:text-sm text-ink-900 shadow-sm text-center">
@@ -76,7 +100,7 @@ export default function AboutPage() {
             </AnimatedSection>
 
             {/* Biography Content - Centered */}
-            <div className="space-y-8 max-w-3xl mx-auto">
+            <div className="space-y-8 max-w-4xl mx-auto">
               <AnimatedSection delay={0.3} className="space-y-4 text-base sm:text-lg text-ink-900 leading-relaxed text-center">
                 <p>
                   Dr. Ritesh Safariya is a distinguished clinical dermatologist and certified trichologist with over 15+ years of clinical experience specializing in follicular biology, scalp disorders, and hair restoration therapies.
@@ -89,23 +113,24 @@ export default function AboutPage() {
                 </p>
               </AnimatedSection>
 
+              {/* 4 Feature Items: Single line in laptop layout (lg:grid-cols-4), 2 in each row on mobile/tablet (grid-cols-2) */}
               <AnimatedSection delay={0.35} className="pt-2">
-                <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 text-sm">
-                  <div className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white border border-gray-200 shadow-xs">
-                    <CheckCircle2 className="w-5 h-5 text-blue-700 flex-shrink-0" />
-                    <span className="text-navy-950 font-medium">Solo Doctor Practice</span>
+                <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 text-sm max-w-4xl mx-auto">
+                  <div className="flex items-center justify-center gap-2 px-3 py-2.5 rounded-xl bg-white border border-gray-200 shadow-xs text-center">
+                    <CheckCircle2 className="w-4.5 h-4.5 text-blue-700 flex-shrink-0" />
+                    <span className="text-navy-950 font-medium text-xs sm:text-sm whitespace-nowrap">Solo Doctor Practice</span>
                   </div>
-                  <div className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white border border-gray-200 shadow-xs">
-                    <CheckCircle2 className="w-5 h-5 text-blue-700 flex-shrink-0" />
-                    <span className="text-navy-950 font-medium">Polarized Micro-Imaging</span>
+                  <div className="flex items-center justify-center gap-2 px-3 py-2.5 rounded-xl bg-white border border-gray-200 shadow-xs text-center">
+                    <CheckCircle2 className="w-4.5 h-4.5 text-blue-700 flex-shrink-0" />
+                    <span className="text-navy-950 font-medium text-xs sm:text-sm whitespace-nowrap">Polarized Micro-Imaging</span>
                   </div>
-                  <div className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white border border-gray-200 shadow-xs">
-                    <CheckCircle2 className="w-5 h-5 text-blue-700 flex-shrink-0" />
-                    <span className="text-navy-950 font-medium">Clear Treatment Timelines</span>
+                  <div className="flex items-center justify-center gap-2 px-3 py-2.5 rounded-xl bg-white border border-gray-200 shadow-xs text-center">
+                    <CheckCircle2 className="w-4.5 h-4.5 text-blue-700 flex-shrink-0" />
+                    <span className="text-navy-950 font-medium text-xs sm:text-sm whitespace-nowrap">Clear Treatment Timelines</span>
                   </div>
-                  <div className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white border border-gray-200 shadow-xs">
-                    <CheckCircle2 className="w-5 h-5 text-blue-700 flex-shrink-0" />
-                    <span className="text-navy-950 font-medium">Comprehensive Biomarkers</span>
+                  <div className="flex items-center justify-center gap-2 px-3 py-2.5 rounded-xl bg-white border border-gray-200 shadow-xs text-center">
+                    <CheckCircle2 className="w-4.5 h-4.5 text-blue-700 flex-shrink-0" />
+                    <span className="text-navy-950 font-medium text-xs sm:text-sm whitespace-nowrap">Comprehensive Biomarkers</span>
                   </div>
                 </div>
               </AnimatedSection>
