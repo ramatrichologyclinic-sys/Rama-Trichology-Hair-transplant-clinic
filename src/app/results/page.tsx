@@ -68,8 +68,8 @@ const ALL_CASES: ResultCase[] = [
     patientToken: "[Patient Case 5]",
     title: "Female Diffuse Telogen Effluvium",
     timeline: "5 Months of Multi-Factor Care",
-    beforeImg: "/images/hair-fall-case-before.webp",
-    afterImg: "/images/hair-fall-case-after.webp",
+    beforeImg: "/images/wigs-extensions-case-before.webp",
+    afterImg: "/images/wigs-extensions-case-after.webp",
     outcome: "Parting line width reduced by 50% following corrected ferritin levels and topical peptide therapy.",
   },
   {
@@ -78,8 +78,8 @@ const ALL_CASES: ResultCase[] = [
     patientToken: "[Patient Case 6]",
     title: "Medical Cranial Prosthesis Custom Fit",
     timeline: "Immediate Restoration",
-    beforeImg: "/images/wigs-extensions-case-before.webp",
-    afterImg: "/images/wigs-extensions-case-after.webp",
+    beforeImg: "/images/hair-fall-case-before.webp",
+    afterImg: "/images/hair-fall-case-after.webp",
     outcome: "Undetectable human hair cranial integration providing complete coverage and comfort.",
   },
 ];
