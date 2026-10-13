@@ -127,15 +127,15 @@ export default function Navbar() {
 
   return (
     <header
-      className="sticky top-0 z-50 w-full pt-2.5 sm:pt-3.5 pb-2.5 sm:pb-3 transition-all duration-200"
+      className="sticky top-0 z-50 w-full pt-2 sm:pt-3 pb-2 sm:pb-2.5 transition-all duration-200"
       style={{ transform: "translateZ(0)", willChange: "transform" }}
     >
-      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
-        <div className="bg-white/95 backdrop-blur-md rounded-2xl sm:rounded-full border border-sky-100 shadow-[0_8px_30px_rgba(2,132,199,0.07)] px-5 sm:px-8 min-h-[92px] sm:min-h-[102px] h-[92px] sm:h-[102px] flex items-center justify-between">
+      <div className="w-full px-2 sm:px-4 lg:px-6 xl:px-8">
+        <div className="w-full bg-white/95 backdrop-blur-md rounded-2xl sm:rounded-full border border-sky-100 shadow-[0_8px_30px_rgba(2,132,199,0.07)] px-4 sm:px-6 lg:px-8 xl:px-10 min-h-[92px] sm:min-h-[102px] h-[92px] sm:h-[102px] flex items-center justify-between gap-4">
           {/* Logo with highlighted emblem only and unhighlighted brand text */}
           <Link
             href="/"
-            className="flex items-center gap-3 sm:gap-3.5 group focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 py-1"
+            className="flex items-center gap-3 sm:gap-4 flex-shrink-0 group focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 py-1"
             aria-label={`${CLINIC_INFO.brandName} — ${CLINIC_INFO.tagline}`}
           >
             {/* Logo emblem increased by another 35% and base-aligned with text */}
@@ -149,12 +149,12 @@ export default function Navbar() {
                 className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200"
               />
             </div>
-            {/* Brand name increased by 10% */}
-            <div className="flex flex-col justify-center">
-              <span className="font-serif text-xl sm:text-[23.5px] font-bold tracking-tight text-navy-950 group-hover:text-blue-700 transition-colors leading-tight">
+            {/* Brand name */}
+            <div className="flex flex-col justify-center flex-shrink-0">
+              <span className="font-serif text-lg sm:text-xl lg:text-[23.5px] font-bold tracking-tight text-navy-950 group-hover:text-blue-700 transition-colors leading-tight whitespace-nowrap">
                 {CLINIC_INFO.brandName}
               </span>
-              <span className="text-[11px] sm:text-[12.5px] uppercase tracking-widest text-[#007baa] font-semibold leading-none mt-1">
+              <span className="text-[10px] sm:text-[11px] lg:text-[12.5px] uppercase tracking-widest text-[#007baa] font-semibold leading-none mt-1 whitespace-nowrap">
                 {CLINIC_INFO.tagline}
               </span>
             </div>
@@ -162,7 +162,7 @@ export default function Navbar() {
 
           {/* Desktop Navigation with Sliding Gliding Capsule Hover Animation */}
           <nav
-            className="hidden lg:flex items-center gap-1 relative"
+            className="hidden lg:flex items-center gap-1 xl:gap-2 relative flex-shrink-0"
             aria-label="Main Navigation"
             onMouseLeave={() => setHoveredNav(null)}
           >
@@ -314,7 +314,7 @@ export default function Navbar() {
           </nav>
 
           {/* Primary CTA with Online / Offline Dropdown & Mobile Toggle */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2.5 sm:gap-3.5 flex-shrink-0">
             {/* Book Consultation Dropdown Button */}
             <div
               ref={bookDropdownRef}
