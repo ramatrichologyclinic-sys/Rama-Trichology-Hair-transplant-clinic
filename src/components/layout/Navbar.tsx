@@ -17,6 +17,7 @@ import {
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { SERVICES, CLINIC_INFO } from "@/lib/constants";
+import LanguageSelector from "@/components/common/LanguageSelector";
 
 interface NavItem {
   name: string;
@@ -436,6 +437,9 @@ export default function Navbar() {
               </AnimatePresence>
             </div>
 
+            {/* Sleek Language Dropdown to the right of Book Consultation */}
+            <LanguageSelector />
+
             {/* Hamburger Button for Mobile */}
             <button
               type="button"
@@ -653,6 +657,14 @@ export default function Navbar() {
                     </motion.div>
                   )}
                 </AnimatePresence>
+              </div>
+
+              {/* Mobile Language Selector */}
+              <div className="pt-3 border-t border-gray-100 flex items-center justify-between px-2">
+                <span className="text-xs font-semibold uppercase tracking-wider text-slate-500">
+                  Select Language / भाषा
+                </span>
+                <LanguageSelector />
               </div>
             </div>
           </motion.div>

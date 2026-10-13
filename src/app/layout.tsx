@@ -157,6 +157,7 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-screen flex flex-col font-sans antialiased text-ink-900 relative" style={{ backgroundColor: "#f8fbff" }}>
+        <div id="google_translate_element" style={{ display: "none" }} aria-hidden="true" className="hidden notranslate" />
         <BackgroundWaves />
         <SmoothScroll>
           <Navbar />
