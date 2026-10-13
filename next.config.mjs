@@ -1,4 +1,4 @@
-const isGitHubPages = process.env.GITHUB_PAGES === "true";
+const isGitHubPages = process.env.GITHUB_PAGES !== "false";
 const basePath = isGitHubPages ? "/Rama-Trichology-Hair-transplant-clinic" : "";
 
 /** @type {import('next').NextConfig} */

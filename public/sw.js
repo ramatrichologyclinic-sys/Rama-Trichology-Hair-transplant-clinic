@@ -1,4 +1,4 @@
-const CACHE_NAME = 'rama-trichology-v4';
+const CACHE_NAME = 'rama-trichology-v5';
 
 self.addEventListener('install', (event) => {
   self.skipWaiting();

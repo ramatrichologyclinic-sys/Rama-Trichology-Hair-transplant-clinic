@@ -155,6 +155,29 @@ export default function RootLayout({
             `,
           }}
         />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              // Google Translate React DOM Crash Guard
+              if (typeof window !== 'undefined' && typeof Node === 'function' && Node.prototype) {
+                const origRemoveChild = Node.prototype.removeChild;
+                Node.prototype.removeChild = function(child) {
+                  if (child.parentNode !== this) {
+                    return child;
+                  }
+                  return origRemoveChild.apply(this, arguments);
+                };
+                const origInsertBefore = Node.prototype.insertBefore;
+                Node.prototype.insertBefore = function(newNode, referenceNode) {
+                  if (referenceNode && referenceNode.parentNode !== this) {
+                    return newNode;
+                  }
+                  return origInsertBefore.apply(this, arguments);
+                };
+              }
+            `,
+          }}
+        />
         <style
           dangerouslySetInnerHTML={{
             __html: `
