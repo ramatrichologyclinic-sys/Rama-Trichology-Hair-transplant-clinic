@@ -82,41 +82,7 @@ export default function LanguageSelector() {
       setIsLoaded(true);
     }
 
-    // 4. Actively suppress Google Translate banner and body offset
-    const suppressGoogleBanner = () => {
-      if (document.body.style.top && document.body.style.top !== "0px") {
-        document.body.style.top = "0px";
-      }
-      if (document.documentElement.style.top && document.documentElement.style.top !== "0px") {
-        document.documentElement.style.top = "0px";
-      }
-      const bannerElements = document.querySelectorAll(
-        "body > .skiptranslate, body > iframe.skiptranslate, iframe.skiptranslate, .goog-te-banner-frame, .VIpgJd-ZVi9od-aZ2wEe-wOHMyf, .VIpgJd-ZVi9od-ORHb-OEVmcd, .VIpgJd-ZVi9od-xl07Ob-OEVmcd"
-      );
-      bannerElements.forEach((el) => {
-        const htmlEl = el as HTMLElement;
-        if (htmlEl.id !== "google_translate_element") {
-          htmlEl.style.setProperty("display", "none", "important");
-          htmlEl.style.setProperty("visibility", "hidden", "important");
-          htmlEl.style.setProperty("height", "0", "important");
-          htmlEl.style.setProperty("width", "0", "important");
-          htmlEl.style.setProperty("opacity", "0", "important");
-          htmlEl.style.setProperty("pointer-events", "none", "important");
-        }
-      });
-    };
-
-    suppressGoogleBanner();
-    const bannerObserver = new MutationObserver(() => {
-      suppressGoogleBanner();
-    });
-    bannerObserver.observe(document.body, {
-      attributes: true,
-      attributeFilter: ["style", "class"],
-      childList: true,
-    });
-
-    // 5. Click outside listener
+    // 4. Click outside listener
     const handleClickOutside = (event: MouseEvent) => {
       if (
         dropdownRef.current &&
@@ -126,14 +92,14 @@ export default function LanguageSelector() {
       }
     };
 
-    // 6. Escape key listener
+    // 5. Escape key listener
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
         setIsOpen(false);
       }
     };
 
-    // 7. Listen for custom sync event across multiple selector instances
+    // 6. Listen for custom sync event across multiple selector instances
     const handleSync = (e: Event) => {
       const customEvent = e as CustomEvent<string>;
       if (customEvent.detail && LANGUAGES.some((l) => l.code === customEvent.detail)) {
@@ -146,7 +112,6 @@ export default function LanguageSelector() {
     window.addEventListener("rama_lang_change", handleSync);
 
     return () => {
-      bannerObserver.disconnect();
       document.removeEventListener("mousedown", handleClickOutside);
       document.removeEventListener("keydown", handleKeyDown);
       window.removeEventListener("rama_lang_change", handleSync);
@@ -195,26 +160,6 @@ export default function LanguageSelector() {
       // Reload so Google Translate applies cookie on page load
       window.location.reload();
     }
-
-    // Run banner suppression immediately and after brief timeouts
-    const suppress = () => {
-      if (document.body.style.top) document.body.style.top = "0px";
-      const banners = document.querySelectorAll(
-        "body > .skiptranslate, body > iframe.skiptranslate, iframe.skiptranslate, .goog-te-banner-frame, .VIpgJd-ZVi9od-aZ2wEe-wOHMyf"
-      );
-      banners.forEach((el) => {
-        const htmlEl = el as HTMLElement;
-        if (htmlEl.id !== "google_translate_element") {
-          htmlEl.style.setProperty("display", "none", "important");
-          htmlEl.style.setProperty("visibility", "hidden", "important");
-          htmlEl.style.setProperty("height", "0", "important");
-        }
-      });
-    };
-    suppress();
-    setTimeout(suppress, 50);
-    setTimeout(suppress, 200);
-    setTimeout(suppress, 500);
   };
 
   const currentLangObj =

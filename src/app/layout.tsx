@@ -168,23 +168,28 @@ export default function RootLayout({
               .goog-te-banner-frame,
               .goog-te-banner-frame.skiptranslate,
               iframe.goog-te-banner-frame,
-              #goog-gt-tt,
-              .goog-te-balloon-frame,
-              .VIpgJd-ZVi9od-ORHb-OEVmcd,
               .VIpgJd-ZVi9od-aZ2wEe-wOHMyf,
               .VIpgJd-ZVi9od-xl07Ob-OEVmcd,
               div.skiptranslate[style*="visibility: visible"],
               div.VIpgJd-ZVi9od-aZ2wEe-wOHMyf {
-                display: none !important;
                 visibility: hidden !important;
-                height: 0px !important;
-                width: 0px !important;
                 opacity: 0 !important;
-                pointer-events: none !important;
-                position: absolute !important;
+                position: fixed !important;
                 top: -9999px !important;
                 left: -9999px !important;
+                width: 1px !important;
+                height: 1px !important;
+                max-width: 1px !important;
+                max-height: 1px !important;
+                overflow: hidden !important;
+                pointer-events: none !important;
                 z-index: -9999 !important;
+              }
+              #goog-gt-tt,
+              .goog-te-balloon-frame,
+              .VIpgJd-ZVi9od-ORHb-OEVmcd {
+                display: none !important;
+                visibility: hidden !important;
               }
               body {
                 top: 0px !important;
