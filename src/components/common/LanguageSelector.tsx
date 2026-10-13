@@ -82,7 +82,41 @@ export default function LanguageSelector() {
       setIsLoaded(true);
     }
 
-    // 4. Click outside listener
+    // 4. Actively suppress Google Translate banner and body offset
+    const suppressGoogleBanner = () => {
+      if (document.body.style.top && document.body.style.top !== "0px") {
+        document.body.style.top = "0px";
+      }
+      if (document.documentElement.style.top && document.documentElement.style.top !== "0px") {
+        document.documentElement.style.top = "0px";
+      }
+      const bannerElements = document.querySelectorAll(
+        "body > .skiptranslate, body > iframe.skiptranslate, iframe.skiptranslate, .goog-te-banner-frame, .VIpgJd-ZVi9od-aZ2wEe-wOHMyf, .VIpgJd-ZVi9od-ORHb-OEVmcd, .VIpgJd-ZVi9od-xl07Ob-OEVmcd"
+      );
+      bannerElements.forEach((el) => {
+        const htmlEl = el as HTMLElement;
+        if (htmlEl.id !== "google_translate_element") {
+          htmlEl.style.setProperty("display", "none", "important");
+          htmlEl.style.setProperty("visibility", "hidden", "important");
+          htmlEl.style.setProperty("height", "0", "important");
+          htmlEl.style.setProperty("width", "0", "important");
+          htmlEl.style.setProperty("opacity", "0", "important");
+          htmlEl.style.setProperty("pointer-events", "none", "important");
+        }
+      });
+    };
+
+    suppressGoogleBanner();
+    const bannerObserver = new MutationObserver(() => {
+      suppressGoogleBanner();
+    });
+    bannerObserver.observe(document.body, {
+      attributes: true,
+      attributeFilter: ["style", "class"],
+      childList: true,
+    });
+
+    // 5. Click outside listener
     const handleClickOutside = (event: MouseEvent) => {
       if (
         dropdownRef.current &&
@@ -92,14 +126,14 @@ export default function LanguageSelector() {
       }
     };
 
-    // 5. Escape key listener
+    // 6. Escape key listener
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
         setIsOpen(false);
       }
     };
 
-    // 6. Listen for custom sync event across multiple selector instances
+    // 7. Listen for custom sync event across multiple selector instances
     const handleSync = (e: Event) => {
       const customEvent = e as CustomEvent<string>;
       if (customEvent.detail && LANGUAGES.some((l) => l.code === customEvent.detail)) {
@@ -112,6 +146,7 @@ export default function LanguageSelector() {
     window.addEventListener("rama_lang_change", handleSync);
 
     return () => {
+      bannerObserver.disconnect();
       document.removeEventListener("mousedown", handleClickOutside);
       document.removeEventListener("keydown", handleKeyDown);
       window.removeEventListener("rama_lang_change", handleSync);
@@ -125,33 +160,61 @@ export default function LanguageSelector() {
     window.dispatchEvent(new CustomEvent("rama_lang_change", { detail: langCode }));
     setIsOpen(false);
 
-    // Set cookie for both current domain and root path
     const domain = window.location.hostname;
     const cookieValue = `/en/${langCode}`;
-    
-    // Cookie format required by Google Translate engine
-    document.cookie = `googtrans=${cookieValue}; path=/;`;
-    if (domain !== "localhost") {
-      document.cookie = `googtrans=${cookieValue}; path=/; domain=.${domain};`;
-    }
 
-    // If switching back to English, clear cookie or set to /en/en
     if (langCode === "en") {
+      // Clear cookie completely
       document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
-      if (domain !== "localhost") {
+      document.cookie = `googtrans=/en/en; path=/;`;
+      if (domain && domain !== "localhost") {
         document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=.${domain};`;
+        document.cookie = `googtrans=/en/en; path=/; domain=.${domain};`;
+      }
+    } else {
+      // Set translation cookie
+      document.cookie = `googtrans=${cookieValue}; path=/;`;
+      if (domain && domain !== "localhost") {
+        document.cookie = `googtrans=${cookieValue}; path=/; domain=.${domain};`;
       }
     }
 
     // Trigger translation through Google's native combo select if available
     const selectEl = document.querySelector(".goog-te-combo") as HTMLSelectElement | null;
     if (selectEl) {
-      selectEl.value = langCode;
+      if (langCode === "en") {
+        selectEl.value = "en";
+        if (selectEl.value !== "en") {
+          selectEl.selectedIndex = 0;
+        }
+      } else {
+        selectEl.value = langCode;
+      }
       selectEl.dispatchEvent(new Event("change", { bubbles: true }));
     } else {
       // Reload so Google Translate applies cookie on page load
       window.location.reload();
     }
+
+    // Run banner suppression immediately and after brief timeouts
+    const suppress = () => {
+      if (document.body.style.top) document.body.style.top = "0px";
+      const banners = document.querySelectorAll(
+        "body > .skiptranslate, body > iframe.skiptranslate, iframe.skiptranslate, .goog-te-banner-frame, .VIpgJd-ZVi9od-aZ2wEe-wOHMyf"
+      );
+      banners.forEach((el) => {
+        const htmlEl = el as HTMLElement;
+        if (htmlEl.id !== "google_translate_element") {
+          htmlEl.style.setProperty("display", "none", "important");
+          htmlEl.style.setProperty("visibility", "hidden", "important");
+          htmlEl.style.setProperty("height", "0", "important");
+        }
+      });
+    };
+    suppress();
+    setTimeout(suppress, 50);
+    setTimeout(suppress, 200);
+    setTimeout(suppress, 500);
   };
 
   const currentLangObj =

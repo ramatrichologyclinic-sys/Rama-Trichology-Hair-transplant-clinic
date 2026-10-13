@@ -155,6 +155,47 @@ export default function RootLayout({
             `,
           }}
         />
+        <style
+          dangerouslySetInnerHTML={{
+            __html: `
+              body > .skiptranslate,
+              body > iframe.skiptranslate,
+              iframe.skiptranslate,
+              iframe[class*="skiptranslate"],
+              iframe[id*=":1"],
+              iframe[id*=":2"],
+              iframe[id*="container"],
+              .goog-te-banner-frame,
+              .goog-te-banner-frame.skiptranslate,
+              iframe.goog-te-banner-frame,
+              #goog-gt-tt,
+              .goog-te-balloon-frame,
+              .VIpgJd-ZVi9od-ORHb-OEVmcd,
+              .VIpgJd-ZVi9od-aZ2wEe-wOHMyf,
+              .VIpgJd-ZVi9od-xl07Ob-OEVmcd,
+              div.skiptranslate[style*="visibility: visible"],
+              div.VIpgJd-ZVi9od-aZ2wEe-wOHMyf {
+                display: none !important;
+                visibility: hidden !important;
+                height: 0px !important;
+                width: 0px !important;
+                opacity: 0 !important;
+                pointer-events: none !important;
+                position: absolute !important;
+                top: -9999px !important;
+                left: -9999px !important;
+                z-index: -9999 !important;
+              }
+              body {
+                top: 0px !important;
+                position: static !important;
+              }
+              html {
+                top: 0px !important;
+              }
+            `,
+          }}
+        />
       </head>
       <body className="min-h-screen flex flex-col font-sans antialiased text-ink-900 relative" style={{ backgroundColor: "#f8fbff" }}>
         <div id="google_translate_element" style={{ display: "none" }} aria-hidden="true" className="hidden notranslate" />
