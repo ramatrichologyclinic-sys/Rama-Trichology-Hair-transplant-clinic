@@ -67,10 +67,10 @@ const ALL_CASES: ResultCase[] = [
     category: "Hair Fall Treatment",
     patientToken: "[Patient Case 5]",
     title: "Female Diffuse Telogen Effluvium",
-    timeline: "5 Months of Multi-Factor Care",
-    beforeImg: "/images/wigs-extensions-case-before.webp",
-    afterImg: "/images/wigs-extensions-case-after.webp",
-    outcome: "Parting line width reduced by 50% following corrected ferritin levels and topical peptide therapy.",
+    timeline: "2.5 Months of Targeted Therapy",
+    beforeImg: "/images/case5-before.webp",
+    afterImg: "/images/case5-after.webp",
+    outcome: "Marked follicular regrowth along the fronto-temporal hairline and reduction in diffuse shedding.",
   },
   {
     id: "case-6",
@@ -78,9 +78,9 @@ const ALL_CASES: ResultCase[] = [
     patientToken: "[Patient Case 6]",
     title: "Medical Cranial Prosthesis Custom Fit",
     timeline: "Immediate Restoration",
-    beforeImg: "/images/hair-fall-case-before.webp",
-    afterImg: "/images/hair-fall-case-after.webp",
-    outcome: "Undetectable human hair cranial integration providing complete coverage and comfort.",
+    beforeImg: "/images/case6-before.webp",
+    afterImg: "/images/case6-after.webp",
+    outcome: "Undetectable human hair cranial integration providing complete coverage and natural hairline styling.",
   },
 ];
 
@@ -137,7 +137,7 @@ export default function ResultsPage() {
                           height={550}
                           loading="lazy"
                           decoding="async"
-                          className="object-cover w-full h-full"
+                          className="object-cover object-top w-full h-full"
                         />
                         <div className="absolute top-2 left-2 bg-navy-950/80 backdrop-blur-sm text-white text-[10px] font-bold px-2 py-0.5 rounded">
                           BEFORE
@@ -152,7 +152,7 @@ export default function ResultsPage() {
                           height={550}
                           loading="lazy"
                           decoding="async"
-                          className="object-cover w-full h-full"
+                          className="object-cover object-top w-full h-full"
                         />
                         <div className="absolute top-2 left-2 bg-blue-700 text-white text-[10px] font-bold px-2 py-0.5 rounded">
                           AFTER
