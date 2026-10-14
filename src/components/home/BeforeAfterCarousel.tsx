@@ -6,7 +6,7 @@ import { AnimatedSection, StaggerContainer, StaggerItem } from "@/components/com
 export const SAMPLE_CASES = [
   {
     id: "case-1",
-    title: "Androgenetic Alopecia (Crown Thinning)",
+    title: "Androgenetic Alopecia",
     patient: "[Patient Case 1]",
     timeline: "4 Months of Clinical Regimen",
     beforeImage: "/images/case1-before.jpg",
@@ -33,12 +33,12 @@ export const SAMPLE_CASES = [
   },
   {
     id: "case-4",
-    title: "Scalp Micropigmentation (SMP)",
+    title: "Alopecia Areata",
     patient: "[Patient Case 4]",
-    timeline: "2 Clinical Sessions",
+    timeline: "4 Months of Targeted Clinical Protocol",
     beforeImage: "/images/case4-before.jpg",
     afterImage: "/images/case4-after.jpg",
-    notes: "Instant 3D visual density camouflaging diffuse crown thinning without downtime.",
+    notes: "Complete follicular reactivation and dense terminal hair regrowth over the circular patch.",
   },
 ];
 

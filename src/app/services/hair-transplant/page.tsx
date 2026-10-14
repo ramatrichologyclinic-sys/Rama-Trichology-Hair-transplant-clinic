@@ -172,7 +172,7 @@ export default function HairTransplantPage() {
                 Documented Case
               </span>
               <h3 className="font-serif text-2xl sm:text-3xl font-bold text-navy-950 mt-3 mb-2">
-                9-Month Post-FUE Frontal Hairline
+                Micro-FUE Hairline Restoration
               </h3>
               <p className="text-sm text-ink-900">
                 [Patient Case — Male, 34 Years Old, Norwood Stage III]. 2,400 Micro-Grafts implanted with high density.

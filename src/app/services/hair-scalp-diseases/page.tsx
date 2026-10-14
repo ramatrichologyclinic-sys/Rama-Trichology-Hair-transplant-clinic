@@ -174,7 +174,7 @@ export default function ScalpDiseasesPage() {
                 Documented Case
               </span>
               <h3 className="font-serif text-2xl sm:text-3xl font-bold text-navy-950 mt-3 mb-2">
-                6-Week Seborrheic Scalp Resolution
+                Seborrheic Dermatitis &amp; Scalp Scaling
               </h3>
               <p className="text-sm text-ink-900">
                 [Patient Case — Female, 28 Years Old]. Severe itching, heavy erythema, and sticky follicular flakes fully cleared.

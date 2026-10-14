@@ -172,10 +172,10 @@ export default function HairCamouflagePage() {
                 Documented Case
               </span>
               <h3 className="font-serif text-2xl sm:text-3xl font-bold text-navy-950 mt-3 mb-2">
-                2-Session Scalp Micropigmentation
+                Alopecia Areata
               </h3>
               <p className="text-sm text-ink-900">
-                [Patient Case — Male, 42 Years Old]. Crown scalp show-through camouflaged with seamless natural density.
+                [Patient Case — Targeted Clinical Therapy]. Follicular reactivation and dense regrowth over circular patch.
               </p>
             </div>
 
@@ -183,28 +183,28 @@ export default function HairCamouflagePage() {
               <div className="relative rounded-2xl overflow-hidden border border-gray-200 bg-white aspect-[4/3.5] shadow-md">
                 <Image
                   src="/images/case4-before.jpg"
-                  alt="Patient Case crown thinning before scalp micropigmentation"
+                  alt="Patient Case alopecia areata patch before treatment"
                   width={900}
                   height={750}
                   loading="lazy"
                   className="object-cover object-top w-full h-full"
                 />
                 <div className="absolute top-3.5 left-3.5 bg-navy-950/85 backdrop-blur-sm text-white text-xs font-bold px-3 py-1 rounded-md shadow-sm">
-                  BEFORE SMP
+                  BEFORE TREATMENT
                 </div>
               </div>
 
               <div className="relative rounded-2xl overflow-hidden border border-gray-200 bg-white aspect-[4/3.5] shadow-md">
                 <Image
                   src="/images/case4-after.jpg"
-                  alt="Patient Case instant visual density after 2 SMP clinical sessions"
+                  alt="Patient Case full hair regrowth after alopecia areata treatment"
                   width={900}
                   height={750}
                   loading="lazy"
                   className="object-cover object-top w-full h-full"
                 />
                 <div className="absolute top-3.5 left-3.5 bg-blue-700 text-white text-xs font-bold px-3 py-1 rounded-md shadow-sm">
-                  AFTER 2 SESSIONS
+                  AFTER REGROWTH
                 </div>
               </div>
             </div>
