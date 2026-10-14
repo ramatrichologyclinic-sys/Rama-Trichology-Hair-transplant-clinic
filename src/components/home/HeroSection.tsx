@@ -87,7 +87,7 @@ export default function HeroSection() {
                   </div>
 
                   {/* Experience Badge Chip */}
-                  <div className="absolute -bottom-3.5 -right-2 sm:right-3 bg-white/95 backdrop-blur-md rounded-2xl shadow-lg py-2 px-3.5 border border-sky-100 flex items-center gap-2.5">
+                  <div className="absolute -bottom-3.5 right-2 sm:right-3 bg-white/95 backdrop-blur-md rounded-2xl shadow-lg py-2 px-3.5 border border-sky-100 flex items-center gap-2.5">
                     <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-sky-400 to-[#007baa] flex items-center justify-center text-white shadow-sm flex-shrink-0">
                       <Award className="w-4 h-4" />
                     </div>

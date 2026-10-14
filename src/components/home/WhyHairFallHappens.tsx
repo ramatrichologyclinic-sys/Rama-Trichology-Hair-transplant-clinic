@@ -102,13 +102,13 @@ export default function WhyHairFallHappens() {
           </p>
         </AnimatedSection>
 
-        {/* 9 Cards: Exactly 3 rows and 3 cards per row on desktop/laptop (lg:grid-cols-3) */}
-        <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7 lg:gap-8 items-stretch">
+        {/* 9 Cards: Exactly 3 rows and 3 cards each row across all screen sizes (grid-cols-3) */}
+        <StaggerContainer className="grid grid-cols-3 gap-2 sm:gap-6 lg:gap-8 items-stretch">
           {ROOT_CAUSES.map((item, idx) => (
             <StaggerItem key={item.title} className="h-full">
-              <div className="group h-full bg-white rounded-2xl sm:rounded-3xl p-6 sm:p-7 lg:p-8 border border-sky-100 shadow-[0_4px_20px_rgba(2,132,199,0.06)] hover:shadow-[0_16px_36px_rgba(2,132,199,0.16)] hover:border-sky-300 hover:-translate-y-1.5 transition-all duration-300 flex flex-col items-center text-center justify-between">
+              <div className="group h-full bg-white rounded-xl sm:rounded-3xl p-2 sm:p-7 lg:p-8 border border-sky-100 shadow-[0_2px_10px_rgba(2,132,199,0.05)] sm:shadow-[0_4px_20px_rgba(2,132,199,0.06)] hover:shadow-[0_16px_36px_rgba(2,132,199,0.16)] hover:border-sky-300 hover:-translate-y-1 sm:hover:-translate-y-1.5 transition-all duration-300 flex flex-col items-center text-center justify-between">
                 {/* Top Circular Artwork Icon - sized prominently bigger than the title */}
-                <div className="relative w-28 h-28 sm:w-32 sm:h-32 mb-4 sm:mb-5 flex-shrink-0 group-hover:scale-105 transition-transform duration-300 drop-shadow-sm">
+                <div className="relative w-14 h-14 sm:w-28 sm:h-28 lg:w-32 lg:h-32 mb-1.5 sm:mb-4 lg:mb-5 flex-shrink-0 group-hover:scale-105 transition-transform duration-300 drop-shadow-sm">
                   <Image
                     src={item.image}
                     alt={`${item.title} — hair fall root cause factor`}
@@ -120,17 +120,17 @@ export default function WhyHairFallHappens() {
                 </div>
 
                 {/* Title & Caption */}
-                <div className="space-y-2 sm:space-y-2.5 max-w-[290px] flex-grow flex flex-col justify-start">
-                  <h3 className="font-serif text-xl sm:text-2xl font-bold text-navy-950 tracking-tight group-hover:text-[#007baa] transition-colors leading-snug">
+                <div className="space-y-1 sm:space-y-2.5 w-full flex-grow flex flex-col justify-start">
+                  <h3 className="font-serif text-[11px] sm:text-xl lg:text-2xl font-bold text-navy-950 tracking-tight group-hover:text-[#007baa] transition-colors leading-tight sm:leading-snug">
                     {item.title}
                   </h3>
-                  <p className="text-xs sm:text-sm lg:text-[14.5px] text-slate-600 leading-relaxed font-normal">
+                  <p className="text-[8.5px] sm:text-sm lg:text-[14.5px] text-slate-600 leading-tight sm:leading-relaxed font-normal">
                     {item.desc}
                   </p>
                 </div>
 
                 {/* Subtle bottom indicator dot */}
-                <div className="mt-5 sm:mt-6 w-2 h-2 rounded-full bg-sky-300 group-hover:bg-[#007baa] transition-colors" />
+                <div className="hidden sm:block mt-5 sm:mt-6 w-2 h-2 rounded-full bg-sky-300 group-hover:bg-[#007baa] transition-colors" />
               </div>
             </StaggerItem>
           ))}

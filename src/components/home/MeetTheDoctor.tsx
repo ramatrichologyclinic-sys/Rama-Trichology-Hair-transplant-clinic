@@ -96,7 +96,7 @@ export default function MeetTheDoctor() {
                   damping: 15,
                   delay: 0.45,
                 }}
-                className="absolute -bottom-5 -left-2 sm:-left-4 bg-white/95 backdrop-blur-md rounded-2xl shadow-xl p-3 sm:p-3.5 border border-sky-100 flex items-center gap-3"
+                className="absolute -bottom-5 left-2 sm:-left-4 bg-white/95 backdrop-blur-md rounded-2xl shadow-xl p-3 sm:p-3.5 border border-sky-100 flex items-center gap-3"
               >
                 <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-sky-400 to-blue-600 flex items-center justify-center text-white shadow-md shadow-blue-500/20 flex-shrink-0">
                   <Award className="w-5 h-5" />

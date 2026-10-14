@@ -67,9 +67,9 @@ export default function AboutPage() {
                     className="object-cover object-center w-full h-full"
                   />
 
-                  {/* Doctor's Clinical Team Frame attached at bottom right (reduced by 10%) */}
-                  <div className="absolute bottom-3 right-3 sm:bottom-5 sm:right-5 z-20 bg-white rounded-xl sm:rounded-2xl p-[5px] sm:p-[6px] shadow-2xl max-w-[189px] sm:max-w-[252px]">
-                    <div className="relative aspect-[4/3] w-full rounded-lg sm:rounded-xl overflow-hidden bg-slate-100">
+                  {/* Doctor's Clinical Team Frame: positioned bottom-left and reduced 50% on mobile, bottom-right on desktop */}
+                  <div className="absolute bottom-2.5 left-2.5 sm:bottom-5 sm:left-auto sm:right-5 z-20 bg-white rounded-lg sm:rounded-2xl p-1 sm:p-[6px] shadow-xl sm:shadow-2xl max-w-[95px] sm:max-w-[252px]">
+                    <div className="relative aspect-[4/3] w-full rounded-md sm:rounded-xl overflow-hidden bg-slate-100">
                       <Image
                         src="/images/clinical-team.jpg"
                         alt="Clinical Team of Rama Hair Clinic"
@@ -78,8 +78,8 @@ export default function AboutPage() {
                         className="w-full h-full object-cover"
                       />
                     </div>
-                    <div className="pt-2 pb-1 text-center px-1">
-                      <span className="text-[11px] sm:text-xs font-semibold text-navy-950 block leading-tight">
+                    <div className="pt-1 pb-0.5 sm:pt-2 sm:pb-1 text-center px-0.5">
+                      <span className="text-[7.5px] sm:text-xs font-semibold text-navy-950 block leading-tight">
                         Clinical Team of Rama Hair Clinic
                       </span>
                     </div>

@@ -225,12 +225,12 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="min-h-screen flex flex-col font-sans antialiased text-ink-900 relative" style={{ backgroundColor: "#f8fbff" }}>
+      <body className="min-h-screen flex flex-col font-sans antialiased text-ink-900 relative overflow-x-hidden max-w-full w-full" style={{ backgroundColor: "#f8fbff" }}>
         <div id="google_translate_element" style={{ display: "none" }} aria-hidden="true" className="hidden notranslate" />
         <BackgroundWaves />
         <SmoothScroll>
           <Navbar />
-          <main id="main-content" className="flex-grow relative">
+          <main id="main-content" className="flex-grow relative overflow-x-hidden max-w-full w-full">
             {children}
           </main>
           <Footer />

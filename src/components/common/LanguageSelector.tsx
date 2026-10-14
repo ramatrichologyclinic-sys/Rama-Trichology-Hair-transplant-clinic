@@ -171,20 +171,20 @@ export default function LanguageSelector() {
       <button
         type="button"
         onClick={() => setIsOpen((prev) => !prev)}
-        className="inline-flex items-center justify-center gap-1.5 px-3 sm:px-3.5 py-2 sm:py-2.5 rounded-full border border-sky-200/80 bg-white/95 hover:bg-sky-50 text-navy-950 font-semibold text-xs sm:text-sm shadow-xs hover:border-[#007baa]/40 transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[#007baa]"
+        className="inline-flex items-center justify-center gap-1 sm:gap-1.5 px-2.5 sm:px-3.5 py-1.5 sm:py-2.5 rounded-full border border-sky-200/80 bg-white/95 hover:bg-sky-50 text-navy-950 font-semibold text-xs sm:text-sm shadow-xs hover:border-[#007baa]/40 transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[#007baa]"
         aria-haspopup="true"
         aria-expanded={isOpen}
         aria-label={`Current language: ${currentLangObj.name}. Click to change language`}
       >
-        <Globe className="w-4 h-4 text-[#007baa] flex-shrink-0" />
-        <span className="font-bold tracking-wide uppercase text-navy-950">
+        <Globe className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#007baa] flex-shrink-0" />
+        <span className="font-bold tracking-wide uppercase text-navy-950 text-xs sm:text-sm">
           {currentLangObj.code}
         </span>
         <span className="hidden xl:inline text-xs font-normal text-slate-500">
           {currentLangObj.nativeName}
         </span>
         <ChevronDown
-          className={`w-3.5 h-3.5 text-slate-500 transition-transform duration-200 ${
+          className={`w-3 h-3 sm:w-3.5 sm:h-3.5 text-slate-500 transition-transform duration-200 ${
             isOpen ? "transform rotate-180" : ""
           }`}
         />

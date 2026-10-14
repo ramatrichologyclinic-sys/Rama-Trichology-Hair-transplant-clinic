@@ -127,19 +127,19 @@ export default function Navbar() {
 
   return (
     <header
-      className="sticky top-0 z-50 w-full pt-2 sm:pt-3 pb-2 sm:pb-2.5 transition-all duration-200"
+      className="sticky top-0 z-50 w-full pt-1.5 sm:pt-3 pb-1.5 sm:pb-2.5 transition-all duration-200"
       style={{ transform: "translateZ(0)", willChange: "transform" }}
     >
       <div className="w-full px-2 sm:px-4 lg:px-6 xl:px-8">
-        <div className="w-full bg-white/95 backdrop-blur-md rounded-2xl sm:rounded-full border border-sky-100 shadow-[0_8px_30px_rgba(2,132,199,0.07)] px-4 sm:px-6 lg:px-8 xl:px-10 min-h-[92px] sm:min-h-[102px] h-[92px] sm:h-[102px] flex items-center justify-between gap-4">
+        <div className="w-full bg-white/95 backdrop-blur-md rounded-2xl sm:rounded-full border border-sky-100 shadow-[0_8px_30px_rgba(2,132,199,0.07)] px-2.5 sm:px-6 lg:px-8 xl:px-10 min-h-[76px] sm:min-h-[102px] h-[76px] sm:h-[102px] flex items-center justify-between gap-2 sm:gap-4">
           {/* Logo with highlighted emblem only and unhighlighted brand text */}
           <Link
             href="/"
-            className="flex items-center gap-3 sm:gap-4 flex-shrink-0 group focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 py-1"
+            className="flex items-center gap-2 sm:gap-4 flex-shrink min-w-0 group focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 py-1"
             aria-label={`${CLINIC_INFO.brandName} — ${CLINIC_INFO.tagline}`}
           >
-            {/* Logo emblem increased by another 35% and base-aligned with text */}
-            <div className="relative w-[69px] h-[69px] sm:w-[77px] sm:h-[77px] flex-shrink-0 flex items-center justify-center -translate-y-1 sm:-translate-y-1.5">
+            {/* Logo emblem increased by another 35% on desktop and responsive on mobile */}
+            <div className="relative w-[48px] h-[48px] sm:w-[77px] sm:h-[77px] flex-shrink-0 flex items-center justify-center -translate-y-0.5 sm:-translate-y-1.5">
               <Image
                 src="/images/clinic-logo-v3.png"
                 alt="Rama Hair Clinic – Trichology Center official logo emblem"
@@ -150,11 +150,11 @@ export default function Navbar() {
               />
             </div>
             {/* Brand name */}
-            <div className="flex flex-col justify-center flex-shrink-0">
-              <span className="font-serif text-lg sm:text-xl lg:text-[23.5px] font-bold tracking-tight text-navy-950 group-hover:text-blue-700 transition-colors leading-tight whitespace-nowrap">
+            <div className="flex flex-col justify-center min-w-0">
+              <span className="font-serif text-[15px] sm:text-xl lg:text-[23.5px] font-bold tracking-tight text-navy-950 group-hover:text-blue-700 transition-colors leading-tight whitespace-nowrap">
                 {CLINIC_INFO.brandName}
               </span>
-              <span className="text-[10px] sm:text-[11px] lg:text-[12.5px] uppercase tracking-widest text-[#007baa] font-semibold leading-none mt-1 whitespace-nowrap">
+              <span className="text-[9px] sm:text-[11px] lg:text-[12.5px] uppercase tracking-widest text-[#007baa] font-semibold leading-none mt-0.5 sm:mt-1 whitespace-nowrap">
                 {CLINIC_INFO.tagline}
               </span>
             </div>
@@ -314,7 +314,7 @@ export default function Navbar() {
           </nav>
 
           {/* Primary CTA with Online / Offline Dropdown & Mobile Toggle */}
-          <div className="flex items-center gap-2.5 sm:gap-3.5 flex-shrink-0">
+          <div className="flex items-center gap-1.5 sm:gap-3.5 flex-shrink-0">
             {/* Book Consultation Dropdown Button */}
             <div
               ref={bookDropdownRef}
@@ -444,14 +444,14 @@ export default function Navbar() {
             <button
               type="button"
               onClick={() => setIsMobileMenuOpen((prev) => !prev)}
-              className="lg:hidden p-2.5 rounded-xl text-navy-950 hover:bg-sky-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400"
+              className="lg:hidden p-2 rounded-xl text-navy-950 hover:bg-sky-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400"
               aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
               aria-expanded={isMobileMenuOpen}
             >
               {isMobileMenuOpen ? (
-                <X className="w-6.5 h-6.5" />
+                <X className="w-6 h-6" />
               ) : (
-                <Menu className="w-6.5 h-6.5" />
+                <Menu className="w-6 h-6" />
               )}
             </button>
           </div>
@@ -466,7 +466,7 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3, ease: "easeOut" }}
-            className="lg:hidden fixed inset-x-0 top-[96px] sm:top-[108px] bg-white/95 backdrop-blur-xl border-b border-gray-200 shadow-xl max-h-[calc(100vh-6rem)] overflow-y-auto z-40"
+            className="lg:hidden fixed inset-x-0 top-[82px] sm:top-[108px] bg-white/95 backdrop-blur-xl border-b border-gray-200 shadow-xl max-h-[calc(100vh-5.5rem)] overflow-y-auto z-40"
           >
             <div className="px-4 py-6 space-y-3">
               {/* 1. Home */}
