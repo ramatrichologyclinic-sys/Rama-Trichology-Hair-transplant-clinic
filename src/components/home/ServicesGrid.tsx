@@ -1,23 +1,15 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
-import {
-  ArrowRight,
-  Sparkles,
-  Feather,
-  ShieldAlert,
-  Cpu,
-  Layers,
-} from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { SERVICES } from "@/lib/constants";
 import {
   StaggerContainer,
   StaggerItem,
   AnimatedSection,
 } from "@/components/common/AnimatedSection";
-
-const ICONS = [Feather, ShieldAlert, Cpu, Sparkles, Layers];
 
 export default function ServicesGrid() {
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
@@ -80,7 +72,6 @@ export default function ServicesGrid() {
         {/* 5-Card Layout: Row 1 has 3 cards, Row 2 has 2 cards centered between columns */}
         <StaggerContainer className="services-cards-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-6 sm:gap-8 items-stretch">
           {SERVICES.map((service, idx) => {
-            const Icon = ICONS[idx % ICONS.length];
             const isHovered = hoveredCard === idx;
             const isOtherDimmed = hoveredCard !== null && !isHovered;
 
@@ -102,47 +93,66 @@ export default function ServicesGrid() {
                 <div
                   onMouseEnter={() => setHoveredCard(idx)}
                   onMouseLeave={() => setHoveredCard(null)}
-                  className={`service-card-wrapper relative h-full rounded-3xl p-6 sm:p-7 pb-4 sm:pb-5 min-h-[220px] sm:min-h-[235px] border transition-all duration-300 flex flex-col justify-between group overflow-hidden ${
+                  className={`service-card-wrapper relative h-full rounded-3xl border transition-all duration-300 flex flex-col justify-between group overflow-hidden bg-white shadow-[0_20px_50px_rgba(0,0,0,0.08)] ${
                     isHovered
-                      ? "border-[#007baa] -translate-y-2 scale-[1.02] shadow-[0_20px_45px_rgba(0,123,170,0.22)] ring-2 ring-[#007baa] bg-white opacity-100 z-30"
+                      ? "border-[#007baa] -translate-y-2 scale-[1.02] shadow-[0_25px_60px_rgba(0,123,170,0.22)] ring-2 ring-[#007baa] opacity-100 z-30"
                       : isOtherDimmed
                       ? "border-sky-100/50 bg-white/70 opacity-40 scale-[0.98] z-10"
-                      : "border-sky-100 bg-white hover:-translate-y-1 shadow-[0_8px_30px_rgba(2,132,199,0.06)] opacity-100 z-10"
+                      : "border-sky-100 hover:-translate-y-1 hover:shadow-[0_20px_50px_rgba(2,132,199,0.12)] opacity-100 z-10"
                   }`}
                 >
-                  {/* Card Content: Text, icons, and buttons remain 100% opaque and fully readable */}
-                  <div className="relative z-10 flex flex-col h-full">
+                  {/* Fitted Image Header (Merged card image like HowWeDiagnose) */}
+                  <div className="relative w-full aspect-[16/10] overflow-hidden bg-slate-100">
+                    <Image
+                      src={service.placeholderImage}
+                      alt={service.title}
+                      width={800}
+                      height={500}
+                      className="object-cover object-center w-full h-full group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent pointer-events-none" />
+
+                    {/* Pillar Badge */}
+                    <div className="absolute top-3.5 left-3.5 px-3 py-1 rounded-full bg-navy-950/85 backdrop-blur-md text-white border border-white/20 text-xs font-bold tracking-wider font-mono">
+                      Pillar 0{idx + 1}
+                    </div>
+
+                    {/* Explore Link positioned top right over image */}
+                    <Link
+                      href={`/services/${service.slug}`}
+                      className="absolute top-3.5 right-3.5 inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold text-navy-950 bg-white/95 hover:bg-[#007baa] hover:text-white backdrop-blur-md shadow-sm transition-all duration-200 group/btn"
+                      aria-label={`Explore ${service.title} details`}
+                    >
+                      <span>Explore</span>
+                      <ArrowRight className="w-3.5 h-3.5 group-hover/btn:translate-x-0.5 transition-transform" />
+                    </Link>
+                  </div>
+
+                  {/* Card Content */}
+                  <div className="p-6 sm:p-7 flex flex-col justify-between flex-1">
                     <div>
-                      {/* Top Bar: Icon on Left, Explore Link on Top Right */}
-                      <div className="flex items-start justify-between gap-4 mb-4">
-                        <div
-                          className={`w-[54px] h-[54px] sm:w-[60px] sm:h-[60px] rounded-2xl bg-gradient-to-br from-sky-400 to-[#007baa] text-white flex items-center justify-center transition-all duration-300 ${
-                            isHovered
-                              ? "scale-105 shadow-[0_0_20px_rgba(0,123,170,0.4)]"
-                              : "shadow-md shadow-blue-500/20 group-hover:scale-105"
-                          }`}
-                        >
-                          <Icon className="w-6 h-6 sm:w-7 sm:h-7" />
-                        </div>
+                      <span className="text-xs font-bold uppercase tracking-wider text-[#007baa] mb-2 block font-mono">
+                        Clinical Pillar 0{idx + 1}
+                      </span>
 
-                        {/* Explore link positioned top right opposite the icon */}
-                        <Link
-                          href={`/services/${service.slug}`}
-                          className="inline-flex items-center gap-1.5 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full text-xs sm:text-sm font-semibold text-[#007baa] bg-sky-50/90 hover:bg-[#007baa] hover:text-white border border-sky-200/70 shadow-xs transition-all duration-200 group/btn"
-                          aria-label={`Explore ${service.title} details`}
-                        >
-                          <span>Explore</span>
-                          <ArrowRight className="w-3.5 h-3.5 group-hover/btn:translate-x-0.5 transition-transform" />
-                        </Link>
-                      </div>
-
-                      {/* Content */}
-                      <h3 className="font-serif text-lg sm:text-xl lg:text-[22px] font-bold text-navy-950 mb-2 group-hover:text-[#007baa] transition-colors leading-snug">
+                      <h3 className="font-serif text-lg sm:text-xl lg:text-[22px] font-bold text-navy-950 mb-2.5 group-hover:text-[#007baa] transition-colors leading-snug">
                         {service.title}
                       </h3>
+
                       <p className="text-xs sm:text-sm text-slate-700 leading-relaxed font-normal">
                         {service.shortDesc}
                       </p>
+                    </div>
+
+                    <div className="mt-5 pt-3.5 border-t border-sky-100 flex items-center justify-between text-xs font-semibold text-[#007baa]">
+                      <Link
+                        href={`/services/${service.slug}`}
+                        className="inline-flex items-center gap-1.5 hover:underline"
+                      >
+                        <span>View Protocol &amp; Cases</span>
+                        <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                      </Link>
+                      <span className="font-mono text-slate-400">0{idx + 1}/05</span>
                     </div>
                   </div>
                 </div>
