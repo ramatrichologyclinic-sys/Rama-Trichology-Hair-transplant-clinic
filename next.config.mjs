@@ -1,14 +1,11 @@
-const isGitHubPages = process.env.GITHUB_PAGES !== "false";
-const basePath = isGitHubPages ? "/Rama-Trichology-Hair-transplant-clinic" : "";
-
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: "export",
-  basePath: basePath,
+  basePath: "",
   trailingSlash: true,
   reactStrictMode: true,
   env: {
-    NEXT_PUBLIC_BASE_PATH: basePath,
+    NEXT_PUBLIC_BASE_PATH: "",
   },
   images: {
     loader: "custom",

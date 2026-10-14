@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://ramatrichology.com/sitemap.xml",
+    sitemap: "https://ramahairclinic.com/sitemap.xml",
   };
 }

@@ -6,7 +6,7 @@
 export type ConsultationMode = "online" | "clinic";
 
 export const CLINIC_WEBSITE_URL =
-  "https://ramatrichologyclinic-sys.github.io/Rama-Trichology-Hair-transplant-clinic/";
+  "https://ramahairclinic.com/";
 
 export const CLINIC_GOOGLE_MEET_URL = "https://meet.google.com/rtc-hair-meet";
 

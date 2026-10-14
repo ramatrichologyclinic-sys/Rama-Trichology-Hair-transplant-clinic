@@ -41,11 +41,11 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: `${CLINIC_INFO.brandName}` }],
   creator: `${CLINIC_INFO.brandName}`,
-  metadataBase: new URL("https://ramatrichology.com"),
+  metadataBase: new URL("https://ramahairclinic.com"),
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://ramatrichology.com",
+    url: "https://ramahairclinic.com",
     siteName: `${CLINIC_INFO.brandName} — ${CLINIC_INFO.tagline}`,
     title: `${CLINIC_INFO.brandName} — ${CLINIC_INFO.tagline}`,
     description:

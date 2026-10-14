@@ -2,7 +2,7 @@ import { MetadataRoute } from "next";
 import { SERVICES } from "@/lib/constants";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://ramatrichology.com";
+  const baseUrl = "https://ramahairclinic.com";
 
   const staticRoutes = [
     "",
